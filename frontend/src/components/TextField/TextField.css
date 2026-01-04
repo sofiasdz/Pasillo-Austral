@@ -1,0 +1,72 @@
+.text-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text-field__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.text-field__label-container {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  pointer-events: none;
+  padding: 16px;
+}
+
+.text-field__label-text {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  color: #00299b;
+}
+
+.text-field__required-icon {
+  width: 9px;
+  height: 9px;
+  display: block;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.text-field__input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.text-field__input::placeholder {
+  color: transparent;
+}
+
+.text-field__input:focus {
+  outline: none;
+}
+
+.text-field__input--error {
+  border: 1px solid #ff0000;
+}
+
+.text-field__error {
+  margin-top: 4px;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #ff0000;
+}
+

@@ -1,0 +1,215 @@
+.login {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fbfbfb;
+  overflow: hidden;
+}
+
+.login__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login__background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(116.12302866340596deg, rgba(73, 127, 255, 1) 0%, rgba(0, 7, 31, 0.47) 99.502%);
+  mix-blend-mode: overlay;
+}
+
+.login__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddcdc;
+  padding: 16px 24px;
+  z-index: 10;
+}
+
+.login__header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login__logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login__logo {
+  width: 47px;
+  height: 47px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.login__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.login__brand {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.login__brand-text {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: normal;
+  color: #497fff;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.login__card {
+  position: absolute;
+  left: 50%;
+  top: 241px;
+  transform: translateX(-50%);
+  width: 381px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #e9e9e9;
+  border-radius: 23px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login__card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.login__title {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+  color: #ffffff;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+}
+
+.login__terms {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #ffffff;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.login__field-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.login__field-wrapper .text-field {
+  width: 100%;
+}
+
+.login__field-wrapper .text-field__container {
+  width: 100%;
+}
+
+.login__field-wrapper .text-field__input {
+  background-color: #ffffff;
+  padding: 16px;
+}
+
+.login__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login__link {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #98b6ff;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.login__link:hover {
+  opacity: 0.8;
+}
+
+.login__link--forgot {
+  color: #9fbef2;
+  text-align: center;
+}
+
+.login__register {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.login__register-text {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #ffffff;
+}
+
+/* Adjust TextField styling within login form */
+.login__field-wrapper .text-field__label-text {
+  color: #00299b;
+  font-size: 18px;
+}
+
+.login__field-wrapper .text-field__input {
+  color: #000000;
+  font-size: 16px;
+}
+
