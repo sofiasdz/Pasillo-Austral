@@ -1,13 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import logoImage from '../../assets/logo.png';
 
 const Register: React.FC = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleRegister = async () => {
+    setLoading(true);
+
+    try {
+      const res = await fetch('http://localhost:3001/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: email,
+          password
+        })
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        alert(error.message || 'Error al registrarse');
+        setLoading(false);
+        return;
+      }
+
+      // registro OK → redirigir a home
+      navigate('/home');
+    } catch (error) {
+      alert('Error de conexión con el servidor');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="register">
-      {/* Background with overlay */}
+      {/* Background */}
       <div className="register__background">
         <div className="register__background-overlay" />
       </div>
@@ -17,7 +55,11 @@ const Register: React.FC = () => {
         <div className="register__header-content">
           <div className="register__logo-section">
             <div className="register__logo">
-              <img src={logoImage} alt="Pasillo Austral Logo" className="register__logo-img" />
+              <img
+                src={logoImage}
+                alt="Pasillo Austral Logo"
+                className="register__logo-img"
+              />
             </div>
             <div className="register__brand">
               <h1 className="register__brand-text">Pasillo Austral</h1>
@@ -26,14 +68,14 @@ const Register: React.FC = () => {
         </div>
       </header>
 
-      {/* Register Card */}
+      {/* Card */}
       <div className="register__card">
         <div className="register__card-header">
           <h2 className="register__title">Registrate</h2>
           <p className="register__terms">
             Al continuar, aceptás nuestros{' '}
-            <a href="#" className="register__link">Términos de uso</a>
-            {' '}y confirmás que entendés la{' '}
+            <a href="#" className="register__link">Términos de uso</a>{' '}
+            y confirmás que entendés la{' '}
             <a href="#" className="register__link">Política de privacidad.</a>
           </p>
         </div>
@@ -44,7 +86,10 @@ const Register: React.FC = () => {
               label="Email"
               type="email"
               required
-              placeholder=""
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
             />
           </div>
 
@@ -53,20 +98,33 @@ const Register: React.FC = () => {
               label="Contraseña"
               type="password"
               required
-              placeholder=""
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
             />
           </div>
 
           <div className="register__links">
             <div className="register__link-group">
-              <span className="register__link-group-text">¿Ya tenes usuario?</span>
-              {' '}
-              <a href="#" className="register__link">Inicia Sesión</a>
+              <span className="register__link-group-text">
+                ¿Ya tenés usuario?
+              </span>{' '}
+              <a
+                className="register__link"
+                onClick={() => navigate('/login')}
+              >
+                Iniciá sesión
+              </a>
             </div>
           </div>
 
-          <Button variant="primary">
-            Registrarme
+          <Button
+            variant="primary"
+            onClick={handleRegister}
+            disabled={loading}
+          >
+            {loading ? 'Registrando...' : 'Registrarme'}
           </Button>
         </div>
       </div>
@@ -75,4 +133,5 @@ const Register: React.FC = () => {
 };
 
 export default Register;
+
 

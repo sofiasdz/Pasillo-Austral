@@ -1,13 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import logoImage from '../../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async () => {
+    setLoading(true);
+
+    try {
+      const res = await fetch('http://localhost:3001/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: email,
+          password
+        })
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        alert(error.message || 'Credenciales inválidas');
+        setLoading(false);
+        return;
+      }
+
+      const data = await res.json();
+
+      // guardar token
+      localStorage.setItem('token', data.token);
+
+      // ir a home
+      navigate('/home');
+    } catch (error) {
+      alert('Error de conexión con el servidor');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="login">
-      {/* Background with overlay */}
+      {/* Background */}
       <div className="login__background">
         <div className="login__background-overlay" />
       </div>
@@ -17,7 +60,11 @@ const Login: React.FC = () => {
         <div className="login__header-content">
           <div className="login__logo-section">
             <div className="login__logo">
-              <img src={logoImage} alt="Pasillo Austral Logo" className="login__logo-img" />
+              <img
+                src={logoImage}
+                alt="Pasillo Austral Logo"
+                className="login__logo-img"
+              />
             </div>
             <div className="login__brand">
               <h1 className="login__brand-text">Pasillo Austral</h1>
@@ -26,14 +73,14 @@ const Login: React.FC = () => {
         </div>
       </header>
 
-      {/* Login Card */}
+      {/* Card */}
       <div className="login__card">
         <div className="login__card-header">
           <h2 className="login__title">Iniciar sesión</h2>
           <p className="login__terms">
             Al continuar, aceptás nuestros{' '}
-            <a href="#" className="login__link">Términos de uso</a>
-            {' '}y confirmás que entendés la{' '}
+            <a href="#" className="login__link">Términos de uso</a>{' '}
+            y confirmás que entendés la{' '}
             <a href="#" className="login__link">Política de privacidad.</a>
           </p>
         </div>
@@ -44,7 +91,10 @@ const Login: React.FC = () => {
               label="Email"
               type="email"
               required
-              placeholder=""
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
             />
           </div>
 
@@ -53,7 +103,10 @@ const Login: React.FC = () => {
               label="Contraseña"
               type="password"
               required
-              placeholder=""
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
             />
           </div>
 
@@ -61,15 +114,26 @@ const Login: React.FC = () => {
             <a href="#" className="login__link login__link--forgot">
               ¿Olvidaste tu contraseña?
             </a>
+
             <div className="login__register">
-              <span className="login__register-text">¿Sos un nuevo usuario?</span>
-              {' '}
-              <a href="#" className="login__link">Registrate</a>
+              <span className="login__register-text">
+                ¿Sos un nuevo usuario?
+              </span>{' '}
+              <a
+                className="login__link"
+                onClick={() => navigate('/register')}
+              >
+                Registrate
+              </a>
             </div>
           </div>
 
-          <Button variant="primary">
-            Log In
+          <Button
+            variant="primary"
+            onClick={handleLogin}
+            disabled={loading}
+          >
+            {loading ? 'Ingresando...' : 'Log In'}
           </Button>
         </div>
       </div>
@@ -78,4 +142,5 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+
 

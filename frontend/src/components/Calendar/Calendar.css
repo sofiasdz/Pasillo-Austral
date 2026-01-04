@@ -1,0 +1,15 @@
+.calendar {
+  background-color: #ffffff;
+  border-radius: 23px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 338px;
+}
+
+.calendar > *:first-child {
+  width: 304px;
+}
+

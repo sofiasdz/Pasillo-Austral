@@ -1,0 +1,158 @@
+.topbar {
+  position: absolute;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddcdc;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 16px 24px;
+  z-index: 10;
+}
+
+.topbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+
+.topbar__logo-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  width: 270px;
+  flex-shrink: 0;
+}
+
+.topbar__logo {
+  overflow: hidden;
+  position: relative;
+  width: 47px;
+  height: 47px;
+  flex-shrink: 0;
+}
+
+.topbar__logo-img {
+  position: absolute;
+  left: -6.04px;
+  top: -6.04px;
+  width: 59.083px;
+  height: 59.083px;
+  display: block;
+  max-width: none;
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.topbar__brand-text {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: normal;
+  color: #497fff;
+  margin: 0;
+  white-space: pre-wrap;
+  width: 61px;
+}
+
+.topbar__search {
+  flex: 1;
+  max-width: 746px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.topbar__search-content {
+  background-color: #f7f7f7;
+  border-radius: 23px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.topbar__search-input {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  align-items: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.topbar__search-icon {
+  overflow: hidden;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar__search-icon-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.topbar__search-placeholder {
+  flex: 1;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: rgba(60, 60, 67, 0.6);
+  text-align: left;
+  letter-spacing: -0.408px;
+  white-space: pre-wrap;
+  margin: 0;
+  min-height: 0;
+  min-width: 0;
+}
+
+.topbar__user {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.topbar__user-info {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.topbar__avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.topbar__avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+.topbar__username {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: #575757;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+}
+

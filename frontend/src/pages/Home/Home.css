@@ -1,0 +1,79 @@
+.home {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fbfbfb;
+  overflow-x: hidden;
+}
+
+.home__calendar {
+  position: absolute;
+  left: 1115px;
+  top: 168px;
+  z-index: 5;
+}
+
+.home__main {
+  position: absolute;
+  left: 324px;
+  top: 114px;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.home__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #fbfbfb;
+  padding-bottom: 24px;
+}
+
+.home__new-post-button {
+  background-color: #497fff;
+  display: flex;
+  gap: 4px;
+  height: 30px;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px 12px;
+  border-radius: 23px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.home__new-post-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.home__new-post-text {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.home__posts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+

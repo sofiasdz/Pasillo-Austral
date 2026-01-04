@@ -1,0 +1,23 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.label--default {
+  background-color: #eaeaea;
+  color: #808080;
+}
+
+.label--primary {
+  background-color: #e2e7f2;
+  color: #3e6ac9;
+  letter-spacing: 0.7px;
+}
+
