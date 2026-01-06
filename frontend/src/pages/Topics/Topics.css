@@ -1,0 +1,59 @@
+.topics {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.topics__content {
+  position: absolute;
+  left: 375px;
+  top: 111px;
+  width: 1146px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.topics__header-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: #ffffff;
+  padding-bottom: 0;
+}
+
+.topics__filter-wrapper {
+  width: 915px;
+  position: sticky;
+  top: 54px; /* Header height + gap */
+  z-index: 19;
+  background-color: #ffffff;
+  padding-bottom: 0;
+  margin-left: 11px; /* 375px - 386px = -11px, so we add 11px margin */
+}
+
+.topics__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+  height: 761px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 10px; /* Space after filter */
+  padding-left: 11px;
+}
+
+.topics__row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  flex-shrink: 0;
+}
+

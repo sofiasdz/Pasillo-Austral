@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.header__back-button {
+  background-color: #ffffff;
+  border: 1px solid #dddcdc;
+  border-radius: 80px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.header__back-button:hover {
+  opacity: 0.8;
+}
+
+.header__back-icon {
+  width: 7.667px;
+  height: 15.333px;
+  display: block;
+  max-width: none;
+}
+
+.header__title {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: normal;
+  color: #575757;
+  margin: 0;
+}
+
