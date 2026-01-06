@@ -1,27 +1,46 @@
 // ===============================
 // backend/routes/auth.routes.js
 // ===============================
+
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const router = express.Router();
-
-const USERS_FILE = "./users.json";
 const SECRET = "super-secret-key"; // SOLO PARA MVP
 
-// helpers
+// ===============================
+// Fix para __dirname en ES Modules
+// ===============================
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// users.json está en backend/users.json
+const USERS_FILE = path.join(__dirname, "../users.json");
+
+// ===============================
+// Helpers
+// ===============================
 const getUsers = () => {
-  if (!fs.existsSync(USERS_FILE)) return [];
-  return JSON.parse(fs.readFileSync(USERS_FILE));
+  try {
+    const data = fs.readFileSync(USERS_FILE, "utf-8");
+    return data ? JSON.parse(data) : [];
+  } catch (error) {
+    console.error("Error leyendo users.json:", error);
+    return [];
+  }
 };
 
 const saveUsers = (users) => {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 };
 
+// ===============================
 // REGISTER
+// ===============================
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
   const users = getUsers();
@@ -35,7 +54,7 @@ router.post("/register", async (req, res) => {
 
   users.push({
     username,
-    password: hashedPassword
+    password: hashedPassword,
   });
 
   saveUsers(users);
@@ -43,7 +62,9 @@ router.post("/register", async (req, res) => {
   res.json({ message: "Usuario creado correctamente" });
 });
 
+// ===============================
 // LOGIN
+// ===============================
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const users = getUsers();
@@ -59,10 +80,24 @@ router.post("/login", async (req, res) => {
   }
 
   const token = jwt.sign({ username }, SECRET, {
-    expiresIn: "1h"
+    expiresIn: "1h",
   });
 
   res.json({ token });
+});
+
+// ===============================
+// GET USERS (solo para debug / MVP)
+// ===============================
+router.get("/users", (req, res) => {
+  const users = getUsers();
+
+  // ⚠️ ocultamos passwords
+  const safeUsers = users.map((u) => ({
+    username: u.username,
+  }));
+
+  res.json(safeUsers);
 });
 
 export default router;
