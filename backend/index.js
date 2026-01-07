@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import postsRoutes from "./routes/posts.routes.js";
+import topicsRoutes from "./routes/topics.routes.js";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 const app = express();
@@ -9,9 +12,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+
+// Fix para __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Servir carpeta public
+app.use('/assets', express.static('assets'));
+
+
+
+app.get('/', (req, res) => {
+  res.send('Backend corriendo!');
+});
+
 // rutas de autenticación
 app.use("/auth", authRoutes);
 app.use("/posts", postsRoutes);
+app.use("/topics", topicsRoutes);
 app.get("/", (req, res) => {
     res.send("API funcionando 🚀");
   });

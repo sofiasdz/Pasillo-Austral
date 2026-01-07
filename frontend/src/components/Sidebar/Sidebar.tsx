@@ -9,6 +9,7 @@ import formulaIcon from '../../assets/formula-icon.svg';
 import programmingIcon from '../../assets/programming-icon.svg';
 import physicsIcon from '../../assets/physics-icon.svg';
 import chemistryIcon from '../../assets/chemistry-icon.svg';
+import { Link } from "react-router-dom";
 
 export interface SidebarProps {
   activeItem?: string;
@@ -40,8 +41,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeItem = 'Home' }) => {
             <SidebarItem icon={chemistryIcon}>Química</SidebarItem>
           </div>
           <div className="sidebar__section-footer">
-            Ver todo
-          </div>
+  <Link to="/topics" className="sidebar__footer-link">
+    Ver todo
+  </Link>
+</div>
         </div>
       </div>
     </div>

@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "title": "Analisis Matematico I",
+      "description": "Lugar para debatir problemas, teoremas y demostraciones, así como para compartir estrategias de resolución y materiales recomendados por docentes y ayudantes.",
+      "membersCount": 120,
+      "image": "/public/images/topic1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Programacion I",
+      "description": "Comunidad dedicada a consultas técnicas, intercambio de código, explicación de algoritmos y discusión de buenas prácticas en lenguajes y herramientas modernas.",
+      "membersCount": 220,
+      "image": "/public/images/topic2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Algebra I",
+      "description": "Espacio para resolver dudas, compartir ejercicios y discutir conceptos clave de álgebra lineal y matemática discreta. Ideal para coordinar grupos de estudio y acceder a materiales.",
+      "membersCount": 150,
+      "image": "/public/images/topic3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Quimica I",
+      "description": "Espacio para compartir dudas, explicaciones y recursos sobre teoría y práctica de la química, desde lo básico hasta temas avanzados de reacciones, compuestos y procesos.",
+      "membersCount": 95,
+      "image": "/public/images/topic4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "General",
+      "description": "Este espacio está pensado para que toda la comunidad de la Facultad pueda conectar, compartir e informarse.",
+      "membersCount": 300,
+      "image": "/public/images/topic6.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Fisica I",
+        "description": "Un lugar de encuentro para quienes buscan comprender mejor los principios de la física y su aplicación en el mundo real. Se pueden plantear problemas, intercambiar métodos de resolución y discutir...",
+        "membersCount": 110,
+        "image": "/public/images/topic5.jpg"
+      }
+  ]
+  

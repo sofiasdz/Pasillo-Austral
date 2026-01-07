@@ -37,23 +37,16 @@
 }
 
 .topics__grid {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
-  height: 761px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  width: 100%;
-  margin-top: 10px; /* Space after filter */
-  padding-left: 11px;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 32px;
+    width: 945px;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding: 0 8px;
+    height: 761px;
+overflow-x: hidden;
 
-.topics__row {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  width: 100%;
-  flex-shrink: 0;
-}
-
+  }
+  
+  

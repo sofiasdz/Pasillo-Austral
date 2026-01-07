@@ -69,4 +69,18 @@
   text-align: right;
   width: 100%;
 }
+.sidebar__footer-link {
+  color: #4F5759;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 8px 0;
+  font-weight: 500; /* opcional */
+}
+
+.sidebar__footer-link:hover {
+  color: #497FFF;
+  text-decoration: none;
+}
+
 

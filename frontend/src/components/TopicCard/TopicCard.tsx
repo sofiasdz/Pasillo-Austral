@@ -28,7 +28,11 @@ export const TopicCard: React.FC<TopicCardProps> = ({
     >
       <div className="topic-card__image-container">
         <img 
-          src={image} 
+         src={
+          image.startsWith('http')
+            ? image
+            : `http://localhost:3001${image}`.replace(/([^:]\/)\/+/g, "$1")
+        }
           alt={name} 
           className="topic-card__image"
         />
