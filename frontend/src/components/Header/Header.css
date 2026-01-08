@@ -1,7 +1,7 @@
 .header {
   display: flex;
-  gap: 24px;
-  align-items: flex-start;
+  gap: 16px;
+  align-items: flex-end;
   width: 100%;
 }
 
@@ -32,11 +32,12 @@
 }
 
 .header__title {
-  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: normal;
   color: #575757;
   margin: 0;
+  font-variation-settings: 'wdth' 100;
 }
 

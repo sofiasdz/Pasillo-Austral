@@ -3,15 +3,22 @@ import './TopBar.css';
 import logoImage from '../../assets/logo-home.svg';
 import searchIcon from '../../assets/search-icon.svg';
 import avatarImage from '../../assets/avatar1.png';
+import { SearchBarPill } from '../SearchBarPill/SearchBarPill';
 
 export interface TopBarProps {
   username?: string;
   avatar?: string;
+  searchPill?: string;
+  onSearchPillClose?: () => void;
+  searchPlaceholder?: string;
 }
 
 export const TopBar: React.FC<TopBarProps> = ({ 
   username = '@Khali_1998',
-  avatar 
+  avatar,
+  searchPill,
+  onSearchPillClose,
+  searchPlaceholder = 'Buscar'
 }) => {
   return (
     <div className="topbar">
@@ -31,7 +38,10 @@ export const TopBar: React.FC<TopBarProps> = ({
               <div className="topbar__search-icon">
                 <img src={searchIcon} alt="Search" className="topbar__search-icon-img" />
               </div>
-              <p className="topbar__search-placeholder">Buscar</p>
+              {searchPill && (
+                <SearchBarPill label={searchPill} onClose={onSearchPillClose} />
+              )}
+              <p className="topbar__search-placeholder">{searchPlaceholder}</p>
             </div>
           </div>
         </button>

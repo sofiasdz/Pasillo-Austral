@@ -28,15 +28,6 @@ export const PostCard: React.FC<PostCardProps> = ({
 }) => {
   return (
     <div className={`post-card ${className}`}>
-      <div className="post-card__header">
-        <div className="post-card__topic-section">
-          <div className="post-card__topic">{topic}</div>
-          {showMoreLink && (
-            <div className="post-card__more">Ver mas</div>
-          )}
-        </div>
-      </div>
-
       <div className="post-card__user">
         <UserInfoCard 
           avatar={userAvatar}
@@ -51,17 +42,22 @@ export const PostCard: React.FC<PostCardProps> = ({
 
       <div className="post-card__content">
         {typeof content === 'string' ? (
-          <p className="post-card__content-text">{content}</p>
+          <div className="post-card__content-text">{content}</div>
         ) : (
           content
         )}
       </div>
 
-      {tags.length > 0 && (
+      {(tags.length > 0 || showMoreLink) && (
         <div className="post-card__tags">
-          {tags.map((tag, index) => (
-            <Label key={index}>{tag}</Label>
-          ))}
+          <div className="post-card__tags-list">
+            {tags.map((tag, index) => (
+              <Label key={index}>{tag}</Label>
+            ))}
+          </div>
+          {showMoreLink && (
+            <div className="post-card__more">Ver mas</div>
+          )}
         </div>
       )}
     </div>

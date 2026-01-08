@@ -16,10 +16,11 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: 600;
   line-height: normal;
+  font-style: normal;
   color: #575757;
 }
 

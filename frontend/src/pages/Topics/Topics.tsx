@@ -5,9 +5,9 @@ import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { Filter } from '../../components/Filter/Filter';
 import { TopicCard } from '../../components/TopicCard/TopicCard';
+import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../assets/avatar1.png';
 
-// Imágenes fallback locales (por ahora)
 import topic1 from '../../assets/topic1.jpg';
 import topic2 from '../../assets/topic2.jpg';
 import topic3 from '../../assets/topic3.jpg';
@@ -19,16 +19,16 @@ const fallbackImages = [topic1, topic2, topic3, topic4, topic5, topic6];
 
 const Topics: React.FC = () => {
   const [topics, setTopics] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:3001/topics')
       .then((res) => res.json())
       .then((data) => {
-        // Añadimos imagen local si no viene de backend
         const withImages = data.map((t: any, index: number) => ({
           ...t,
           image: t.image
-            ? `/assets/${t.image}` // futuro: si servimos assets por backend
+            ? `/assets/${t.image}`
             : fallbackImages[index % fallbackImages.length],
         }));
         setTopics(withImages);
@@ -37,6 +37,10 @@ const Topics: React.FC = () => {
   }, []);
 
   const handleBack = () => window.history.back();
+
+  const goToTopic = (id: number | string) => {
+    navigate(`/topic/${id}`);
+  };
 
   return (
     <div className="topics">
@@ -60,6 +64,7 @@ const Topics: React.FC = () => {
               name={topic.title}
               description={topic.description}
               members={topic.membersCount}
+              onClick={() => goToTopic(topic.id)}   // 👈 CLICK NAVEGA
               className=""
             />
           ))}

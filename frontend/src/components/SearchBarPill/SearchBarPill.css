@@ -1,0 +1,49 @@
+.search-bar-pill {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f1;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  overflow: hidden;
+  padding: 8px 16px;
+  border-radius: 70px;
+  flex-shrink: 0;
+}
+
+.search-bar-pill__label {
+  flex: 1;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: normal;
+  color: #575757;
+  text-align: center;
+  white-space: pre-wrap;
+  margin: 0;
+  min-height: 0;
+  min-width: 0;
+}
+
+.search-bar-pill__close {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.search-bar-pill__close-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: none;
+}
+

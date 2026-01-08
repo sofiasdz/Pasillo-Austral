@@ -43,7 +43,59 @@
       "content": "Estoy haciendo práctica de choques frontales y me pasa que mezclo fórmulas o pongo signos al revés.\n\n¿Hay alguna forma ordenada de armar siempre los pasos? Tipo:\n- definir sentidos\n- aplicar conservación del momento\n- aplicar energía cinética\n- despejar…\n\n¿O hay otra forma más intuitiva?\nSi tienen algún ejemplo resuelto simple, también me sirve para agarrar ritmo.",
       "tags": ["choques", "metodologia", "fisica 1"],
       "createdAt": "2025-09-03T16:00:00"
-    }
+    },
+    {
+        "id": "p6",
+        "userUsername": "sofi@gmail.com",
+        "topic": "Álgebra I",
+        "title": "¿Cómo saber si un sistema tiene solución única?",
+        "content": "Estoy trabajando con matrices aumentadas y no termino de entender cuándo un sistema tiene solución única.\n\n¿Es solo cuando no aparecen filas de ceros con algo distinto en el término independiente?\n\nSi alguien tiene una explicación corta o una regla práctica para identificar los casos rápido, se agradece 🙏",
+        "tags": ["sistemas", "matrices", "algebra 1"],
+        "createdAt": "2025-09-03T16:05:00"
+      },
+      {
+        "id": "p7",
+        "userUsername": "lucas@example.com",
+        "topic": "Álgebra I",
+        "title": "Dependencia lineal: ¿cómo reconocerla sin cuentas largas?",
+        "content": "Me cuesta mucho identificar cuando un conjunto de vectores es dependiente sin armar todo el sistema y resolver.\n\n¿Hay un truco visual o conceptual para darse cuenta rápido? Escuché algo de 'si hay más vectores que dimensión', pero no sé si siempre aplica.",
+        "tags": ["vectores", "dependencia", "espacios"],
+        "createdAt": "2025-09-03T16:10:00"
+      },
+      {
+        "id": "p8",
+        "userUsername": "martina@example.com",
+        "topic": "Álgebra I",
+        "title": "¿Qué significa realmente un subespacio?",
+        "content": "Entendí la definición formal, pero todavía no lo 'siento'.\n\n¿Qué significa que un conjunto sea subespacio en palabras simples? ¿Hay alguna analogía que les haya servido? Siento que memoricé la definición pero no la entiendo.",
+        "tags": ["subespacios", "intuicion", "teoria"],
+        "createdAt": "2025-09-03T16:15:00"
+      },
+      {
+        "id": "p9",
+        "userUsername": "sofi@gmail.com",
+        "topic": "Álgebra I",
+        "title": "¿Cómo describir el espacio solución de un sistema homogéneo?",
+        "content": "Veo que siempre aparece un 'parámetro libre' pero no entiendo cómo escribir la solución en forma vectorial.\n\n¿Tengo que separar variables dependientes e independientes? ¿O existe algún paso fijo que recomienden para armar la solución general?",
+        "tags": ["sistemas", "homogeneos", "soluciones"],
+        "createdAt": "2025-09-03T16:25:00"
+      },
+      {
+        "id": "p10",
+        "userUsername": "carla@example.com",
+        "topic": "Álgebra I",
+        "title": "Aplicaciones del álgebra lineal fuera de la facultad 📱✨",
+        "content": "Solo curiosidad: ¿dónde se usa realmente álgebra lineal en la vida real?\n\nEscuché que aparece en machine learning, animaciones y sistemas de recomendación, pero me encantaría leer ejemplos concretos para motivarme.",
+        "tags": ["aplicaciones", "vida real", "motivacion"],
+        "createdAt": "2025-09-03T16:30:00"
+      }
+      
+      
+
+      
+
+      
+      
   ]
   
   

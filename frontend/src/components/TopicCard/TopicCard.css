@@ -136,3 +136,18 @@
   font-style: normal;
 }
 
+.topic-card {
+  cursor: pointer;              /* 👈 hace visible que clickea */
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-2px); /* efecto sutil */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.topic-card:active {
+  transform: translateY(0);    /* click feel */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+

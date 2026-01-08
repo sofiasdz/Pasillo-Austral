@@ -27,6 +27,20 @@ router.get("/", (req, res) => {
   res.json(topics);
 });
 
+// GET TOPIC BY ID
+router.get("/:id", (req, res) => {
+  const topics = getTopics();
+  const { id } = req.params;
+
+  const topic = topics.find(t => t.id === parseInt(id));
+
+  if (!topic) {
+    return res.status(404).json({ message: "Topic no encontrado" });
+  }
+
+  res.json(topic);
+});
+
 // POST NEW TOPIC (opcional para futuro)
 router.post("/", (req, res) => {
   const { title, description, membersCount, image } = req.body;
