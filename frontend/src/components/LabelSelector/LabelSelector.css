@@ -1,0 +1,132 @@
+.label-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  position: relative;
+}
+
+.label-selector__container {
+  background-color: #ffffff;
+  border: 2px solid #e2e8f1;
+  border-radius: 18px;
+  padding: 16px;
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.label-selector__selected-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.label-selector__label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 23px;
+  flex-shrink: 0;
+}
+
+.label-selector__label-text {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #404446;
+  white-space: nowrap;
+}
+
+.label-selector__remove {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.label-selector__remove-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label-selector__input {
+  flex: 1;
+  min-width: 120px;
+  border: none;
+  outline: none;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(64, 68, 70, 0.5);
+  background: transparent;
+}
+
+.label-selector__input::placeholder {
+  color: rgba(64, 68, 70, 0.5);
+}
+
+.label-selector__input:disabled {
+  cursor: not-allowed;
+}
+
+.label-selector__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f1;
+  border-radius: 18px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 6px;
+}
+
+.label-selector__option {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #404446;
+  transition: background-color 0.2s ease;
+}
+
+.label-selector__option:hover {
+  background-color: #f7f7f7;
+}
+
+.label-selector__count {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px 8px;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: #686868;
+}
+

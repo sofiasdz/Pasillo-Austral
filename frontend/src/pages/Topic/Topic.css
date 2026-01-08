@@ -1,81 +1,68 @@
 .topic {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #ffffff;
-  overflow-x: hidden;
-}
-
-.topic__content {
-  position: absolute;
-  left: 333px;
-  top: 118px;
-  width: 792px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: flex-start;
-}
-
-.topic__header-wrapper {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background-color: #ffffff;
-  padding-bottom: 0;
-  margin-bottom: 32px;
-}
-
-.topic__tabs {
-  display: flex;
-  gap: 0;
-  align-items: flex-end;
-  width: 292px;
-  height: 35px;
-  position: sticky;
-  top: 60px;
-  z-index: 19;
-  background-color: #ffffff;
-  margin-bottom: 0;
-}
-
-.topic__filter-wrapper {
-  width: 100%;
-  position: sticky;
-  top: 95px;
-  z-index: 18;
-  background-color: #ffffff;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.topic__main {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 0;
-}
-
-.topic__posts {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    display: flex;
+  }
+  
+  /* CONTENEDOR PRINCIPAL: reemplaza position absolute + left */
+  .topic__content {
+    padding-left: 333px; /* ancho sidebar */
+    padding-top: 118px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  /* HEADER */
+  .topic__header-wrapper {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #ffffff;
+    margin-bottom: 32px;
+  }
+  
+  /* TABS */
+  .topic__tabs {
+    display: flex;
+    gap: 0;
+    align-items: flex-end;
+    width: 292px;
+    height: 35px;
+    position: sticky;
+    top: 60px;
+    z-index: 19;
+    background-color: #ffffff;
+  }
+  
+  /* FILTER */
+  .topic__filter-wrapper {
+    width: 100%;
+    position: sticky;
+    top: 95px;
+    z-index: 18;
+    background-color: #ffffff;
+    margin-bottom: 32px;
+  }
+  
+  /* CONTENIDO PRINCIPAL */
+  .topic__main {
+    display: flex;
+    gap: 40px; /* separa MÁS las info cards y posts */
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  /* POSTS */
+  .topic__posts {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    align-items: flex-start;
-    width: 100%;
-    overflow-x: hidden;
-    flex: 1;
+    width: 782px;   /* tu ancho ideal */
+    max-width: 782px;
   }
   
-
-.topic__info-card {
-  position: sticky;
-  top: 165px;
-  align-self: flex-start;
-  flex-shrink: 0;
-}
-.topic__filters {
-    margin: 32px 0;
-  }
-

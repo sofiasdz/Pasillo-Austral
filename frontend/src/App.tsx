@@ -5,6 +5,7 @@ import Login from './pages/Login/Login';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Topics from './pages/Topics/Topics';
 import Topic from './pages/Topic/Topic';
+import CreatePost from './pages/CreatePost/CreatePost';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/topics" element={<Topics />} />
         <Route path="/register" element={<Register />} />
         <Route path="/topic/:id" element={<Topic />} />
+        <Route path="/create-post" element={<CreatePost />} />
 
         <Route
           path="/home"

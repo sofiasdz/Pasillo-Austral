@@ -2,7 +2,7 @@
   font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
   width: 100%;
   padding: 16px;
   border-radius: 16px;
