@@ -7,6 +7,7 @@ import { Tab } from '../../components/Tab/Tab';
 import { TopicSelectDropdown, type TopicOption } from '../../components/TopicSelectDropdown/TopicSelectDropdown';
 import { TextField } from '../../components/TextField/TextField';
 import { LabelSelector } from '../../components/LabelSelector/LabelSelector';
+import { UploadFile, type UploadedFile } from '../../components/UploadFile/UploadFile';
 import { Button } from '../../components/Button/Button';
 import avatar1 from '../../assets/avatar1.png';
 
@@ -17,6 +18,7 @@ const CreatePost: React.FC = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
 
   useEffect(() => {
     // Fetch topics
@@ -127,8 +129,14 @@ const CreatePost: React.FC = () => {
           )}
 
           {activeTab === 'Archivos' && (
-            <div className="create-post__files-placeholder">
-              <p>Funcionalidad de archivos próximamente...</p>
+            <div className="create-post__files-field">
+              <UploadFile
+                files={uploadedFiles}
+                onFilesChange={setUploadedFiles}
+                maxFiles={10}
+                maxFileSize={10}
+                acceptedFileTypes={['image/*', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']}
+              />
             </div>
           )}
 
