@@ -5,6 +5,14 @@
     overflow-x: hidden;
     display: flex;
   }
+
+  .topic--material-view {
+    background-color: #fbfbfb;
+  }
+
+  .topic--material-view .topic__content {
+    background-color: #fbfbfb;
+  }
   
   /* CONTENEDOR PRINCIPAL: reemplaza position absolute + left */
   .topic__content {
@@ -25,18 +33,18 @@
     background-color: #ffffff;
     margin-bottom: 32px;
   }
+
+  .topic--material-view .topic__header-wrapper {
+    background-color: #fbfbfb;
+  }
   
   /* TABS */
   .topic__tabs {
     display: flex;
-    gap: 0;
+    gap: 24px;
     align-items: flex-end;
-    width: 292px;
+    width: auto;
     height: 35px;
-    position: sticky;
-    top: 60px;
-    z-index: 19;
-    background-color: #ffffff;
   }
   
   /* FILTER */
@@ -84,12 +92,77 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    max-width: 780px;
-    padding-right: 16px;
-    padding-left: 16px;
+    max-width: 793px;
+    padding-right: 0;
+    padding-left: 0;
     position: sticky;
-    top: 0;
-    z-index: 10;
-    padding-bottom: 24px;
+    top: 60px;
+    z-index: 19;
+    background-color: #ffffff;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+  }
+
+  .topic--material-view .topic__header {
+    background-color: #fbfbfb;
+    margin-bottom: 0;
+  }
+
+  /* MATERIAL DE ESTUDIO SECTIONS */
+  .topic__material-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 793px;
+    margin-bottom: 0;
+  }
+
+  .topic__folders-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 792px;
+  }
+
+  .topic__files-section-wrapper {
+    width: 100%;
+    max-width: 793px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .topic__filter-wrapper--material {
+    margin-bottom: 0;
+    position: sticky;
+    top: 95px;
+    z-index: 18;
+    background-color: #fbfbfb;
+  }
+
+  .topic__files-list-container {
+    width: 793px;
+    max-width: 793px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 457px;
+    flex: 1;
+  }
+
+  .topic__files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .topic__info-card--material {
+    align-self: flex-start;
+    position: sticky;
+    top: 165px;
   }
   

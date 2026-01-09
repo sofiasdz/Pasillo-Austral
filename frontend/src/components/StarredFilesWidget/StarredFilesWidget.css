@@ -1,0 +1,60 @@
+.starred-files-widget {
+  background-color: #ffffff;
+  border: 1px solid #efeded;
+  border-radius: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.starred-files-widget__header {
+  border-bottom: 1px solid #efeded;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  width: 100%;
+}
+
+.starred-files-widget__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.starred-files-widget__title {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  color: #575757;
+  margin: 0;
+  letter-spacing: 0.8px;
+  width: 197px;
+  white-space: pre-wrap;
+}
+
+.starred-files-widget__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  overflow: hidden;
+  width: 100%;
+}
+
+.starred-files-widget__empty {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #686868;
+  margin: 0;
+  opacity: 0.6;
+}
+

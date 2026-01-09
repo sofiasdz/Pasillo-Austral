@@ -1,0 +1,23 @@
+.files-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.files-header__text {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  font-style: normal;
+  color: #5b5b5b;
+  margin: 0;
+  letter-spacing: -0.0476px;
+}
+
+.files-header__topic-name {
+  color: #9c9898;
+}
+

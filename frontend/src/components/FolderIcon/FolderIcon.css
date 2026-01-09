@@ -1,0 +1,58 @@
+.folder-icon {
+  background-color: #ffffff;
+  border: 1px solid rgba(224, 220, 220, 0.5);
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  height: 40px;
+  width: 180px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.folder-icon:hover {
+  border-color: #497fff;
+  background-color: rgba(73, 127, 255, 0.02);
+}
+
+.folder-icon__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.folder-icon__content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.folder-icon__name {
+  display: flex;
+  flex: 1;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  justify-content: center;
+  max-width: 124px;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #444d4f;
+  margin: 0;
+  letter-spacing: -0.13px;
+  white-space: nowrap;
+}
+

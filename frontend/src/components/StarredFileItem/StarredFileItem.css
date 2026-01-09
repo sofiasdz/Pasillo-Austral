@@ -1,0 +1,45 @@
+.starred-file-item {
+  display: flex;
+  font-weight: 400;
+  align-items: flex-start;
+  color: #1682fd;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.starred-file-item:hover {
+  opacity: 0.8;
+}
+
+.starred-file-item__bullet {
+  display: flex;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  justify-content: center;
+  line-height: 0;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0.72px;
+}
+
+.starred-file-item__bullet-text {
+  line-height: 24px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.starred-file-item__name {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 17px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.39px;
+  width: 213px;
+  margin: 0;
+  white-space: pre-wrap;
+  color: #1682fd;
+}
+
