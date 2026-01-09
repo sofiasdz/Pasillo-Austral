@@ -39,6 +39,10 @@ const Login: React.FC = () => {
       // guardar token
       localStorage.setItem('token', data.token);
 
+
+    // guardar el username para usarlo en los posts
+    localStorage.setItem('user', email);
+
       // ir a home
       navigate('/home');
     } catch (error) {

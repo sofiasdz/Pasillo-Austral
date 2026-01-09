@@ -44,11 +44,51 @@ const CreatePost: React.FC = () => {
     console.log('Saving draft...', { selectedTopic, title, content, selectedLabels });
   };
 
-  const handlePublish = () => {
-    // TODO: Implement publish functionality
-    console.log('Publishing post...', { selectedTopic, title, content, selectedLabels });
+  const handlePublish = async () => {
+    if (!selectedTopic) {
+      alert('Por favor seleccioná un tema antes de publicar.');
+      return;
+    }
+  
+    try {
+      const formData = new FormData();
+      const thisuser = localStorage.getItem('user') || 'anonymous';
+      formData.append('user', thisuser);
+      formData.append('topic', selectedTopic.id.toString());
+      formData.append('title', title);
+      formData.append('content', content);
+      formData.append('tags', JSON.stringify(selectedLabels));
+  
+      // Agregar archivos si existen
+      uploadedFiles.forEach((fileObj) => {
+        formData.append('files', fileObj.file); // multer espera "files"
+      });
+  
+      const response = await fetch('http://localhost:3001/posts', {
+        method: 'POST',
+        body: formData, // NO usamos headers Content-Type
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error creando post');
+      }
+  
+      const data = await response.json();
+      console.log('Post creado:', data);
+      alert('Publicación creada con éxito 🎉');
+  
+      // Opcional: limpiar campos
+      setTitle('');
+      setContent('');
+      setSelectedLabels([]);
+      setUploadedFiles([]);
+      setActiveTab('Texto');
+    } catch (err) {
+      console.error(err);
+      alert('Hubo un error al publicar 😢');
+    }
   };
-
+  
   const availableLabels = [
     'Algebra',
     'Duda',

@@ -1,101 +1,195 @@
 [
-    {
-      "id": "p1",
-      "userUsername": "sofi@gmail.com",
-      "topic": "Fuerzas",
-      "title": "No entiendo cómo descomponer fuerzas en un plano inclinado con rozamiento",
-      "content": "Hola! Estoy resolviendo los ejercicios del capítulo de fuerzas y siempre me trabo con lo mismo: no entiendo bien cómo descomponer el peso cuando el plano tiene ángulo y encima aparece una fuerza de rozamiento.\n\nEntiendo la teoría, pero cuando lo aplico siento que me falta un paso. ¿La normal siempre es mg·cosθ aunque haya otras fuerzas? ¿Y el rozamiento va siempre paralelo al plano?\n\nSi alguien tiene una forma más intuitiva de pensarlo o un ejemplo paso a paso se los agradecería muchísimo.",
-      "tags": ["fuerzas", "plano inclinado", "rozamiento", "fisica 1"],
-      "createdAt": "2025-09-01T10:15:00"
-    },
-    {
-      "id": "p2",
-      "userUsername": "sofi2@gmail.com",
-      "topic": "Leyes de Newton",
-      "title": "Duda con la Tercera Ley de Newton en choques",
-      "content": "Buenas! Estoy estudiando para el parcial y tengo una duda que me deja re confundido:\n\nEn un choque elástico entre dos masas, ¿las fuerzas que se hacen entre sí siempre son iguales y opuestas en todo momento? O sea, ¿se cumple exactamente la Tercera Ley durante el choque mismo o solo cuando analizamos el impulso total?\n\nEn algunas simulaciones veo fuerzas distintas en distintos momentos y me perdí. Si alguien me puede explicar qué parte estoy interpretando mal, gracias 🙏.",
-      "tags": ["newton", "choques", "leyes de newton"],
-      "createdAt": "2025-09-01T11:40:00"
-    },
-    {
-      "id": "p3",
-      "userUsername": "sofi@gmail.com",
-      "topic": "Choques",
-      "title": "¿Cómo saber si un choque es realmente elástico?",
-      "content": "Estoy resolviendo ejercicios del libro y algunos dicen “choque elástico”, pero en otros te lo dan implícito y no sé cómo detectarlo.\n\n¿Hay algún indicador claro?\nPor ejemplo, si la energía cinética antes y después no coincide exactamente por decimales, ¿igual lo considero elástico? Y si me dan datos de velocidades, ¿siempre uso conservación del momento + conservación de energía?\n\nSe agradece cualquier regla práctica o tips para identificarlo más rápido.",
-      "tags": ["choques", "energia", "cantidad de movimiento"],
-      "createdAt": "2025-09-02T09:05:00"
-    },
-    {
-      "id": "p4",
-      "userUsername": "sofi2@gmail.com",
-      "topic": "Impulso",
-      "title": "Problema con ejercicios de impulso y cantidad de movimiento",
-      "content": "Me encontré un ejercicio donde un bloque recibe un golpe durante un intervalo corto de tiempo, y tengo que sacar la variación del momento lineal.\n\nEntiendo la fórmula F·Δt, pero el ejercicio no me da la fuerza, sino una gráfica medio rara.\n¿Alguien me explica cómo se “lee” la gráfica para obtener el impulso total?\n\nEstoy perdida, gracias!!",
-      "tags": ["impulso", "graficas", "cantidad de movimiento"],
-      "createdAt": "2025-09-02T13:20:00"
-    },
-    {
-      "id": "p5",
-      "userUsername": "sofi@gmail.com",
-      "topic": "Choques",
-      "title": "Choques frontales: ¿cómo hacer para no mezclar ecuaciones?",
-      "content": "Estoy haciendo práctica de choques frontales y me pasa que mezclo fórmulas o pongo signos al revés.\n\n¿Hay alguna forma ordenada de armar siempre los pasos? Tipo:\n- definir sentidos\n- aplicar conservación del momento\n- aplicar energía cinética\n- despejar…\n\n¿O hay otra forma más intuitiva?\nSi tienen algún ejemplo resuelto simple, también me sirve para agarrar ritmo.",
-      "tags": ["choques", "metodologia", "fisica 1"],
-      "createdAt": "2025-09-03T16:00:00"
-    },
-    {
-        "id": "p6",
-        "userUsername": "sofi@gmail.com",
-        "topic": "Álgebra I",
-        "title": "¿Cómo saber si un sistema tiene solución única?",
-        "content": "Estoy trabajando con matrices aumentadas y no termino de entender cuándo un sistema tiene solución única.\n\n¿Es solo cuando no aparecen filas de ceros con algo distinto en el término independiente?\n\nSi alguien tiene una explicación corta o una regla práctica para identificar los casos rápido, se agradece 🙏",
-        "tags": ["sistemas", "matrices", "algebra 1"],
-        "createdAt": "2025-09-03T16:05:00"
-      },
+  {
+    "id": "p1",
+    "userUsername": "sofi@gmail.com",
+    "topic": "Fuerzas",
+    "title": "No entiendo cómo descomponer fuerzas en un plano inclinado con rozamiento",
+    "content": "Hola! Estoy resolviendo los ejercicios del capítulo de fuerzas y siempre me trabo con lo mismo: no entiendo bien cómo descomponer el peso cuando el plano tiene ángulo y encima aparece una fuerza de rozamiento.\n\nEntiendo la teoría, pero cuando lo aplico siento que me falta un paso. ¿La normal siempre es mg·cosθ aunque haya otras fuerzas? ¿Y el rozamiento va siempre paralelo al plano?\n\nSi alguien tiene una forma más intuitiva de pensarlo o un ejemplo paso a paso se los agradecería muchísimo.",
+    "tags": [
+      "fuerzas",
+      "plano inclinado",
+      "rozamiento",
+      "fisica 1"
+    ],
+    "createdAt": "2025-09-01T10:15:00"
+  },
+  {
+    "id": "p2",
+    "userUsername": "sofi2@gmail.com",
+    "topic": "Leyes de Newton",
+    "title": "Duda con la Tercera Ley de Newton en choques",
+    "content": "Buenas! Estoy estudiando para el parcial y tengo una duda que me deja re confundido:\n\nEn un choque elástico entre dos masas, ¿las fuerzas que se hacen entre sí siempre son iguales y opuestas en todo momento? O sea, ¿se cumple exactamente la Tercera Ley durante el choque mismo o solo cuando analizamos el impulso total?\n\nEn algunas simulaciones veo fuerzas distintas en distintos momentos y me perdí. Si alguien me puede explicar qué parte estoy interpretando mal, gracias 🙏.",
+    "tags": [
+      "newton",
+      "choques",
+      "leyes de newton"
+    ],
+    "createdAt": "2025-09-01T11:40:00"
+  },
+  {
+    "id": "p3",
+    "userUsername": "sofi@gmail.com",
+    "topic": "Choques",
+    "title": "¿Cómo saber si un choque es realmente elástico?",
+    "content": "Estoy resolviendo ejercicios del libro y algunos dicen “choque elástico”, pero en otros te lo dan implícito y no sé cómo detectarlo.\n\n¿Hay algún indicador claro?\nPor ejemplo, si la energía cinética antes y después no coincide exactamente por decimales, ¿igual lo considero elástico? Y si me dan datos de velocidades, ¿siempre uso conservación del momento + conservación de energía?\n\nSe agradece cualquier regla práctica o tips para identificarlo más rápido.",
+    "tags": [
+      "choques",
+      "energia",
+      "cantidad de movimiento"
+    ],
+    "createdAt": "2025-09-02T09:05:00"
+  },
+  {
+    "id": "p4",
+    "userUsername": "sofi2@gmail.com",
+    "topic": "Impulso",
+    "title": "Problema con ejercicios de impulso y cantidad de movimiento",
+    "content": "Me encontré un ejercicio donde un bloque recibe un golpe durante un intervalo corto de tiempo, y tengo que sacar la variación del momento lineal.\n\nEntiendo la fórmula F·Δt, pero el ejercicio no me da la fuerza, sino una gráfica medio rara.\n¿Alguien me explica cómo se “lee” la gráfica para obtener el impulso total?\n\nEstoy perdida, gracias!!",
+    "tags": [
+      "impulso",
+      "graficas",
+      "cantidad de movimiento"
+    ],
+    "createdAt": "2025-09-02T13:20:00"
+  },
+  {
+    "id": "p5",
+    "userUsername": "sofi@gmail.com",
+    "topic": "Choques",
+    "title": "Choques frontales: ¿cómo hacer para no mezclar ecuaciones?",
+    "content": "Estoy haciendo práctica de choques frontales y me pasa que mezclo fórmulas o pongo signos al revés.\n\n¿Hay alguna forma ordenada de armar siempre los pasos? Tipo:\n- definir sentidos\n- aplicar conservación del momento\n- aplicar energía cinética\n- despejar…\n\n¿O hay otra forma más intuitiva?\nSi tienen algún ejemplo resuelto simple, también me sirve para agarrar ritmo.",
+    "tags": [
+      "choques",
+      "metodologia",
+      "fisica 1"
+    ],
+    "createdAt": "2025-09-03T16:00:00"
+  },
+  {
+    "id": "p6",
+    "userUsername": "sofi@gmail.com",
+    "topic": "Álgebra I",
+    "title": "¿Cómo saber si un sistema tiene solución única?",
+    "content": "Estoy trabajando con matrices aumentadas y no termino de entender cuándo un sistema tiene solución única.\n\n¿Es solo cuando no aparecen filas de ceros con algo distinto en el término independiente?\n\nSi alguien tiene una explicación corta o una regla práctica para identificar los casos rápido, se agradece 🙏",
+    "tags": [
+      "sistemas",
+      "matrices",
+      "algebra 1"
+    ],
+    "createdAt": "2025-09-03T16:05:00"
+  },
+  {
+    "id": "p7",
+    "userUsername": "lucas@example.com",
+    "topic": "Álgebra I",
+    "title": "Dependencia lineal: ¿cómo reconocerla sin cuentas largas?",
+    "content": "Me cuesta mucho identificar cuando un conjunto de vectores es dependiente sin armar todo el sistema y resolver.\n\n¿Hay un truco visual o conceptual para darse cuenta rápido? Escuché algo de 'si hay más vectores que dimensión', pero no sé si siempre aplica.",
+    "tags": [
+      "vectores",
+      "dependencia",
+      "espacios"
+    ],
+    "createdAt": "2025-09-03T16:10:00"
+  },
+  {
+    "id": "p8",
+    "userUsername": "martina@example.com",
+    "topic": "Álgebra I",
+    "title": "¿Qué significa realmente un subespacio?",
+    "content": "Entendí la definición formal, pero todavía no lo 'siento'.\n\n¿Qué significa que un conjunto sea subespacio en palabras simples? ¿Hay alguna analogía que les haya servido? Siento que memoricé la definición pero no la entiendo.",
+    "tags": [
+      "subespacios",
+      "intuicion",
+      "teoria"
+    ],
+    "createdAt": "2025-09-03T16:15:00"
+  },
+  {
+    "id": "p9",
+    "userUsername": "sofi@gmail.com",
+    "topic": "Álgebra I",
+    "title": "¿Cómo describir el espacio solución de un sistema homogéneo?",
+    "content": "Veo que siempre aparece un 'parámetro libre' pero no entiendo cómo escribir la solución en forma vectorial.\n\n¿Tengo que separar variables dependientes e independientes? ¿O existe algún paso fijo que recomienden para armar la solución general?",
+    "tags": [
+      "sistemas",
+      "homogeneos",
+      "soluciones"
+    ],
+    "createdAt": "2025-09-03T16:25:00"
+  },
+  {
+    "id": "p10",
+    "userUsername": "carla@example.com",
+    "topic": "Álgebra I",
+    "title": "Aplicaciones del álgebra lineal fuera de la facultad 📱✨",
+    "content": "Solo curiosidad: ¿dónde se usa realmente álgebra lineal en la vida real?\n\nEscuché que aparece en machine learning, animaciones y sistemas de recomendación, pero me encantaría leer ejemplos concretos para motivarme.",
+    "tags": [
+      "aplicaciones",
+      "vida real",
+      "motivacion"
+    ],
+    "createdAt": "2025-09-03T16:30:00"
+  },
+  {
+    "id": "b1dbb81a-274e-43e4-a0e2-1050f5765603",
+    "user": "sofi",
+    "topic": "algebra",
+    "title": "dudas con matrices",
+    "content": "no entiendo como resolver",
+    "tags": [],
+    "files": [],
+    "createdAt": "2026-01-09T02:03:40.626Z"
+  },
+  {
+    "id": "8ad80506-9512-4697-97b4-a1068d203d67",
+    "user": "sofi",
+    "topic": "algebra",
+    "title": "dudas con matrices",
+    "content": "no entiendo como resolver",
+    "tags": [],
+    "files": [],
+    "createdAt": "2026-01-09T02:04:09.346Z"
+  },
+  {
+    "id": "467db2bb-a8b4-4dee-a80f-da422bdeb833",
+    "user": "@Khali_1998",
+    "topic": "3",
+    "title": "Diagonalizar matrices",
+    "content": "No entiendo como diagonalizar esta matriz, alguien me puede ayudar?",
+    "tags": [
+      "Matrices",
+      "Algebra"
+    ],
+    "files": [
       {
-        "id": "p7",
-        "userUsername": "lucas@example.com",
-        "topic": "Álgebra I",
-        "title": "Dependencia lineal: ¿cómo reconocerla sin cuentas largas?",
-        "content": "Me cuesta mucho identificar cuando un conjunto de vectores es dependiente sin armar todo el sistema y resolver.\n\n¿Hay un truco visual o conceptual para darse cuenta rápido? Escuché algo de 'si hay más vectores que dimensión', pero no sé si siempre aplica.",
-        "tags": ["vectores", "dependencia", "espacios"],
-        "createdAt": "2025-09-03T16:10:00"
-      },
-      {
-        "id": "p8",
-        "userUsername": "martina@example.com",
-        "topic": "Álgebra I",
-        "title": "¿Qué significa realmente un subespacio?",
-        "content": "Entendí la definición formal, pero todavía no lo 'siento'.\n\n¿Qué significa que un conjunto sea subespacio en palabras simples? ¿Hay alguna analogía que les haya servido? Siento que memoricé la definición pero no la entiendo.",
-        "tags": ["subespacios", "intuicion", "teoria"],
-        "createdAt": "2025-09-03T16:15:00"
-      },
-      {
-        "id": "p9",
-        "userUsername": "sofi@gmail.com",
-        "topic": "Álgebra I",
-        "title": "¿Cómo describir el espacio solución de un sistema homogéneo?",
-        "content": "Veo que siempre aparece un 'parámetro libre' pero no entiendo cómo escribir la solución en forma vectorial.\n\n¿Tengo que separar variables dependientes e independientes? ¿O existe algún paso fijo que recomienden para armar la solución general?",
-        "tags": ["sistemas", "homogeneos", "soluciones"],
-        "createdAt": "2025-09-03T16:25:00"
-      },
-      {
-        "id": "p10",
-        "userUsername": "carla@example.com",
-        "topic": "Álgebra I",
-        "title": "Aplicaciones del álgebra lineal fuera de la facultad 📱✨",
-        "content": "Solo curiosidad: ¿dónde se usa realmente álgebra lineal en la vida real?\n\nEscuché que aparece en machine learning, animaciones y sistemas de recomendación, pero me encantaría leer ejemplos concretos para motivarme.",
-        "tags": ["aplicaciones", "vida real", "motivacion"],
-        "createdAt": "2025-09-03T16:30:00"
+        "filename": "1767925196515-d9cbe6a9-d6a4-4b67-b332-dc386ae2adf5.pdf",
+        "original": "192471.pdf",
+        "mimetype": "application/pdf",
+        "size": 90998,
+        "url": "/uploads/1767925196515-d9cbe6a9-d6a4-4b67-b332-dc386ae2adf5.pdf"
       }
-      
-      
-
-      
-
-      
-      
-  ]
-  
-  
+    ],
+    "createdAt": "2026-01-09T02:19:56.521Z"
+  },
+  {
+    "id": "b86fdcfb-98cf-477e-a8f3-ce1c1d986d15",
+    "user": "sofi@gmail.com",
+    "topic": "1",
+    "title": "Tengo una duda con esta integral",
+    "content": "No puedo resolver esta integral alguien me ayuda",
+    "tags": [
+      "Algebra",
+      "Calculo"
+    ],
+    "files": [
+      {
+        "filename": "1767926154827-6d75216a-62ff-49f8-8b5c-539592e3a44a.pdf",
+        "original": "Programa T dG Plan 2010.pdf",
+        "mimetype": "application/pdf",
+        "size": 130921,
+        "url": "/uploads/1767926154827-6d75216a-62ff-49f8-8b5c-539592e3a44a.pdf"
+      }
+    ],
+    "createdAt": "2026-01-09T02:35:54.829Z"
+  }
+]

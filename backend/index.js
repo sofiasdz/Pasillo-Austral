@@ -21,6 +21,7 @@ const __dirname = path.dirname(__filename);
 // Servir carpeta public
 app.use('/assets', express.static('assets'));
 
+app.use("/uploads", express.static("uploads"));
 
 
 app.get('/', (req, res) => {
