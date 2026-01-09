@@ -6,6 +6,7 @@ import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Calendar } from '../../components/Calendar/Calendar';
 import { PostCard } from '../../components/PostCard/PostCard';
 import { Label } from '../../components/Label/Label';
+import { useNavigate } from 'react-router-dom';
 
 import avatar1 from '../../assets/avatar1.png';
 import plusIcon from '../../assets/plus-icon.svg';
@@ -13,6 +14,7 @@ import plusIcon from '../../assets/plus-icon.svg';
 const Home: React.FC = () => {
   // Calendar data
   const weekDays = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+  const navigate = useNavigate();
 
   const weeks = [
     [
@@ -88,7 +90,7 @@ const Home: React.FC = () => {
       <div className="home__main">
         <div className="home__header">
           <Label variant="primary">Últimas Publicaciones</Label>
-          <button className="home__new-post-button">
+          <button  onClick={() => navigate('/create-post')} className="home__new-post-button">
             <img src={plusIcon} alt="" className="home__new-post-icon" />
             <span className="home__new-post-text">Nueva Publicación</span>
           </button>

@@ -9,6 +9,8 @@ import { TopicInfoCard } from '../../components/TopicInfoCard/TopicInfoCard';
 import { PostCard } from '../../components/PostCard/PostCard';
 import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
+import { useNavigate } from 'react-router-dom';
+import plusIcon from '../../assets/plus-icon.svg';
 
 const Topic: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Publicaciones' | 'Material de Estudio'>('Publicaciones');
@@ -16,8 +18,11 @@ const Topic: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+
+
   // Get topic ID from URL
   const topicId = window.location.pathname.split('/').pop() || '1';
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -74,11 +79,15 @@ const Topic: React.FC = () => {
 
       <Sidebar activeItem={topic?.title || ''} />
 
+
       <div className="topic__content">
+       
         <div className="topic__header-wrapper">
           <Header title={topic?.title || 'Cargando...'} onBack={handleBack} />
         </div>
-
+  
+          
+          <div className="topic__header">
         <div className="topic__tabs">
           <Tab 
             label="Publicaciones" 
@@ -90,6 +99,11 @@ const Topic: React.FC = () => {
             active={activeTab === 'Material de Estudio'}
             onClick={() => setActiveTab('Material de Estudio')}
           />
+        </div>
+        <button  onClick={() => navigate('/create-post')} className="topic__new-post-button">
+            <img src={plusIcon} alt="" className="home__new-post-icon" />
+            <span className="home__new-post-text">Nueva Publicación</span>
+          </button>
         </div>
 
         <div className="topic__filters">

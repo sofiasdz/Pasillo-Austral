@@ -65,4 +65,31 @@
     width: 782px;   /* tu ancho ideal */
     max-width: 782px;
   }
+
+  .topic__new-post-button {
+    background-color: #497fff;
+    display: flex;
+    gap: 4px;
+    height: 30px;
+    align-items: center;
+    overflow: hidden;
+    padding: 8px 12px;
+    border-radius: 23px;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .topic__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 780px;
+    padding-right: 16px;
+    padding-left: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-bottom: 24px;
+  }
   
