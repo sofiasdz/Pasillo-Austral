@@ -103,10 +103,20 @@
 }
 
 .search-results__comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-left: 43px;
+}
+
+.search-results__comments-list {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 100%;
-  padding: 24px 0;
+  width: 1002px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 699px;
 }
 

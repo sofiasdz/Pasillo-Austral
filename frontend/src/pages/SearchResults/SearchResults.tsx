@@ -8,6 +8,7 @@ import { Filter } from '../../components/Filter/Filter';
 import { PostCard } from '../../components/PostCard/PostCard';
 import { TopicCard } from '../../components/TopicCard/TopicCard';
 import { FileIcon } from '../../components/FileIcon/FileIcon';
+import { SearchResultComment } from '../../components/SearchResultComment/SearchResultComment';
 import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
 import topic2 from '../../assets/topic2.jpg';
@@ -28,6 +29,7 @@ const SearchResults: React.FC = () => {
   const navigate = useNavigate();
   const [topics, setTopics] = useState<any[]>([]);
   const [files, setFiles] = useState<any[]>([]);
+  const [comments, setComments] = useState<any[]>([]);
 
   const handleBack = () => {
     window.history.back();
@@ -66,6 +68,63 @@ const SearchResults: React.FC = () => {
       { id: '9', name: 'guia_practica_matrices_inversas.pdf', fileType: 'pdf', downloadUrl: '#' },
       { id: '10', name: 'ejercicios_producto_interno.docx', fileType: 'docx', downloadUrl: '#' },
       { id: '11', name: 'tree-trunk.png', fileType: 'png', downloadUrl: '#' },
+    ]);
+
+    // Fetch comments (can be filtered by search query in the future)
+    // For now, using mock data
+    setComments([
+      {
+        id: '1',
+        topicIcon: avatar1,
+        topicName: 'Algebra',
+        timeAgo: 'Hace 2 dias',
+        postTitle: 'Problema con cambio de base en espacios vectoriales',
+        userAvatar: avatar1,
+        username: '@Khali_1998',
+        date: '10 November 2025 19:35',
+        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
+        likes: 180,
+        comments: 20,
+      },
+      {
+        id: '2',
+        topicIcon: avatar1,
+        topicName: 'Algebra',
+        timeAgo: 'Hace 2 dias',
+        postTitle: 'Problema con cambio de base en espacios vectoriales',
+        userAvatar: avatar1,
+        username: '@Khali_1998',
+        date: '10 November 2025 19:35',
+        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
+        likes: 180,
+        comments: 20,
+      },
+      {
+        id: '3',
+        topicIcon: avatar1,
+        topicName: 'Algebra',
+        timeAgo: 'Hace 2 dias',
+        postTitle: 'Problema con cambio de base en espacios vectoriales',
+        userAvatar: avatar1,
+        username: '@Khali_1998',
+        date: '10 November 2025 19:35',
+        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
+        likes: 180,
+        comments: 20,
+      },
+      {
+        id: '4',
+        topicIcon: avatar1,
+        topicName: 'Algebra',
+        timeAgo: 'Hace 2 dias',
+        postTitle: 'Problema con cambio de base en espacios vectoriales',
+        userAvatar: avatar1,
+        username: '@Khali_1998',
+        date: '10 November 2025 19:35',
+        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
+        likes: 180,
+        comments: 20,
+      },
     ]);
   }, []);
 
@@ -181,8 +240,24 @@ const SearchResults: React.FC = () => {
 
           {activeTab === 'Comentarios' && (
             <div className="search-results__comments">
-              {/* TODO: Display comments based on search query */}
-              <p>Comentarios content coming soon...</p>
+              <div className="search-results__comments-list">
+                {comments.map((comment) => (
+                  <SearchResultComment
+                    key={comment.id}
+                    topicIcon={comment.topicIcon}
+                    topicName={comment.topicName}
+                    timeAgo={comment.timeAgo}
+                    postTitle={comment.postTitle}
+                    userAvatar={comment.userAvatar}
+                    username={comment.username}
+                    date={comment.date}
+                    comment={comment.comment}
+                    likes={comment.likes}
+                    comments={comment.comments}
+                    onViewPost={() => console.log('View post:', comment.id)}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>
