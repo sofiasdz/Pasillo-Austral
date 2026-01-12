@@ -6,8 +6,17 @@ import { Header } from '../../components/Header/Header';
 import { PillTab } from '../../components/PillTab/PillTab';
 import { Filter } from '../../components/Filter/Filter';
 import { PostCard } from '../../components/PostCard/PostCard';
+import { TopicCard } from '../../components/TopicCard/TopicCard';
 import avatar1 from '../../assets/avatar1.png';
+import topic1 from '../../assets/topic1.jpg';
+import topic2 from '../../assets/topic2.jpg';
+import topic3 from '../../assets/topic3.jpg';
+import topic4 from '../../assets/topic4.jpg';
+import topic5 from '../../assets/topic5.jpg';
+import topic6 from '../../assets/topic6.jpg';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+
+const fallbackImages = [topic1, topic2, topic3, topic4, topic5, topic6];
 
 type TabType = 'Publicaciones' | 'Temas' | 'Material de Estudio' | 'Comentarios';
 
@@ -16,6 +25,7 @@ const SearchResults: React.FC = () => {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get('q') || '';
   const navigate = useNavigate();
+  const [topics, setTopics] = useState<any[]>([]);
 
   const handleBack = () => {
     window.history.back();
@@ -23,6 +33,26 @@ const SearchResults: React.FC = () => {
 
   const handleTabChange = (tab: TabType) => {
     setActiveTab(tab);
+  };
+
+  useEffect(() => {
+    // Fetch topics (can be filtered by search query in the future)
+    fetch('http://localhost:3001/topics')
+      .then((res) => res.json())
+      .then((data) => {
+        const withImages = data.map((t: any, index: number) => ({
+          ...t,
+          image: t.image
+            ? `/assets/${t.image}`
+            : fallbackImages[index % fallbackImages.length],
+        }));
+        setTopics(withImages);
+      })
+      .catch((err) => console.error('Error fetching topics:', err));
+  }, []);
+
+  const goToTopic = (id: number | string) => {
+    navigate(`/topic/${id}`);
   };
 
   return (
@@ -99,8 +129,19 @@ const SearchResults: React.FC = () => {
 
           {activeTab === 'Temas' && (
             <div className="search-results__topics">
-              {/* TODO: Display topics based on search query */}
-              <p>Topics content coming soon...</p>
+              <div className="search-results__topics-grid">
+                {topics.map((topic) => (
+                  <TopicCard
+                    key={topic.id}
+                    image={topic.image}
+                    name={topic.title}
+                    description={topic.description}
+                    members={topic.membersCount}
+                    onClick={() => goToTopic(topic.id)}
+                    className=""
+                  />
+                ))}
+              </div>
             </div>
           )}
 
