@@ -10,6 +10,10 @@ import { LabelSelector } from '../../components/LabelSelector/LabelSelector';
 import { UploadFile, type UploadedFile } from '../../components/UploadFile/UploadFile';
 import { Button } from '../../components/Button/Button';
 import avatar1 from '../../assets/avatar1.png';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '../../hooks/useToast';
+
+
 
 const CreatePost: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Texto' | 'Archivos'>('Texto');
@@ -19,6 +23,17 @@ const CreatePost: React.FC = () => {
   const [content, setContent] = useState('');
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
+  const navigate = useNavigate();
+  const { showSuccess, showError } = useToast();
+
+
+  const handleSuccess = () => {
+    showSuccess('¡Publicación creada con éxito!');
+  };
+
+  const handleError = () => {
+    showError('Hubo un error al procesar la solicitud');
+  };
 
   useEffect(() => {
     // Fetch topics
@@ -75,7 +90,8 @@ const CreatePost: React.FC = () => {
   
       const data = await response.json();
       console.log('Post creado:', data);
-      alert('Publicación creada con éxito 🎉');
+      navigate(-1); // vuelve a donde estabas recién
+      handleSuccess();
   
       // Opcional: limpiar campos
       setTitle('');
@@ -85,7 +101,7 @@ const CreatePost: React.FC = () => {
       setActiveTab('Texto');
     } catch (err) {
       console.error(err);
-      alert('Hubo un error al publicar 😢');
+      handleError();
     }
   };
   

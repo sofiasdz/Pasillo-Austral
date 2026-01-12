@@ -6,9 +6,11 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import Topics from './pages/Topics/Topics';
 import Topic from './pages/Topic/Topic';
 import CreatePost from './pages/CreatePost/CreatePost';
+import { ToastProvider } from './contexts/ToastContext';
 
 function App() {
   return (
+    <ToastProvider>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/topics" element={<Topics />} />
@@ -28,10 +30,8 @@ function App() {
         {/* Catch-all, opcional */}
         {/* <Route path="*" element={<h1>404</h1>} /> */}
       </Routes>
+    </ToastProvider>
   );
 }
 
 export default App;
-
-
-

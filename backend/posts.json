@@ -191,5 +191,69 @@
       }
     ],
     "createdAt": "2026-01-09T02:35:54.829Z"
+  },
+  {
+    "id": "0682c22f-4487-464b-b069-25e085f6201e",
+    "user": "sofi@gmail.com",
+    "topic": "1",
+    "title": "Diagonalizar matrices",
+    "content": "¿como puedo diagonalizar esta matriz?",
+    "tags": [
+      "Matrices",
+      "Algebra",
+      "Duda"
+    ],
+    "files": [
+      {
+        "filename": "1768238037192-ee7383d6-d192-438b-bcf3-e6b39eabcc2f.pdf",
+        "original": "192471.pdf",
+        "mimetype": "application/pdf",
+        "size": 90998,
+        "url": "/uploads/1768238037192-ee7383d6-d192-438b-bcf3-e6b39eabcc2f.pdf"
+      }
+    ],
+    "createdAt": "2026-01-12T17:13:57.222Z"
+  },
+  {
+    "id": "0e221d86-9a11-48e5-9be7-d8a772501114",
+    "user": "sofi@gmail.com",
+    "topic": "2",
+    "title": "Duda con recursividad",
+    "content": "No entiendo en este contexto porque usamos recursividad en vez de un loop simple.",
+    "tags": [
+      "Programacion",
+      "Duda"
+    ],
+    "files": [
+      {
+        "filename": "1768238526442-9d91e2d9-1d3b-48e5-9da4-00c32c4d17cb.pdf",
+        "original": "192470.pdf",
+        "mimetype": "application/pdf",
+        "size": 118457,
+        "url": "/uploads/1768238526442-9d91e2d9-1d3b-48e5-9da4-00c32c4d17cb.pdf"
+      }
+    ],
+    "createdAt": "2026-01-12T17:22:06.448Z"
+  },
+  {
+    "id": "b2fdac78-5634-4463-a06c-baed602d83b1",
+    "user": "sofi@gmail.com",
+    "topic": "1",
+    "title": "Duda con el polinimio de taylor",
+    "content": "No entiendo muy bien como funciona el polinomio de taylor, alguien me podría explicar?",
+    "tags": [
+      "Duda",
+      "Sistemas de ecuaciones"
+    ],
+    "files": [
+      {
+        "filename": "1768239834773-dc24b803-cac0-4372-852a-d5cb0a15e99a.pdf",
+        "original": "1.pdf",
+        "mimetype": "application/pdf",
+        "size": 64365,
+        "url": "/uploads/1768239834773-dc24b803-cac0-4372-852a-d5cb0a15e99a.pdf"
+      }
+    ],
+    "createdAt": "2026-01-12T17:43:54.778Z"
   }
 ]
