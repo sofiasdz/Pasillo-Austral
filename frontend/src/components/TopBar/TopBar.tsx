@@ -11,6 +11,7 @@ export interface TopBarProps {
   searchPill?: string;
   onSearchPillClose?: () => void;
   searchPlaceholder?: string;
+  searchQuery?: string;
 }
 
 export const TopBar: React.FC<TopBarProps> = ({ 
@@ -18,7 +19,8 @@ export const TopBar: React.FC<TopBarProps> = ({
   avatar,
   searchPill,
   onSearchPillClose,
-  searchPlaceholder = 'Buscar'
+  searchPlaceholder = 'Buscar',
+  searchQuery
 }) => {
   return (
     <div className="topbar">
@@ -41,7 +43,11 @@ export const TopBar: React.FC<TopBarProps> = ({
               {searchPill && (
                 <SearchBarPill label={searchPill} onClose={onSearchPillClose} />
               )}
-              <p className="topbar__search-placeholder">{searchPlaceholder}</p>
+              {searchQuery ? (
+                <p className="topbar__search-query">{searchQuery}</p>
+              ) : (
+                <p className="topbar__search-placeholder">{searchPlaceholder}</p>
+              )}
             </div>
           </div>
         </button>

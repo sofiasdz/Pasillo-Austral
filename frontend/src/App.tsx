@@ -6,6 +6,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import Topics from './pages/Topics/Topics';
 import Topic from './pages/Topic/Topic';
 import CreatePost from './pages/CreatePost/CreatePost';
+import SearchResults from './pages/SearchResults/SearchResults';
 import { ToastProvider } from './contexts/ToastContext';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/topic/:id" element={<Topic />} />
         <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/search" element={<SearchResults />} />
 
         <Route
           path="/home"
