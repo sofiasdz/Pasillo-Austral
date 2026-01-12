@@ -1,0 +1,32 @@
+[
+    {
+      "topicId": 1,
+      "folders": [
+        {
+          "name": "Parciales",
+          "files": [
+            { "name": "Parcial-1-2024.pdf", "url": "/uploads/1/parciales/p1.pdf" },
+            { "name": "Parcial-2-2024.pdf", "url": "/uploads/1/parciales/p2.pdf" }
+          ]
+        },
+        {
+          "name": "Resumenes",
+          "files": [
+            { "name": "Unidad1.docx", "url": "/uploads/1/resumenes/u1.docx" }
+          ]
+        }
+      ]
+    },
+    {
+      "topicId": 2,
+      "folders": [
+        {
+          "name": "TPs",
+          "files": [
+            { "name": "TP1.zip", "url": "/uploads/2/tps/tp1.zip" }
+          ]
+        }
+      ]
+    }
+  ]
+  

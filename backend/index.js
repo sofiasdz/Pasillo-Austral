@@ -3,6 +3,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
 import postsRoutes from "./routes/posts.routes.js";
 import topicsRoutes from "./routes/topics.routes.js";
+import materialsRoutes from "./routes/materials.routes.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -24,6 +25,7 @@ app.use('/assets', express.static('assets'));
 app.use("/uploads", express.static("uploads"));
 
 
+
 app.get('/', (req, res) => {
   res.send('Backend corriendo!');
 });
@@ -32,6 +34,7 @@ app.get('/', (req, res) => {
 app.use("/auth", authRoutes);
 app.use("/posts", postsRoutes);
 app.use("/topics", topicsRoutes);
+app.use("/materials", materialsRoutes);
 app.get("/", (req, res) => {
     res.send("API funcionando 🚀");
   });

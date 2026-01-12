@@ -22,35 +22,27 @@ const Topic: React.FC = () => {
   const [topic, setTopic] = useState<any>(null);
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [folders, setFolders] = useState<string[]>([]);
+  const [folders, setFolders] = useState<any[]>([]);
   const [files, setFiles] = useState<any[]>([]);
   const [starredFiles, setStarredFiles] = useState<StarredFile[]>([]);
 
-
-
-  // Get topic ID from URL
   const topicId = window.location.pathname.split('/').pop() || '1';
   const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
 
-    // Fetch topic data
     fetch(`http://localhost:3001/topics/${topicId}`)
       .then((res) => res.json())
       .then((data) => {
         setTopic(data);
-
-        // If no topic found
         if (!data || !data.title) {
           setPosts([]);
           return null;
         }
-
-        // Fetch posts for this topic (using topic title)
         return fetch(`http://localhost:3001/posts?topic=${encodeURIComponent(data.title)}`);
       })
-      .then((res) => res ? res.json() : [])
+      .then((res) => (res ? res.json() : []))
       .then((data) => {
         setPosts(data || []);
         setLoading(false);
@@ -60,53 +52,44 @@ const Topic: React.FC = () => {
         setLoading(false);
       });
 
-    // Fetch folders and files for Material de Estudio
-    fetch(`http://localhost:3001/topics/${topicId}/folders`)
+    // Material de estudio
+    fetch(`http://localhost:3001/materials/${topicId}`)
       .then((res) => res.json())
-      .catch(() => [])
       .then((data) => {
-        setFolders(data || ['Resumenes', 'Ejercicios', 'Practica', 'Parcial 1', 'Parcial 2', 'Demostraciones', 'Algebra Lineal']);
-      });
+        setFolders(data.folders || []);
 
-    fetch(`http://localhost:3001/topics/${topicId}/files`)
-      .then((res) => res.json())
-      .catch(() => [])
-      .then((data) => {
-        setFiles(data || [
-          { id: '1', name: 'resumen_axlgebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '2', name: 'guia_ejercicios_vectores.docx', fileType: 'docx', downloadUrl: '#' },
-          { id: '3', name: 'matrices_y_determinantes_resuelto.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '4', name: 'ejercicios_espacios_vectoriales.xlsx', fileType: 'xlsx', downloadUrl: '#' },
-          { id: '5', name: 'formulario_algebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '6', name: 'practica_autovalores_autovectores.docx', fileType: 'docx', downloadUrl: '#' },
-          { id: '7', name: 'resumen_transformaciones_lineales.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '8', name: 'ejercicios_sistemas_ecuaciones.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '9', name: 'guia_practica_matrices_inversas.pdf', fileType: 'pdf', downloadUrl: '#' },
-          { id: '10', name: 'ejercicios_producto_interno.docx', fileType: 'docx', downloadUrl: '#' },
-          { id: '11', name: 'tree-trunk.png', fileType: 'png', downloadUrl: '#' },
-        ]);
-      });
+        const allFiles =
+          data.folders?.flatMap((folder: any) =>
+            folder.files.map((file: any) => ({
+              id: `${folder.name}-${file.name || file}`,
+              name: file.name || file,
+              fileType: (file.name || file).split('.').pop(),
+              downloadUrl: file.path
+                ? `http://localhost:3001${file.path}`
+                : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
+            }))
+          ) || [];
 
-    // Fetch starred files
-    fetch(`http://localhost:3001/topics/${topicId}/starred-files`)
-      .then((res) => res.json())
-      .catch(() => [])
-      .then((data) => {
-        setStarredFiles(data || [
-          { id: '1', name: 'Resumen Algebra Lineal [PDF]', url: '#' },
-          { id: '2', name: 'Ejercicio resueltos Guia 1 [PDF]', url: '#' },
-          { id: '3', name: 'Parcial 1 resuelto [PDF]', url: '#' },
-        ]);
+        setFiles(allFiles);
+
+        setStarredFiles(
+          data.starredFiles?.map((f: any) => ({
+            id: f.id,
+            name: f.name,
+            downloadUrl: f.downloadUrl
+          })) || []
+        );
+      })
+      .catch((err) => {
+        console.error('Error cargando material de estudio:', err);
+        setFolders([]);
+        setFiles([]);
+        setStarredFiles([]);
       });
   }, [topicId]);
 
-  const handleBack = () => {
-    window.history.back();
-  };
-
-  const handleSearchPillClose = () => {
-    window.history.back();
-  };
+  const handleBack = () => window.history.back();
+  const handleSearchPillClose = () => window.history.back();
 
   const topicImage = topic?.image
     ? (topic.image.startsWith('http') ? topic.image : `http://localhost:3001${topic.image}`)
@@ -126,28 +109,17 @@ const Topic: React.FC = () => {
 
       <Sidebar activeItem={topic?.title || ''} />
 
-
       <div className="topic__content">
-       
         <div className="topic__header-wrapper">
           <Header title={topic?.title || 'Cargando...'} onBack={handleBack} />
         </div>
-  
-          
-          <div className="topic__header">
-        <div className="topic__tabs">
-          <Tab 
-            label="Publicaciones" 
-            active={activeTab === 'Publicaciones'}
-            onClick={() => setActiveTab('Publicaciones')}
-          />
-          <Tab 
-            label="Material de Estudio" 
-            active={activeTab === 'Material de Estudio'}
-            onClick={() => setActiveTab('Material de Estudio')}
-          />
-        </div>
-        <button  onClick={() => navigate('/create-post')} className="topic__new-post-button">
+
+        <div className="topic__header">
+          <div className="topic__tabs">
+            <Tab label="Publicaciones" active={activeTab === 'Publicaciones'} onClick={() => setActiveTab('Publicaciones')} />
+            <Tab label="Material de Estudio" active={activeTab === 'Material de Estudio'} onClick={() => setActiveTab('Material de Estudio')} />
+          </div>
+          <button onClick={() => navigate('/create-post')} className="topic__new-post-button">
             <img src={plusIcon} alt="" className="home__new-post-icon" />
             <span className="home__new-post-text">Nueva Publicación</span>
           </button>
@@ -156,19 +128,13 @@ const Topic: React.FC = () => {
         {activeTab === 'Publicaciones' && (
           <>
             <div className="topic__filters">
-              <div className="topic__filter-wrapper">
-                <Filter label="Popular" />
-              </div>
+              <div className="topic__filter-wrapper"><Filter label="Popular" /></div>
             </div>
 
             <div className="topic__main">
               <div className="topic__posts">
                 {loading && <p>Cargando publicaciones...</p>}
-
-                {!loading && posts.length === 0 && (
-                  <p style={{ opacity: 0.6 }}>Todavía no hay publicaciones en este topic 👀</p>
-                )}
-
+                {!loading && posts.length === 0 && <p style={{ opacity: 0.6 }}>Todavía no hay publicaciones 👀</p>}
                 {posts.map((post) => (
                   <PostCard
                     key={post.id}
@@ -186,11 +152,7 @@ const Topic: React.FC = () => {
               </div>
 
               <div className="topic__info-card">
-                <TopicInfoCard
-                  image={topicImage}
-                  name={topic?.title}
-                  description={topicDescription}
-                />
+                <TopicInfoCard image={topicImage} name={topic?.title} description={topicDescription} />
               </div>
             </div>
           </>
@@ -199,26 +161,16 @@ const Topic: React.FC = () => {
         {activeTab === 'Material de Estudio' && (
           <>
             <div className="topic__material-section">
-              <FolderHeader
-                label="Carpetas"
-                buttonText="Nueva carpeta"
-                onButtonClick={() => console.log('Create new folder')}
-              />
+              <FolderHeader label="Carpetas" buttonText="Nueva carpeta" onButtonClick={() => console.log('Create new folder')} />
               <div className="topic__folders-grid">
-                {folders.map((folder, index) => (
-                  <FolderIcon
-                    key={index}
-                    name={folder}
-                    onClick={() => console.log(`Open folder: ${folder}`)}
-                  />
+                {folders.map((folder: any, index: number) => (
+                  <FolderIcon key={index} name={folder.name || folder} onClick={() => console.log(`Open folder: ${folder.name}`)} />
                 ))}
               </div>
             </div>
 
             <div className="topic__files-section-wrapper">
-              <div className="topic__filter-wrapper topic__filter-wrapper--material">
-                <Filter label="Popular" />
-              </div>
+              <div className="topic__filter-wrapper topic__filter-wrapper--material"><Filter label="Popular" /></div>
               <FilesHeader topicName={topic?.title || 'Algebra'} />
             </div>
 
@@ -249,5 +201,6 @@ const Topic: React.FC = () => {
 };
 
 export default Topic;
+
 
 
