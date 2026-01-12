@@ -7,6 +7,7 @@ import { PillTab } from '../../components/PillTab/PillTab';
 import { Filter } from '../../components/Filter/Filter';
 import { PostCard } from '../../components/PostCard/PostCard';
 import { TopicCard } from '../../components/TopicCard/TopicCard';
+import { FileIcon } from '../../components/FileIcon/FileIcon';
 import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
 import topic2 from '../../assets/topic2.jpg';
@@ -26,6 +27,7 @@ const SearchResults: React.FC = () => {
   const searchQuery = searchParams.get('q') || '';
   const navigate = useNavigate();
   const [topics, setTopics] = useState<any[]>([]);
+  const [files, setFiles] = useState<any[]>([]);
 
   const handleBack = () => {
     window.history.back();
@@ -49,6 +51,22 @@ const SearchResults: React.FC = () => {
         setTopics(withImages);
       })
       .catch((err) => console.error('Error fetching topics:', err));
+
+    // Fetch files (can be filtered by search query in the future)
+    // For now, using mock data similar to Topic page
+    setFiles([
+      { id: '1', name: 'resumen_algebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '2', name: 'guia_ejercicios_vectores.docx', fileType: 'docx', downloadUrl: '#' },
+      { id: '3', name: 'matrices_y_determinantes_resuelto.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '4', name: 'ejercicios_espacios_vectoriales.xlsx', fileType: 'xlsx', downloadUrl: '#' },
+      { id: '5', name: 'formulario_algebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '6', name: 'practica_autovalores_autovectores.docx', fileType: 'docx', downloadUrl: '#' },
+      { id: '7', name: 'resumen_transformaciones_lineales.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '8', name: 'ejercicios_sistemas_ecuaciones.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '9', name: 'guia_practica_matrices_inversas.pdf', fileType: 'pdf', downloadUrl: '#' },
+      { id: '10', name: 'ejercicios_producto_interno.docx', fileType: 'docx', downloadUrl: '#' },
+      { id: '11', name: 'tree-trunk.png', fileType: 'png', downloadUrl: '#' },
+    ]);
   }, []);
 
   const goToTopic = (id: number | string) => {
@@ -147,8 +165,17 @@ const SearchResults: React.FC = () => {
 
           {activeTab === 'Material de Estudio' && (
             <div className="search-results__material">
-              {/* TODO: Display material based on search query */}
-              <p>Material de Estudio content coming soon...</p>
+              <div className="search-results__files-list">
+                {files.map((file) => (
+                  <FileIcon
+                    key={file.id}
+                    name={file.name}
+                    fileType={file.fileType}
+                    downloadUrl={file.downloadUrl}
+                    onDownload={() => console.log(`Download ${file.name}`)}
+                  />
+                ))}
+              </div>
             </div>
           )}
 
