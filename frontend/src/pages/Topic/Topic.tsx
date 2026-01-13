@@ -119,11 +119,14 @@ const Topic: React.FC = () => {
             <Tab label="Publicaciones" active={activeTab === 'Publicaciones'} onClick={() => setActiveTab('Publicaciones')} />
             <Tab label="Material de Estudio" active={activeTab === 'Material de Estudio'} onClick={() => setActiveTab('Material de Estudio')} />
           </div>
+          {activeTab === 'Publicaciones' && (
           <button onClick={() => navigate('/create-post')} className="topic__new-post-button">
             <img src={plusIcon} alt="" className="home__new-post-icon" />
             <span className="home__new-post-text">Nueva Publicación</span>
           </button>
+          )}
         </div>
+          
 
         {activeTab === 'Publicaciones' && (
           <>
