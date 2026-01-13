@@ -1,259 +1,256 @@
 [
-  {
-    "id": "p1",
-    "userUsername": "sofi@gmail.com",
-    "topic": "Fuerzas",
-    "title": "No entiendo cómo descomponer fuerzas en un plano inclinado con rozamiento",
-    "content": "Hola! Estoy resolviendo los ejercicios del capítulo de fuerzas y siempre me trabo con lo mismo: no entiendo bien cómo descomponer el peso cuando el plano tiene ángulo y encima aparece una fuerza de rozamiento.\n\nEntiendo la teoría, pero cuando lo aplico siento que me falta un paso. ¿La normal siempre es mg·cosθ aunque haya otras fuerzas? ¿Y el rozamiento va siempre paralelo al plano?\n\nSi alguien tiene una forma más intuitiva de pensarlo o un ejemplo paso a paso se los agradecería muchísimo.",
-    "tags": [
-      "fuerzas",
-      "plano inclinado",
-      "rozamiento",
-      "fisica 1"
-    ],
-    "createdAt": "2025-09-01T10:15:00"
-  },
-  {
-    "id": "p2",
-    "userUsername": "sofi2@gmail.com",
-    "topic": "Leyes de Newton",
-    "title": "Duda con la Tercera Ley de Newton en choques",
-    "content": "Buenas! Estoy estudiando para el parcial y tengo una duda que me deja re confundido:\n\nEn un choque elástico entre dos masas, ¿las fuerzas que se hacen entre sí siempre son iguales y opuestas en todo momento? O sea, ¿se cumple exactamente la Tercera Ley durante el choque mismo o solo cuando analizamos el impulso total?\n\nEn algunas simulaciones veo fuerzas distintas en distintos momentos y me perdí. Si alguien me puede explicar qué parte estoy interpretando mal, gracias 🙏.",
-    "tags": [
-      "newton",
-      "choques",
-      "leyes de newton"
-    ],
-    "createdAt": "2025-09-01T11:40:00"
-  },
-  {
-    "id": "p3",
-    "userUsername": "sofi@gmail.com",
-    "topic": "Choques",
-    "title": "¿Cómo saber si un choque es realmente elástico?",
-    "content": "Estoy resolviendo ejercicios del libro y algunos dicen “choque elástico”, pero en otros te lo dan implícito y no sé cómo detectarlo.\n\n¿Hay algún indicador claro?\nPor ejemplo, si la energía cinética antes y después no coincide exactamente por decimales, ¿igual lo considero elástico? Y si me dan datos de velocidades, ¿siempre uso conservación del momento + conservación de energía?\n\nSe agradece cualquier regla práctica o tips para identificarlo más rápido.",
-    "tags": [
-      "choques",
-      "energia",
-      "cantidad de movimiento"
-    ],
-    "createdAt": "2025-09-02T09:05:00"
-  },
-  {
-    "id": "p4",
-    "userUsername": "sofi2@gmail.com",
-    "topic": "Impulso",
-    "title": "Problema con ejercicios de impulso y cantidad de movimiento",
-    "content": "Me encontré un ejercicio donde un bloque recibe un golpe durante un intervalo corto de tiempo, y tengo que sacar la variación del momento lineal.\n\nEntiendo la fórmula F·Δt, pero el ejercicio no me da la fuerza, sino una gráfica medio rara.\n¿Alguien me explica cómo se “lee” la gráfica para obtener el impulso total?\n\nEstoy perdida, gracias!!",
-    "tags": [
-      "impulso",
-      "graficas",
-      "cantidad de movimiento"
-    ],
-    "createdAt": "2025-09-02T13:20:00"
-  },
-  {
-    "id": "p5",
-    "userUsername": "sofi@gmail.com",
-    "topic": "Choques",
-    "title": "Choques frontales: ¿cómo hacer para no mezclar ecuaciones?",
-    "content": "Estoy haciendo práctica de choques frontales y me pasa que mezclo fórmulas o pongo signos al revés.\n\n¿Hay alguna forma ordenada de armar siempre los pasos? Tipo:\n- definir sentidos\n- aplicar conservación del momento\n- aplicar energía cinética\n- despejar…\n\n¿O hay otra forma más intuitiva?\nSi tienen algún ejemplo resuelto simple, también me sirve para agarrar ritmo.",
-    "tags": [
-      "choques",
-      "metodologia",
-      "fisica 1"
-    ],
-    "createdAt": "2025-09-03T16:00:00"
-  },
-  {
-    "id": "p6",
-    "userUsername": "sofi@gmail.com",
-    "topic": "Álgebra I",
-    "title": "¿Cómo saber si un sistema tiene solución única?",
-    "content": "Estoy trabajando con matrices aumentadas y no termino de entender cuándo un sistema tiene solución única.\n\n¿Es solo cuando no aparecen filas de ceros con algo distinto en el término independiente?\n\nSi alguien tiene una explicación corta o una regla práctica para identificar los casos rápido, se agradece 🙏",
-    "tags": [
-      "sistemas",
-      "matrices",
-      "algebra 1"
-    ],
-    "createdAt": "2025-09-03T16:05:00"
-  },
-  {
-    "id": "p7",
-    "userUsername": "lucas@example.com",
-    "topic": "Álgebra I",
-    "title": "Dependencia lineal: ¿cómo reconocerla sin cuentas largas?",
-    "content": "Me cuesta mucho identificar cuando un conjunto de vectores es dependiente sin armar todo el sistema y resolver.\n\n¿Hay un truco visual o conceptual para darse cuenta rápido? Escuché algo de 'si hay más vectores que dimensión', pero no sé si siempre aplica.",
-    "tags": [
-      "vectores",
-      "dependencia",
-      "espacios"
-    ],
-    "createdAt": "2025-09-03T16:10:00"
-  },
-  {
-    "id": "p8",
-    "userUsername": "martina@example.com",
-    "topic": "Álgebra I",
-    "title": "¿Qué significa realmente un subespacio?",
-    "content": "Entendí la definición formal, pero todavía no lo 'siento'.\n\n¿Qué significa que un conjunto sea subespacio en palabras simples? ¿Hay alguna analogía que les haya servido? Siento que memoricé la definición pero no la entiendo.",
-    "tags": [
-      "subespacios",
-      "intuicion",
-      "teoria"
-    ],
-    "createdAt": "2025-09-03T16:15:00"
-  },
-  {
-    "id": "p9",
-    "userUsername": "sofi@gmail.com",
-    "topic": "Álgebra I",
-    "title": "¿Cómo describir el espacio solución de un sistema homogéneo?",
-    "content": "Veo que siempre aparece un 'parámetro libre' pero no entiendo cómo escribir la solución en forma vectorial.\n\n¿Tengo que separar variables dependientes e independientes? ¿O existe algún paso fijo que recomienden para armar la solución general?",
-    "tags": [
-      "sistemas",
-      "homogeneos",
-      "soluciones"
-    ],
-    "createdAt": "2025-09-03T16:25:00"
-  },
-  {
-    "id": "p10",
-    "userUsername": "carla@example.com",
-    "topic": "Álgebra I",
-    "title": "Aplicaciones del álgebra lineal fuera de la facultad 📱✨",
-    "content": "Solo curiosidad: ¿dónde se usa realmente álgebra lineal en la vida real?\n\nEscuché que aparece en machine learning, animaciones y sistemas de recomendación, pero me encantaría leer ejemplos concretos para motivarme.",
-    "tags": [
-      "aplicaciones",
-      "vida real",
-      "motivacion"
-    ],
-    "createdAt": "2025-09-03T16:30:00"
-  },
-  {
-    "id": "b1dbb81a-274e-43e4-a0e2-1050f5765603",
-    "user": "sofi",
-    "topic": "algebra",
-    "title": "dudas con matrices",
-    "content": "no entiendo como resolver",
-    "tags": [],
-    "files": [],
-    "createdAt": "2026-01-09T02:03:40.626Z"
-  },
-  {
-    "id": "8ad80506-9512-4697-97b4-a1068d203d67",
-    "user": "sofi",
-    "topic": "algebra",
-    "title": "dudas con matrices",
-    "content": "no entiendo como resolver",
-    "tags": [],
-    "files": [],
-    "createdAt": "2026-01-09T02:04:09.346Z"
-  },
-  {
-    "id": "467db2bb-a8b4-4dee-a80f-da422bdeb833",
-    "user": "@Khali_1998",
-    "topic": "3",
-    "title": "Diagonalizar matrices",
-    "content": "No entiendo como diagonalizar esta matriz, alguien me puede ayudar?",
-    "tags": [
-      "Matrices",
-      "Algebra"
-    ],
-    "files": [
+    {
+      "id": "p1",
+      "userUsername": "sofi@gmail.com",
+      "topic": "Fisica I",
+      "title": "No entiendo cómo descomponer fuerzas en un plano inclinado con rozamiento",
+      "content": "Hola! Estoy resolviendo los ejercicios del capítulo de fuerzas y siempre me trabo con lo mismo...",
+      "tags": ["fuerzas", "plano inclinado", "rozamiento", "fisica 1"],
+      "createdAt": "2025-09-01T10:15:00"
+    },
+    {
+      "id": "p2",
+      "userUsername": "sofi2@gmail.com",
+      "topic": "Fisica I",
+      "title": "Duda con la Tercera Ley de Newton en choques",
+      "content": "Buenas! Estoy estudiando para el parcial y tengo una duda que me deja re confundido...",
+      "tags": ["newton", "choques", "leyes de newton"],
+      "createdAt": "2025-09-01T11:40:00"
+    },
+    {
+      "id": "p3",
+      "userUsername": "sofi@gmail.com",
+      "topic": "Fisica I",
+      "title": "¿Cómo saber si un choque es realmente elástico?",
+      "content": "Estoy resolviendo ejercicios del libro y algunos dicen choque elástico...",
+      "tags": ["choques", "energia", "cantidad de movimiento"],
+      "createdAt": "2025-09-02T09:05:00"
+    },
+    {
+      "id": "p4",
+      "userUsername": "sofi2@gmail.com",
+      "topic": "Fisica I",
+      "title": "Problema con ejercicios de impulso y cantidad de movimiento",
+      "content": "Me encontré un ejercicio donde un bloque recibe un golpe durante un intervalo corto...",
+      "tags": ["impulso", "graficas", "cantidad de movimiento"],
+      "createdAt": "2025-09-02T13:20:00"
+    },
+    {
+      "id": "p5",
+      "userUsername": "sofi@gmail.com",
+      "topic": "Fisica I",
+      "title": "Choques frontales: ¿cómo hacer para no mezclar ecuaciones?",
+      "content": "Estoy haciendo práctica de choques frontales y me pasa que mezclo fórmulas...",
+      "tags": ["choques", "metodologia", "fisica 1"],
+      "createdAt": "2025-09-03T16:00:00"
+    },
+    {
+      "id": "p6",
+      "userUsername": "leo@example.com",
+      "topic": "Fisica I",
+      "title": "Movimiento circular: ¿cómo interpretar aceleración tangencial y centrípeta?",
+      "content": "Entiendo las ecuaciones pero no termino de ver intuitivamente qué representa cada aceleración...",
+      "tags": ["movimiento circular", "aceleración", "fisica"],
+      "createdAt": "2025-09-05T14:10:00"
+    },
+    {
+      "id": "p7",
+      "userUsername": "martina@example.com",
+      "topic": "Fisica I",
+      "title": "¿La energía mecánica siempre se conserva?",
+      "content": "En clase dijeron que la energía mecánica se conserva solo sin rozamiento...",
+      "tags": ["energia", "rozamiento", "conservación"],
+      "createdAt": "2025-09-06T10:50:00"
+    },
+    {
+      "id": "p8",
+      "userUsername": "agus@example.com",
+      "topic": "Fisica I",
+      "title": "Duda con vectores en dos dimensiones",
+      "content": "Siempre me confundo asignando componentes en los ejercicios de fuerza. ¿Algún truco rápido?",
+      "tags": ["vectores", "componentes"],
+      "createdAt": "2025-09-07T09:10:00"
+    },
+    {
+        "id": "p9",
+        "userUsername": "sofi@gmail.com",
+        "topic": "Algebra I",
+        "title": "¿Cómo saber si un sistema tiene solución única?",
+        "content": "Estoy trabajando con matrices aumentadas y no termino de entender cuándo un sistema tiene solución única...",
+        "tags": ["sistemas", "matrices", "algebra 1"],
+        "createdAt": "2025-09-03T16:05:00"
+      },
       {
-        "filename": "1767925196515-d9cbe6a9-d6a4-4b67-b332-dc386ae2adf5.pdf",
-        "original": "192471.pdf",
-        "mimetype": "application/pdf",
-        "size": 90998,
-        "url": "/uploads/1767925196515-d9cbe6a9-d6a4-4b67-b332-dc386ae2adf5.pdf"
-      }
-    ],
-    "createdAt": "2026-01-09T02:19:56.521Z"
-  },
-  {
-    "id": "b86fdcfb-98cf-477e-a8f3-ce1c1d986d15",
-    "user": "sofi@gmail.com",
-    "topic": "1",
-    "title": "Tengo una duda con esta integral",
-    "content": "No puedo resolver esta integral alguien me ayuda",
-    "tags": [
-      "Algebra",
-      "Calculo"
-    ],
-    "files": [
+        "id": "p10",
+        "userUsername": "lucas@example.com",
+        "topic": "Algebra I",
+        "title": "Dependencia lineal: ¿cómo reconocerla sin cuentas largas?",
+        "content": "Me cuesta mucho identificar cuando un conjunto de vectores es dependiente sin armar todo el sistema...",
+        "tags": ["vectores", "dependencia", "espacios"],
+        "createdAt": "2025-09-03T16:10:00"
+      },
       {
-        "filename": "1767926154827-6d75216a-62ff-49f8-8b5c-539592e3a44a.pdf",
-        "original": "Programa T dG Plan 2010.pdf",
-        "mimetype": "application/pdf",
-        "size": 130921,
-        "url": "/uploads/1767926154827-6d75216a-62ff-49f8-8b5c-539592e3a44a.pdf"
-      }
-    ],
-    "createdAt": "2026-01-09T02:35:54.829Z"
-  },
-  {
-    "id": "0682c22f-4487-464b-b069-25e085f6201e",
-    "user": "sofi@gmail.com",
-    "topic": "1",
-    "title": "Diagonalizar matrices",
-    "content": "¿como puedo diagonalizar esta matriz?",
-    "tags": [
-      "Matrices",
-      "Algebra",
-      "Duda"
-    ],
-    "files": [
+        "id": "p11",
+        "userUsername": "martina@example.com",
+        "topic": "Algebra I",
+        "title": "¿Qué significa realmente un subespacio?",
+        "content": "Entendí la definición formal, pero todavía no lo siento...",
+        "tags": ["subespacios", "intuicion", "teoria"],
+        "createdAt": "2025-09-03T16:15:00"
+      },
       {
-        "filename": "1768238037192-ee7383d6-d192-438b-bcf3-e6b39eabcc2f.pdf",
-        "original": "192471.pdf",
-        "mimetype": "application/pdf",
-        "size": 90998,
-        "url": "/uploads/1768238037192-ee7383d6-d192-438b-bcf3-e6b39eabcc2f.pdf"
-      }
-    ],
-    "createdAt": "2026-01-12T17:13:57.222Z"
-  },
-  {
-    "id": "0e221d86-9a11-48e5-9be7-d8a772501114",
-    "user": "sofi@gmail.com",
-    "topic": "2",
-    "title": "Duda con recursividad",
-    "content": "No entiendo en este contexto porque usamos recursividad en vez de un loop simple.",
-    "tags": [
-      "Programacion",
-      "Duda"
-    ],
-    "files": [
+        "id": "p12",
+        "userUsername": "sofi@gmail.com",
+        "topic": "Algebra I",
+        "title": "¿Cómo describir el espacio solución de un sistema homogéneo?",
+        "content": "Veo que siempre aparece un parámetro libre pero no entiendo cómo escribir la solución...",
+        "tags": ["sistemas", "homogeneos", "soluciones"],
+        "createdAt": "2025-09-03T16:25:00"
+      },
       {
-        "filename": "1768238526442-9d91e2d9-1d3b-48e5-9da4-00c32c4d17cb.pdf",
-        "original": "192470.pdf",
-        "mimetype": "application/pdf",
-        "size": 118457,
-        "url": "/uploads/1768238526442-9d91e2d9-1d3b-48e5-9da4-00c32c4d17cb.pdf"
-      }
-    ],
-    "createdAt": "2026-01-12T17:22:06.448Z"
-  },
-  {
-    "id": "b2fdac78-5634-4463-a06c-baed602d83b1",
-    "user": "sofi@gmail.com",
-    "topic": "1",
-    "title": "Duda con el polinimio de taylor",
-    "content": "No entiendo muy bien como funciona el polinomio de taylor, alguien me podría explicar?",
-    "tags": [
-      "Duda",
-      "Sistemas de ecuaciones"
-    ],
-    "files": [
+        "id": "p13",
+        "userUsername": "carla@example.com",
+        "topic": "Algebra I",
+        "title": "Aplicaciones del álgebra lineal fuera de la facultad 📱✨",
+        "content": "Solo curiosidad: ¿dónde se usa realmente álgebra lineal en la vida real?",
+        "tags": ["aplicaciones", "vida real", "motivacion"],
+        "createdAt": "2025-09-03T16:30:00"
+      },
       {
-        "filename": "1768239834773-dc24b803-cac0-4372-852a-d5cb0a15e99a.pdf",
-        "original": "1.pdf",
-        "mimetype": "application/pdf",
-        "size": 64365,
-        "url": "/uploads/1768239834773-dc24b803-cac0-4372-852a-d5cb0a15e99a.pdf"
+        "id": "p14",
+        "userUsername": "fede@example.com",
+        "topic": "Algebra I",
+        "title": "Transformaciones lineales: ¿cuándo una aplica realmente?",
+        "content": "Entiendo que una transformación lineal preserva suma y producto por escalar pero me cuesta imaginar ejemplos reales...",
+        "tags": ["transformaciones", "linealidad"],
+        "createdAt": "2025-09-05T18:22:00"
+      },
+      {
+        "id": "p15",
+        "userUsername": "vale@example.com",
+        "topic": "Algebra I",
+        "title": "Núcleo e imagen: truco para no confundirme",
+        "content": "¿Existe una forma práctica de identificar rápidamente el núcleo e imagen sin resolver todo?",
+        "tags": ["nucleo", "imagen", "matrices"],
+        "createdAt": "2025-09-06T09:35:00"
+      },
+      {
+        "id": "p16",
+        "userUsername": "agus@example.com",
+        "topic": "Algebra I",
+        "title": "¿Por qué importan los autovalores?",
+        "content": "Sé calcularlos pero no entiendo para qué sirven o qué representan geométricamente...",
+        "tags": ["autovalores", "intuicion"],
+        "createdAt": "2025-09-07T15:40:00"
+      },
+      {
+        "id": "p17",
+        "userUsername": "cami@example.com",
+        "topic": "Algebra I",
+        "title": "¿La base canónica es siempre la mejor elección?",
+        "content": "Me dijeron que a veces conviene cambiar de base pero no sé cuándo conviene hacerlo en ejercicios...",
+        "tags": ["bases", "espacios vectoriales"],
+        "createdAt": "2025-09-08T12:10:00"
+      },
+      {
+        "id": "p18",
+        "userUsername": "nicolas@example.com",
+        "topic": "Algebra I",
+        "title": "Matrices invertibles: ¿siempre existe la inversa?",
+        "content": "Sé que una matriz es invertible cuando su determinante es distinto de cero pero no entiendo el porqué profundo.",
+        "tags": ["determinante", "inversas"],
+        "createdAt": "2025-09-09T11:00:00"
+      },
+      {
+        "id": "p19",
+        "userUsername": "sofia@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Límites: ¿cómo saber cuándo aplicar factoreo?",
+        "content": "Siempre que tengo un límite donde me queda 0/0 pienso en factorizar, pero a veces no funciona y termino trabándome. ¿Hay alguna forma de saber qué técnica usar primero?",
+        "tags": ["limites", "factoreo", "calculo"],
+        "createdAt": "2025-09-10T09:00:00"
+      },
+      {
+        "id": "p20",
+        "userUsername": "maria@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Regla de L'Hôpital: ¿cuándo está bien usarla?",
+        "content": "Me dijeron que la regla de L'Hôpital no es siempre válida aunque aparezca una indeterminación. ¿Cuáles son las condiciones reales para aplicarla? Me confunde mucho.",
+        "tags": ["lhopital", "indeterminaciones"],
+        "createdAt": "2025-09-10T10:12:00"
+      },
+      {
+        "id": "p21",
+        "userUsername": "juan@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Derivadas: problemas con el producto",
+        "content": "Siento que estoy aplicando mal la regla del producto porque me quedan cuentas enormes. ¿Algún consejo para no perderme cuando hay expresiones largas?",
+        "tags": ["derivadas", "regla del producto"],
+        "createdAt": "2025-09-10T11:25:00"
+      },
+      {
+        "id": "p22",
+        "userUsername": "lautaro@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Continuidad vs derivabilidad 😵‍💫",
+        "content": "Entiendo que derivable implica continuo pero no al revés. ¿Alguien tiene un ejemplo simple donde se vea eso claramente? Me cuesta imaginarlos.",
+        "tags": ["continuidad", "derivabilidad"],
+        "createdAt": "2025-09-10T12:55:00"
+      },
+      {
+        "id": "p23",
+        "userUsername": "flor@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Integrales por sustitución: ¿cómo elegir la u?",
+        "content": "Siempre que tengo que hacer un cambio de variable pruebo varias u hasta que funciona. ¿Hay algún criterio más sistemático?",
+        "tags": ["integrales", "sustitucion"],
+        "createdAt": "2025-09-10T15:00:00"
+      },
+      {
+        "id": "p24",
+        "userUsername": "tomas@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Series: ¿cómo saber qué test usar?",
+        "content": "El parcial de series me está matando. Entre raíz, razón, comparación y Leibniz no sé cuál aplicar. ¿Algún orden recomendado o regla mental?",
+        "tags": ["series", "convergencia"],
+        "createdAt": "2025-09-11T09:42:00"
+      },
+      {
+        "id": "am7",
+        "userUsername": "celeste@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Teorema del valor medio explicado simple",
+        "content": "Leí la demostración pero todavía no lo visualizo. ¿Qué significa intuitivamente que 'hay un punto donde la derivada coincide con la recta secante'?",
+        "tags": ["teorema valor medio", "intuición"],
+        "createdAt": "2025-09-11T11:35:00"
+      },
+      {
+        "id": "am8",
+        "userUsername": "ramiro@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Errores comunes en derivadas de funciones trigonométricas",
+        "content": "No sé cómo, siempre pongo mal el signo o mezclo seno y coseno. Si alguien tiene algún nemotécnico lo agradezco 😂",
+        "tags": ["derivadas", "trigonometría"],
+        "createdAt": "2025-09-11T12:18:00"
+      },
+      {
+        "id": "am9",
+        "userUsername": "clara@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "¿Por qué necesito equipotencia para continuidad?",
+        "content": "No entiendo intuitivamente por qué analizar continuidad requiere ver la 'distribución' del dominio. Me siento rebuscando cosas sin propósito.",
+        "tags": ["continuidad", "conceptos"],
+        "createdAt": "2025-09-11T14:00:00"
+      },
+      {
+        "id": "am10",
+        "userUsername": "gaston@example.com",
+        "topic": "Analisis Matematico I",
+        "title": "Diferenciales: ¿para qué sirven realmente?",
+        "content": "Puedo calcular diferenciales, pero no entiendo qué me aportan o qué representan geométricamente.",
+        "tags": ["diferenciales", "intuición"],
+        "createdAt": "2025-09-11T16:10:00"
       }
-    ],
-    "createdAt": "2026-01-12T17:43:54.778Z"
-  }
-]
+    ]
+    
+    
