@@ -1,0 +1,92 @@
+.post-detail {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.post-detail__content {
+  padding-left: 333px;
+  padding-top: 118px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-detail__header-wrapper {
+  width: 100%;
+  max-width: 807px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.post-detail__main {
+  display: flex;
+  gap: 71px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1143px;
+}
+
+.post-detail__post-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  width: 807px;
+  flex-shrink: 0;
+}
+
+.post-detail__post {
+  width: 100%;
+}
+
+.post-detail__answers-title {
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  color: #404446;
+  margin: 0;
+  white-space: pre-wrap;
+  font-variation-settings: 'wdth' 100;
+}
+
+.post-detail__answer-box {
+  width: 100%;
+}
+
+.post-detail__comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.post-detail__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  width: 270px;
+  position: sticky;
+  top: 138px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.post-detail__related {
+  width: 100%;
+}
+
+.post-detail__material {
+  width: 100%;
+}
+

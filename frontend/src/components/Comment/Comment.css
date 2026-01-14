@@ -1,0 +1,225 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.comment__container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid rgba(104, 104, 104, 0.11);
+  border-radius: 23px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.comment__indicator {
+  background-color: #8bc7e9;
+  opacity: 0.5;
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.comment__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 20px 40px;
+  flex: 1;
+}
+
+.comment__user {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.comment__badge {
+  flex-shrink: 0;
+}
+
+.comment__text {
+  width: 100%;
+}
+
+.comment__text p {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #575757;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.comment__text p + p {
+  margin-top: 0;
+}
+
+.comment__actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 8px;
+  border-top: 1px solid #eaeaea;
+}
+
+.comment__likes {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.comment__like-button,
+.comment__dislike-button {
+  display: inline-grid;
+  grid-template-columns: max-content;
+  grid-template-rows: max-content;
+  justify-items: start;
+  align-items: center;
+  gap: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.comment__like-button:hover,
+.comment__dislike-button:hover {
+  opacity: 0.7;
+}
+
+.comment__like-button svg,
+.comment__dislike-button svg {
+  grid-column: 1;
+  grid-row: 1;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.comment__like-button span,
+.comment__dislike-button span {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 19px;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #808080;
+  letter-spacing: 0.24px;
+}
+
+.comment__controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.comment__toggle-replies {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #1682fd;
+  transition: opacity 0.2s ease;
+  font-variation-settings: 'wdth' 100;
+}
+
+.comment__toggle-replies:hover {
+  opacity: 0.7;
+}
+
+.comment__toggle-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.comment__toggle-icon--rotated {
+  transform: rotate(180deg);
+}
+
+.comment__reply-button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #1682fd;
+  transition: opacity 0.2s ease;
+  font-variation-settings: 'wdth' 100;
+}
+
+.comment__reply-button:hover {
+  opacity: 0.7;
+}
+
+.comment__reply-button svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.comment__replies {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  margin-top: 0;
+}
+
+.comment__see-more-wrapper {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.comment__see-more {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 8px 0;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  color: #1682fd;
+  transition: opacity 0.2s ease;
+}
+
+.comment__see-more:hover {
+  opacity: 0.7;
+}
+
+.comment__see-more svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+

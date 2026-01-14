@@ -1,0 +1,88 @@
+.material-widget {
+  background-color: #ffffff;
+  border: 1px solid rgba(224, 220, 220, 0.5);
+  border-radius: 16px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  padding: 24px;
+  width: 270px;
+}
+
+.material-widget__title {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  color: #404446;
+  margin: 0 0 23px 0;
+  white-space: pre-wrap;
+}
+
+.material-widget__folders {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.material-widget__folder {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.material-widget__folder:hover {
+  opacity: 0.7;
+}
+
+.material-widget__folder-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.material-widget__folder-name {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #404446;
+  margin: 0;
+  white-space: nowrap;
+  padding: 8px;
+}
+
+.material-widget__see-more {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.material-widget__see-more:hover {
+  opacity: 0.7;
+}
+
+.material-widget__see-more-text {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: #497fff;
+  margin: 0;
+  white-space: nowrap;
+}
+

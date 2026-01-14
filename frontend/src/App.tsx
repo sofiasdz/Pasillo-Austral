@@ -7,6 +7,7 @@ import Topics from './pages/Topics/Topics';
 import Topic from './pages/Topic/Topic';
 import CreatePost from './pages/CreatePost/CreatePost';
 import SearchResults from './pages/SearchResults/SearchResults';
+import PostDetail from './pages/PostDetail/PostDetail';
 import { ToastProvider } from './contexts/ToastContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/topic/:id" element={<Topic />} />
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/post/:id" element={<PostDetail />} />
 
         <Route
           path="/home"
