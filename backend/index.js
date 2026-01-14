@@ -5,6 +5,7 @@ import postsRoutes from "./routes/posts.routes.js";
 import topicsRoutes from "./routes/topics.routes.js";
 import materialsRoutes from "./routes/materials.routes.js";
 import path from 'path';
+import commentsRoutes from './routes/comments.routes.js';
 import { fileURLToPath } from 'url';
 
 
@@ -35,6 +36,7 @@ app.use("/auth", authRoutes);
 app.use("/posts", postsRoutes);
 app.use("/topics", topicsRoutes);
 app.use("/materials", materialsRoutes);
+app.use("/comments", commentsRoutes);
 app.get("/", (req, res) => {
     res.send("API funcionando 🚀");
   });
