@@ -11,6 +11,8 @@ import { MaterialWidget } from '../../components/MaterialWidget/MaterialWidget';
 import avatar1 from '../../assets/avatar1.png';
 import { useNavigate, useParams } from 'react-router-dom';
 
+const API_URL = 'http://localhost:3001';
+
 const PostDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -19,78 +21,90 @@ const PostDetail: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Fetch post data from API
-    // For now, using mock data
-    setPost({
-      id: id || '1',
-      userAvatar: avatar1,
-      username: '@Khali_1998',
-      date: '10 November 2025 19:35',
-      title: '¿Cuándo conviene usar bucles y cuándo recursividad?',
-      content: 'Hola a todos, estoy repasando conceptos básicos y me surgió esta duda. Entiendo que con un for o while puedo repetir instrucciones fácilmente, pero en varios ejemplos de libros usan recursividad para resolver problemas que también se pueden hacer con bucles (por ejemplo, calcular factorial o recorrer un árbol). Mi pregunta es: 1. ¿Qué criterio usan ustedes para decidir entre bucles y recursividad? 2. ¿Es solo una cuestión de estilo o hay ventajas reales de uno sobre el otro?',
-      tags: ['Programación', 'Duda', 'Ingeniería'],
-    });
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
-    // TODO: Fetch comments from API
-    // For now, using mock data
-    setComments([
-      {
-        id: '1',
-        userAvatar: avatar1,
-        username: '@unkind',
-        date: '12 November 2020 19:35',
-        content: 'Generalmente prefiero bucles para cosas lineales (recorrer listas, repetir cálculos) porque son más fáciles de leer y optimizar.\nLa recursividad brilla en problemas donde la estructura del dato ya es recursiva (árboles, grafos, dividir un problema grande en subproblemas). Ahí el código queda más claro.',
-        likes: 256,
-        dislikes: 43,
-        badge: 'Ayudante',
-        badgeColor: '#2f7e0d',
-        badgeBgColor: 'rgba(164,214,190,0.2)',
-        replies: [
-          {
-            id: '2',
-            userAvatar: avatar1,
-            username: '@user2',
-            date: '13 November 2020 10:00',
-            content: 'Excelente punto sobre los árboles. La recursividad hace el código mucho más elegante ahí.',
-            likes: 5,
-            dislikes: 0,
-          },
-        ],
-      },
-      {
-        id: '3',
-        userAvatar: avatar1,
-        username: '@teacher1',
-        date: '12 November 2020 20:15',
-        content: 'Desde el punto de vista de rendimiento, los bucles suelen ser más eficientes en términos de memoria (no hay overhead de stack). Pero la recursividad puede ser más intuitiva para ciertos problemas. La clave está en entender cuándo cada uno aporta más claridad.',
-        likes: 180,
-        dislikes: 20,
-        badge: 'Docente',
-        badgeColor: '#2f7e0d',
-        badgeBgColor: 'rgba(164,214,190,0.2)',
-        replies: [],
-      },
-    ]);
+        // 1. Fetch post data
+        const postRes = await fetch(`${API_URL}/posts/${id}`);
+        if (!postRes.ok) throw new Error("Error fetching post");
+        const postData = await postRes.json();
 
-    setLoading(false);
+        // 2. Fetch comments for this post
+        const commentsRes = await fetch(`${API_URL}/comments/post/${id}`);
+        if (!commentsRes.ok) throw new Error("Error fetching comments");
+        const commentsData = await commentsRes.json();
+
+        // Set post using UI structure
+        setPost({
+          ...postData,
+          userAvatar: avatar1, // temporal hasta implementar users
+          username: postData.user || "@anon",
+          date: new Date(postData.createdAt).toLocaleString(),
+        });
+
+        // Transform function: backend -> UI component format
+        const transform = (c: any): CommentData => ({
+          id: c.id,
+          userAvatar: avatar1,
+          username: c.user || "@anon",
+          date: new Date(c.createdAt).toLocaleString(),
+          content: c.content,
+          likes: c.likes,
+          dislikes: c.dislikes,
+          replies: commentsData
+            .filter((r: any) => r.parentId === c.id)
+            .map(transform), // recursion for nested replies
+        });
+
+        // Filter to only root comments (no parentId)
+        const rootComments = commentsData
+          .filter((c: any) => !c.parentId)
+          .map(transform);
+
+        setComments(rootComments);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [id]);
 
   const handleBack = () => {
     navigate(-1);
   };
 
-  const handlePublish = (text: string) => {
-    // TODO: Publish comment
-    console.log('Publishing comment:', text);
+  const handlePublish = async (text: string) => {
+    if (!text.trim()) return;
+
+    try {
+      await fetch(`${API_URL}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          postId: id,
+          user: "@anon", // temporal hasta user real
+          content: text,
+        }),
+      });
+
+      // refresh comments after publishing
+      const commentsRes = await fetch(`${API_URL}/comments/post/${id}`);
+      const commentsData = await commentsRes.json();
+      setComments(commentsData.filter((c: any) => !c.parentId));
+    } catch (err) {
+      console.error("Error publishing comment:", err);
+    }
   };
 
   const handleReply = (commentId: string) => {
-    // TODO: Handle reply
-    console.log('Replying to comment:', commentId);
+    console.log('Reply to:', commentId);
   };
 
   const handleSeeMore = (commentId: string) => {
-    // TODO: Navigate to see more replies
     console.log('See more replies for:', commentId);
   };
 
@@ -100,7 +114,7 @@ const PostDetail: React.FC = () => {
 
   return (
     <div className="post-detail">
-      <TopBar username="@Khali_1998" avatar={avatar1} />
+      <TopBar username={post.username} avatar={avatar1} />
       <Sidebar activeItem="Home" />
 
       <div className="post-detail__content">
@@ -112,7 +126,7 @@ const PostDetail: React.FC = () => {
           <div className="post-detail__post-section">
             <div className="post-detail__post">
               <PostCard
-                topic=""
+                topic={post.topic}
                 userAvatar={post.userAvatar}
                 username={post.username}
                 date={post.date}
@@ -150,13 +164,11 @@ const PostDetail: React.FC = () => {
               <RelatedWidget
                 posts={[
                   { id: '1', title: '¿Cómo evitar stack overflow al usar recursividad?' },
-                  { id: '2', title: 'Bucles vs Recursividad: comparativa de rendimiento en Python y Java' },
-                  { id: '3', title: 'Ejemplos prácticos de backtracking explicados paso a paso' },
+                  { id: '2', title: 'Bucles vs Recursividad: comparativa de rendimiento' },
                 ]}
                 materials={[
                   { id: '1', name: 'guia_bucles_vs_recursividad.pdf' },
-                  { id: '2', name: 'ejercicios_backtracking_practicos.ipynb' },
-                  { id: '3', name: 'arboles_binarios_recursivos.py' },
+                  { id: '2,', name: 'ejercicios_backtracking.ipynb' },
                 ]}
               />
             </div>
@@ -179,4 +191,5 @@ const PostDetail: React.FC = () => {
 };
 
 export default PostDetail;
+
 

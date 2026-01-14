@@ -100,9 +100,10 @@ const Home: React.FC = () => {
           {posts.map((post) => (
             <PostCard
               key={post.id}
+              id={post.id}  // 👈 AHORA SI!
               topic={post.topic}
               userAvatar={avatar1}
-              username={post.userUsername}
+              username={post.user || '@anon'}
               date={new Date(post.createdAt).toLocaleString()}
               title={post.title}
               content={post.content}
@@ -116,3 +117,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+

@@ -86,4 +86,17 @@ router.get("/topic/:topic", (req, res) => {
   res.json(filtered);
 });
 
+// ---- GET post by ID ---- //
+router.get("/:id", (req, res) => {
+    const posts = getPosts();
+    const post = posts.find((p) => p.id === req.params.id);
+  
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+  
+    res.json(post);
+  });
+  
+
 export default router;

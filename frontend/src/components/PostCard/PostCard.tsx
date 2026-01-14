@@ -2,8 +2,10 @@ import React from 'react';
 import './PostCard.css';
 import { UserInfoCard } from '../UserInfoCard/UserInfoCard';
 import { Label } from '../Label/Label';
+import { useNavigate } from 'react-router-dom';
 
 export interface PostCardProps {
+  id?: string;              // <= NEW
   topic: string;
   userAvatar: string;
   username: string;
@@ -16,6 +18,7 @@ export interface PostCardProps {
 }
 
 export const PostCard: React.FC<PostCardProps> = ({
+  id,
   topic,
   userAvatar,
   username,
@@ -26,8 +29,19 @@ export const PostCard: React.FC<PostCardProps> = ({
   showMoreLink = true,
   className = '',
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (!id) return;          // safety
+    navigate(`/post/${id}`);
+  };
+
   return (
-    <div className={`post-card ${className}`}>
+    <div
+      className={`post-card ${className}`}
+      style={{ cursor: id ? 'pointer' : 'default' }}
+      onClick={handleClick}
+    >
       <div className="post-card__user">
         <UserInfoCard 
           avatar={userAvatar}
@@ -56,7 +70,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             ))}
           </div>
           {showMoreLink && (
-            <div className="post-card__more">Ver mas</div>
+            <div className="post-card__more">Ver más</div>
           )}
         </div>
       )}
@@ -65,4 +79,5 @@ export const PostCard: React.FC<PostCardProps> = ({
 };
 
 export default PostCard;
+
 
