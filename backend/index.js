@@ -7,6 +7,7 @@ import materialsRoutes from "./routes/materials.routes.js";
 import path from 'path';
 import commentsRoutes from './routes/comments.routes.js';
 import { fileURLToPath } from 'url';
+import searchRouter from "./routes/search.routes.js";
 
 
 const app = express();
@@ -37,6 +38,7 @@ app.use("/posts", postsRoutes);
 app.use("/topics", topicsRoutes);
 app.use("/materials", materialsRoutes);
 app.use("/comments", commentsRoutes);
+app.use("/search", searchRouter);
 app.get("/", (req, res) => {
     res.send("API funcionando 🚀");
   });
