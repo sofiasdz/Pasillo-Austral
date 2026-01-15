@@ -27,110 +27,57 @@ const SearchResults: React.FC = () => {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get('q') || '';
   const navigate = useNavigate();
+
+  const [posts, setPosts] = useState<any[]>([]);
   const [topics, setTopics] = useState<any[]>([]);
   const [files, setFiles] = useState<any[]>([]);
   const [comments, setComments] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleBack = () => {
-    window.history.back();
-  };
+  const handleBack = () => window.history.back();
 
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
-  };
+  const handleTabChange = (tab: TabType) => setActiveTab(tab);
 
   useEffect(() => {
-    // Fetch topics (can be filtered by search query in the future)
-    fetch('http://localhost:3001/topics')
+    if (!searchQuery) return;
+
+    setLoading(true);
+
+    fetch(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}`)
       .then((res) => res.json())
       .then((data) => {
-        const withImages = data.map((t: any, index: number) => ({
+        setPosts(data.posts || []);
+
+        const mappedTopics = (data.topics || []).map((t: any, index: number) => ({
           ...t,
           image: t.image
             ? `/assets/${t.image}`
             : fallbackImages[index % fallbackImages.length],
         }));
-        setTopics(withImages);
+        setTopics(mappedTopics);
+
+        // 🔥 APLANAR MATERIALES
+        const flattened = (data.materials || []).flatMap((topic: any) =>
+          topic.folders.flatMap((folder: any) =>
+            folder.files.map((file: any) => ({
+              topicId: topic.topicId,
+              folder: folder.name,
+              name: file.name,
+              fileType: file.name.includes('.') ? file.name.split('.').pop().toLowerCase() : 'file',
+              downloadUrl: file.url,
+            }))
+          )
+        );
+
+        setFiles(flattened);
+
+        setComments(data.comments || []);
       })
-      .catch((err) => console.error('Error fetching topics:', err));
+      .catch((err) => console.error('Error fetching search results:', err))
+      .finally(() => setLoading(false));
+  }, [searchQuery]);
 
-    // Fetch files (can be filtered by search query in the future)
-    // For now, using mock data similar to Topic page
-    setFiles([
-      { id: '1', name: 'resumen_algebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '2', name: 'guia_ejercicios_vectores.docx', fileType: 'docx', downloadUrl: '#' },
-      { id: '3', name: 'matrices_y_determinantes_resuelto.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '4', name: 'ejercicios_espacios_vectoriales.xlsx', fileType: 'xlsx', downloadUrl: '#' },
-      { id: '5', name: 'formulario_algebra_lineal.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '6', name: 'practica_autovalores_autovectores.docx', fileType: 'docx', downloadUrl: '#' },
-      { id: '7', name: 'resumen_transformaciones_lineales.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '8', name: 'ejercicios_sistemas_ecuaciones.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '9', name: 'guia_practica_matrices_inversas.pdf', fileType: 'pdf', downloadUrl: '#' },
-      { id: '10', name: 'ejercicios_producto_interno.docx', fileType: 'docx', downloadUrl: '#' },
-      { id: '11', name: 'tree-trunk.png', fileType: 'png', downloadUrl: '#' },
-    ]);
-
-    // Fetch comments (can be filtered by search query in the future)
-    // For now, using mock data
-    setComments([
-      {
-        id: '1',
-        topicIcon: avatar1,
-        topicName: 'Algebra',
-        timeAgo: 'Hace 2 dias',
-        postTitle: 'Problema con cambio de base en espacios vectoriales',
-        userAvatar: avatar1,
-        username: '@Khali_1998',
-        date: '10 November 2025 19:35',
-        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
-        likes: 180,
-        comments: 20,
-      },
-      {
-        id: '2',
-        topicIcon: avatar1,
-        topicName: 'Algebra',
-        timeAgo: 'Hace 2 dias',
-        postTitle: 'Problema con cambio de base en espacios vectoriales',
-        userAvatar: avatar1,
-        username: '@Khali_1998',
-        date: '10 November 2025 19:35',
-        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
-        likes: 180,
-        comments: 20,
-      },
-      {
-        id: '3',
-        topicIcon: avatar1,
-        topicName: 'Algebra',
-        timeAgo: 'Hace 2 dias',
-        postTitle: 'Problema con cambio de base en espacios vectoriales',
-        userAvatar: avatar1,
-        username: '@Khali_1998',
-        date: '10 November 2025 19:35',
-        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
-        likes: 180,
-        comments: 20,
-      },
-      {
-        id: '4',
-        topicIcon: avatar1,
-        topicName: 'Algebra',
-        timeAgo: 'Hace 2 dias',
-        postTitle: 'Problema con cambio de base en espacios vectoriales',
-        userAvatar: avatar1,
-        username: '@Khali_1998',
-        date: '10 November 2025 19:35',
-        comment: 'Lo más sistemático es siempre armar la matriz con los vectores como columnas y hacer reducción por Gauss. Ahí vas viendo si alguna fila queda toda en cero → eso te marca dependencia. Si intentás "adivinar" combinaciones antes, en matrices grandes suele ser un lío y te podés confundir más.',
-        likes: 180,
-        comments: 20,
-      },
-    ]);
-  }, []);
-
-  const goToTopic = (id: number | string) => {
-    navigate(`/topic/${id}`);
-  };
+  const goToTopic = (id: number | string) => navigate(`/topic/${id}`);
 
   return (
     <div className="search-results">
@@ -150,26 +97,14 @@ const SearchResults: React.FC = () => {
 
         <div className="search-results__tabs-wrapper">
           <div className="search-results__tabs">
-            <PillTab
-              label="Publicaciones"
-              active={activeTab === 'Publicaciones'}
-              onClick={() => handleTabChange('Publicaciones')}
-            />
-            <PillTab
-              label="Temas"
-              active={activeTab === 'Temas'}
-              onClick={() => handleTabChange('Temas')}
-            />
-            <PillTab
-              label="Material de Estudio"
-              active={activeTab === 'Material de Estudio'}
-              onClick={() => handleTabChange('Material de Estudio')}
-            />
-            <PillTab
-              label="Comentarios"
-              active={activeTab === 'Comentarios'}
-              onClick={() => handleTabChange('Comentarios')}
-            />
+            {['Publicaciones', 'Temas', 'Material de Estudio', 'Comentarios'].map((tab) => (
+              <PillTab
+                key={tab}
+                label={tab}
+                active={activeTab === tab}
+                onClick={() => handleTabChange(tab as TabType)}
+              />
+            ))}
           </div>
         </div>
 
@@ -177,94 +112,110 @@ const SearchResults: React.FC = () => {
           <Filter label="Popular" />
         </div>
 
-        <div className="search-results__main">
-          {activeTab === 'Publicaciones' && (
-            <div className="search-results__posts">
-              {/* TODO: Fetch and display posts based on search query */}
-              <PostCard
-                topic="Algebra I"
-                userAvatar={avatar1}
-                username="Khali_1998"
-                date="10 November 2025 19:35"
-                title="Problema con cambio de base en espacios vectoriales"
-                content="Hola! Estoy intentando resolver un ejercicio donde me piden expresar un vector en una base distinta a la canónica. Entiendo el concepto de cambio de base, pero me pierdo en la práctica: Tengo un vector en ℝ³ escrito en la base canónica, y me dan una base B = {(1,1,0), (0,1,1), (1,0,1)}. ¿Cómo hago exactamente para encontrar ..."
-                tags={['Algebra', 'Duda', 'Ingenieria']}
-                showMoreLink={false}
-              />
-              <PostCard
-                topic="Algebra I"
-                userAvatar={avatar1}
-                username="JuaniK20"
-                date="12 November 2025 19:35"
-                title="Duda con diagonalización de matrices"
-                content="Buenas! Estoy practicando diagonalización y me trabé con una matriz que tiene un autovalor repetido. El autovalor λ = 2 tiene multiplicidad algebraica 2, pero cuando saco los autovectores solo encuentro uno. ¿Esto significa que la matriz no es diagonalizable? ¿O estoy calculando mal el espacio propio? Si no fuera diagonalizable..."
-                tags={['Algebra', 'Duda', 'Ingenieria']}
-                showMoreLink={false}
-              />
-            </div>
-          )}
+        {loading && (
+          <div style={{ padding: 16 }}>Buscando "{searchQuery}"...</div>
+        )}
 
-          {activeTab === 'Temas' && (
-            <div className="search-results__topics">
-              <div className="search-results__topics-grid">
-                {topics.map((topic) => (
-                  <TopicCard
-                    key={topic.id}
-                    image={topic.image}
-                    name={topic.title}
-                    description={topic.description}
-                    members={topic.membersCount}
-                    onClick={() => goToTopic(topic.id)}
-                    className=""
-                  />
-                ))}
+        {!loading && (
+          <div className="search-results__main">
+            {activeTab === 'Publicaciones' && (
+              <div className="search-results__posts">
+                {posts.length === 0 ? (
+                  <p>No hay publicaciones</p>
+                ) : (
+                  posts.map((p) => (
+                    <PostCard
+                      key={p.id}
+                      topic={p.topic}
+                      userAvatar={avatar1}
+                      username={p.user}
+                      date={p.createdAt}
+                      title={p.title}
+                      content={p.content}
+                      tags={p.tags}
+                      showMoreLink={false}
+                    />
+                  ))
+                )}
               </div>
-            </div>
-          )}
+            )}
 
-          {activeTab === 'Material de Estudio' && (
-            <div className="search-results__material">
-              <div className="search-results__files-list">
-                {files.map((file) => (
-                  <FileIcon
-                    key={file.id}
-                    name={file.name}
-                    fileType={file.fileType}
-                    downloadUrl={file.downloadUrl}
-                    onDownload={() => console.log(`Download ${file.name}`)}
-                  />
-                ))}
+            {activeTab === 'Temas' && (
+              <div className="search-results__topics">
+                <div className="search-results__topics-grid">
+                  {topics.length === 0 ? (
+                    <p>No hay temas</p>
+                  ) : (
+                    topics.map((topic) => (
+                      <TopicCard
+                        key={topic.id}
+                        image={topic.image}
+                        name={topic.title}
+                        description={topic.description}
+                        members={topic.membersCount}
+                        onClick={() => goToTopic(topic.id)}
+                        className=""
+                      />
+                    ))
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {activeTab === 'Comentarios' && (
-            <div className="search-results__comments">
-              <div className="search-results__comments-list">
-                {comments.map((comment) => (
-                  <SearchResultComment
-                    key={comment.id}
-                    topicIcon={comment.topicIcon}
-                    topicName={comment.topicName}
-                    timeAgo={comment.timeAgo}
-                    postTitle={comment.postTitle}
-                    userAvatar={comment.userAvatar}
-                    username={comment.username}
-                    date={comment.date}
-                    comment={comment.comment}
-                    likes={comment.likes}
-                    comments={comment.comments}
-                    onViewPost={() => console.log('View post:', comment.id)}
-                  />
-                ))}
+            {activeTab === 'Material de Estudio' && (
+              <div className="search-results__material">
+                <div className="search-results__files-list">
+                  {files.length === 0 ? (
+                    <p>No hay archivos</p>
+                  ) : (
+                    files.map((file, index) => (
+                      <FileIcon
+                        key={`${file.topicId}-${file.name}-${file.folder}-${index}`}
+                        name={file.name}
+                        fileType={file.fileType}
+                        downloadUrl={file.downloadUrl}
+                        onDownload={() => console.log(`Download ${file.name}`)}
+                      />
+                    ))
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+
+            {activeTab === 'Comentarios' && (
+              <div className="search-results__comments">
+                <div className="search-results__comments-list">
+                  {comments.length === 0 ? (
+                    <p>No hay comentarios</p>
+                  ) : (
+                    comments.map((c) => (
+                      <SearchResultComment
+                        key={c.id}
+                        topicIcon={avatar1}
+                        topicName={c.topic}
+                        timeAgo={c.timeAgo || ''}
+                        postTitle={c.postTitle}
+                        userAvatar={avatar1}
+                        username={c.user}
+                        date={c.createdAt}
+                        comment={c.text}
+                        likes={c.likes || 0}
+                        comments={c.replies || 0}
+                        onViewPost={() => console.log('View post:', c.postId)}
+                      />
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default SearchResults;
+
+
 
