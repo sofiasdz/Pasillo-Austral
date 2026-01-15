@@ -69,7 +69,7 @@ const CreatePost: React.FC = () => {
       const formData = new FormData();
       const thisuser = localStorage.getItem('user') || 'anonymous';
       formData.append('user', thisuser);
-      formData.append('topic', selectedTopic.id.toString());
+      formData.append('topic', selectedTopic.name.toString());
       formData.append('title', title);
       formData.append('content', content);
       formData.append('tags', JSON.stringify(selectedLabels));

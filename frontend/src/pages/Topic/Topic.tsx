@@ -40,7 +40,7 @@ const Topic: React.FC = () => {
           setPosts([]);
           return null;
         }
-        return fetch(`http://localhost:3001/posts?topic=${encodeURIComponent(data.title)}`);
+        return fetch(`http://localhost:3001/posts/topic/${encodeURIComponent(data.title)}`);
       })
       .then((res) => (res ? res.json() : []))
       .then((data) => {

@@ -16,12 +16,12 @@ const storage = multer.diskStorage({
     const uniqueName =
       Date.now() + "-" + crypto.randomUUID() + path.extname(file.originalname);
     cb(null, uniqueName);
-  },
+  }
 });
 
 const upload = multer({
   storage,
-  limits: { files: 10 }, // máximo 10 archivos
+  limits: { files: 10 } // máximo 10 archivos
 });
 
 // ---- Helper functions ---- //
@@ -34,10 +34,10 @@ const savePosts = (posts) => {
   fs.writeFileSync(POSTS_FILE, JSON.stringify(posts, null, 2));
 };
 
-// ---- GET all posts ---- //
+// ---- GET all posts (ordenado más nuevo) ---- //
 router.get("/", (req, res) => {
   const posts = getPosts();
-  res.json(posts);
+  res.json(posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
 });
 
 // ---- POST new post w/ optional files ---- //
@@ -57,15 +57,15 @@ router.post("/", upload.array("files", 10), (req, res) => {
     topic,
     title,
     content,
-    tags: tags ? JSON.parse(tags) : [], // por si te llega como string
+    tags: tags ? JSON.parse(tags) : [], 
     files: files.map((f) => ({
       filename: f.filename,
       original: f.originalname,
       mimetype: f.mimetype,
       size: f.size,
-      url: `/uploads/${f.filename}`, // fácil para mostrar en frontend
+      url: `/uploads/${f.filename}`
     })),
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toISOString()
   };
 
   posts.push(newPost);
@@ -74,7 +74,7 @@ router.post("/", upload.array("files", 10), (req, res) => {
   res.status(201).json(newPost);
 });
 
-// ---- GET posts by topic ---- //
+// ---- GET posts by topic (ordenado más nuevo) ---- //
 router.get("/topic/:topic", (req, res) => {
   const { topic } = req.params;
   const posts = getPosts();
@@ -83,20 +83,19 @@ router.get("/topic/:topic", (req, res) => {
     (post) => post.topic.toLowerCase() === topic.toLowerCase()
   );
 
-  res.json(filtered);
+  res.json(filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
 });
 
 // ---- GET post by ID ---- //
 router.get("/:id", (req, res) => {
-    const posts = getPosts();
-    const post = posts.find((p) => p.id === req.params.id);
-  
-    if (!post) {
-      return res.status(404).json({ message: "Post not found" });
-    }
-  
-    res.json(post);
-  });
-  
+  const posts = getPosts();
+  const post = posts.find((p) => p.id === req.params.id);
+
+  if (!post) {
+    return res.status(404).json({ message: "Post not found" });
+  }
+
+  res.json(post);
+});
 
 export default router;
