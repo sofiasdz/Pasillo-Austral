@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
     (t) => match(t.title, q) || match(t.description || "", q)
   );
 
-  // MATERIALS (depende de tu JSON)
+  // MATERIALS
   const matchedMaterials = [];
   materials.forEach((topic) => {
     topic.folders?.forEach((folder) => {
@@ -67,10 +67,17 @@ router.get("/", (req, res) => {
     });
   });
 
-  // COMMENTS
-  const matchedComments = comments.filter((c) =>
-    match(c.content || "", q)
-  );
+  // COMMENTS — enriquece con postTitle y topicName
+  const matchedComments = comments
+    .filter((c) => match(c.content || "", q))
+    .map((c) => {
+      const post = posts.find((p) => p.id === c.postId);
+      return {
+        ...c,
+        postTitle: post?.title || "Publicación desconocida",
+        topicName: post?.topic || "Tema desconocido",
+      };
+    });
 
   res.json({
     posts: matchedPosts,
