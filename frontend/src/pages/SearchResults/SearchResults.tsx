@@ -35,7 +35,6 @@ const SearchResults: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleBack = () => window.history.back();
-
   const handleTabChange = (tab: TabType) => setActiveTab(tab);
 
   useEffect(() => {
@@ -48,6 +47,7 @@ const SearchResults: React.FC = () => {
       .then((data) => {
         setPosts(data.posts || []);
 
+        // --- Topics con fallback de imágenes ---
         const mappedTopics = (data.topics || []).map((t: any, index: number) => ({
           ...t,
           image: t.image
@@ -56,20 +56,16 @@ const SearchResults: React.FC = () => {
         }));
         setTopics(mappedTopics);
 
-        // 🔥 APLANAR MATERIALES
-        const flattened = (data.materials || []).flatMap((topic: any) =>
-          topic.folders.flatMap((folder: any) =>
-            folder.files.map((file: any) => ({
-              topicId: topic.topicId,
-              folder: folder.name,
-              name: file.name,
-              fileType: file.name.includes('.') ? file.name.split('.').pop().toLowerCase() : 'file',
-              downloadUrl: file.url,
-            }))
-          )
-        );
+        // --- Materials adaptados al payload actual ---
+        const mappedFiles = (data.materials || []).map((m: any, index: number) => ({
+          folder: m.folder || '',
+          name: m.file || '',
+          fileType: m.file?.includes('.') ? m.file.split('.').pop().toLowerCase() : 'file',
+          downloadUrl: m.path,
+          key: `${m.folder}-${m.file}-${index}`,
+        }));
 
-        setFiles(flattened);
+        setFiles(mappedFiles);
 
         setComments(data.comments || []);
       })
@@ -168,9 +164,9 @@ const SearchResults: React.FC = () => {
                   {files.length === 0 ? (
                     <p>No hay archivos</p>
                   ) : (
-                    files.map((file, index) => (
+                    files.map((file) => (
                       <FileIcon
-                        key={`${file.topicId}-${file.name}-${file.folder}-${index}`}
+                        key={file.key}
                         name={file.name}
                         fileType={file.fileType}
                         downloadUrl={file.downloadUrl}
@@ -216,6 +212,3 @@ const SearchResults: React.FC = () => {
 };
 
 export default SearchResults;
-
-
-
