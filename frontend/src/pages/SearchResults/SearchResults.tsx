@@ -39,7 +39,6 @@ const SearchResults: React.FC = () => {
 
   useEffect(() => {
     if (!searchQuery) return;
-
     setLoading(true);
 
     fetch(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}`)
@@ -47,7 +46,6 @@ const SearchResults: React.FC = () => {
       .then((data) => {
         setPosts(data.posts || []);
 
-        // --- Topics con fallback de imágenes ---
         const mappedTopics = (data.topics || []).map((t: any, index: number) => ({
           ...t,
           image: t.image
@@ -56,7 +54,6 @@ const SearchResults: React.FC = () => {
         }));
         setTopics(mappedTopics);
 
-        // --- Materials adaptados al payload actual ---
         const mappedFiles = (data.materials || []).map((m: any, index: number) => ({
           folder: m.folder || '',
           name: m.file || '',
@@ -64,7 +61,6 @@ const SearchResults: React.FC = () => {
           downloadUrl: m.path,
           key: `${m.folder}-${m.file}-${index}`,
         }));
-
         setFiles(mappedFiles);
 
         setComments(data.comments || []);
@@ -188,16 +184,16 @@ const SearchResults: React.FC = () => {
                       <SearchResultComment
                         key={c.id}
                         topicIcon={avatar1}
-                        topicName={c.topic}
-                        timeAgo={c.timeAgo || ''}
-                        postTitle={c.postTitle}
+                        topicName={c.topicName || ''}
+                        postTitle={c.postTitle || ''}
                         userAvatar={avatar1}
                         username={c.user}
                         date={c.createdAt}
-                        comment={c.text}
+                        comment={c.content || ''}
                         likes={c.likes || 0}
                         comments={c.replies || 0}
-                        onViewPost={() => console.log('View post:', c.postId)}
+                        timeAgo={c.createdAt}
+                        onViewPost={() => navigate(`/post/${c.postId}`)}
                       />
                     ))
                   )}
@@ -212,3 +208,5 @@ const SearchResults: React.FC = () => {
 };
 
 export default SearchResults;
+
+

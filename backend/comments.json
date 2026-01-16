@@ -1,60 +1,60 @@
 [
-    { "id": "c1", "postId": "p1", "userUsername": "martina@example.com", "content": "Yo también me trabé ahí, fijate la componente paralela del peso!", "likes": 3, "dislikes": 0, "createdAt": "2025-09-01T12:00:00", "parentId": null },
+    { "id": "c1", "postId": "p1", "user": "martina@example.com", "content": "Yo también me trabé ahí, fijate la componente paralela del peso!", "likes": 3, "dislikes": 0, "createdAt": "2025-09-01T12:00:00", "parentId": null },
   
-    { "id": "c2", "postId": "p1", "userUsername": "leo@example.com", "content": "Sumo: si el ángulo aumenta, la fuerza paralela crece.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-01T12:20:00", "parentId": "c1" },
+    { "id": "c2", "postId": "p1", "user": "leo@example.com", "content": "Sumo: si el ángulo aumenta, la fuerza paralela crece.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-01T12:20:00", "parentId": "c1" },
   
-    { "id": "c3", "postId": "p2", "userUsername": "agus@example.com", "content": "Recordá que acción y reacción actúan sobre cuerpos distintos 💥", "likes": 2, "dislikes": 0, "createdAt": "2025-09-01T12:30:00", "parentId": null },
+    { "id": "c3", "postId": "p2", "user": "agus@example.com", "content": "Recordá que acción y reacción actúan sobre cuerpos distintos 💥", "likes": 2, "dislikes": 0, "createdAt": "2025-09-01T12:30:00", "parentId": null },
   
-    { "id": "c4", "postId": "p3", "userUsername": "nicolas@example.com", "content": "Si se conserva energía cinética es elástico ✔️", "likes": 0, "dislikes": 0, "createdAt": "2025-09-02T10:00:00", "parentId": null },
+    { "id": "c4", "postId": "p3", "user": "nicolas@example.com", "content": "Si se conserva energía cinética es elástico ✔️", "likes": 0, "dislikes": 0, "createdAt": "2025-09-02T10:00:00", "parentId": null },
   
-    { "id": "c5", "postId": "p4", "userUsername": "carla@example.com", "content": "Pensalo como un área bajo la curva de fuerza vs tiempo!", "likes": 4, "dislikes": 1, "createdAt": "2025-09-02T13:50:00", "parentId": null },
+    { "id": "c5", "postId": "p4", "user": "carla@example.com", "content": "Pensalo como un área bajo la curva de fuerza vs tiempo!", "likes": 4, "dislikes": 1, "createdAt": "2025-09-02T13:50:00", "parentId": null },
   
-    { "id": "c6", "postId": "p5", "userUsername": "fede@example.com", "content": "A mí me sirvió escribir primero conservación del momento.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:00:00", "parentId": null },
+    { "id": "c6", "postId": "p5", "user": "fede@example.com", "content": "A mí me sirvió escribir primero conservación del momento.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:00:00", "parentId": null },
   
-    { "id": "c7", "postId": "p6", "userUsername": "sofi2@gmail.com", "content": "Tangencial cambia módulo, centrípeta dirección 🌪️", "likes": 2, "dislikes": 0, "createdAt": "2025-09-05T15:00:00", "parentId": null },
+    { "id": "c7", "postId": "p6", "user": "sofi2@gmail.com", "content": "Tangencial cambia módulo, centrípeta dirección 🌪️", "likes": 2, "dislikes": 0, "createdAt": "2025-09-05T15:00:00", "parentId": null },
   
-    { "id": "c8", "postId": "p7", "userUsername": "leo@example.com", "content": "Si hay roce, se disipa energía, no se conserva.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-06T11:00:00", "parentId": null },
+    { "id": "c8", "postId": "p7", "user": "leo@example.com", "content": "Si hay roce, se disipa energía, no se conserva.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-06T11:00:00", "parentId": null },
   
-    { "id": "c9", "postId": "p8", "userUsername": "martina@example.com", "content": "Hacé un triángulo de fuerzas y listo 😄", "likes": 3, "dislikes": 0, "createdAt": "2025-09-07T09:40:00", "parentId": null },
+    { "id": "c9", "postId": "p8", "user": "martina@example.com", "content": "Hacé un triángulo de fuerzas y listo 😄", "likes": 3, "dislikes": 0, "createdAt": "2025-09-07T09:40:00", "parentId": null },
   
-    { "id": "c10", "postId": "p9", "userUsername": "agus@example.com", "content": "Fila de ceros en la matriz → infinitas soluciones.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:10:00", "parentId": null },
+    { "id": "c10", "postId": "p9", "user": "agus@example.com", "content": "Fila de ceros en la matriz → infinitas soluciones.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:10:00", "parentId": null },
   
-    { "id": "c11", "postId": "p10", "userUsername": "sofia@example.com", "content": "Un vector es combinación del resto → dependientes.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-03T17:12:00", "parentId": null },
+    { "id": "c11", "postId": "p10", "user": "sofia@example.com", "content": "Un vector es combinación del resto → dependientes.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-03T17:12:00", "parentId": null },
   
-    { "id": "c12", "postId": "p11", "userUsername": "lucas@example.com", "content": "Si cumple cierre y escalares ya es subespacio ✨", "likes": 0, "dislikes": 0, "createdAt": "2025-09-03T17:20:00", "parentId": null },
+    { "id": "c12", "postId": "p11", "user": "lucas@example.com", "content": "Si cumple cierre y escalares ya es subespacio ✨", "likes": 0, "dislikes": 0, "createdAt": "2025-09-03T17:20:00", "parentId": null },
   
-    { "id": "c13", "postId": "p12", "userUsername": "leo@example.com", "content": "Parámetros = grados de libertad de la solución.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:30:00", "parentId": null },
+    { "id": "c13", "postId": "p12", "user": "leo@example.com", "content": "Parámetros = grados de libertad de la solución.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-03T17:30:00", "parentId": null },
   
-    { "id": "c14", "postId": "p13", "userUsername": "martina@example.com", "content": "En gráficas, IA, sistemas recomendadores!", "likes": 5, "dislikes": 0, "createdAt": "2025-09-03T17:40:00", "parentId": null },
+    { "id": "c14", "postId": "p13", "user": "martina@example.com", "content": "En gráficas, IA, sistemas recomendadores!", "likes": 5, "dislikes": 0, "createdAt": "2025-09-03T17:40:00", "parentId": null },
   
-    { "id": "c15", "postId": "p14", "userUsername": "agus@example.com", "content": "Transformaciones aparecen en cambios de coordenadas.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-05T18:40:00", "parentId": null },
+    { "id": "c15", "postId": "p14", "user": "agus@example.com", "content": "Transformaciones aparecen en cambios de coordenadas.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-05T18:40:00", "parentId": null },
   
-    { "id": "c16", "postId": "p15", "userUsername": "fede@example.com", "content": "Núcleo = vectores anulados; imagen = resultados.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-06T09:55:00", "parentId": null },
+    { "id": "c16", "postId": "p15", "user": "fede@example.com", "content": "Núcleo = vectores anulados; imagen = resultados.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-06T09:55:00", "parentId": null },
   
-    { "id": "c17", "postId": "p16", "userUsername": "tomas@example.com", "content": "Autovalores muestran cómo estira el espacio 💫", "likes": 3, "dislikes": 0, "createdAt": "2025-09-07T16:00:00", "parentId": null },
+    { "id": "c17", "postId": "p16", "user": "tomas@example.com", "content": "Autovalores muestran cómo estira el espacio 💫", "likes": 3, "dislikes": 0, "createdAt": "2025-09-07T16:00:00", "parentId": null },
   
-    { "id": "c18", "postId": "p17", "userUsername": "gaston@example.com", "content": "A veces otra base hace más simples las cuentas.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-08T12:30:00", "parentId": null },
+    { "id": "c18", "postId": "p17", "user": "gaston@example.com", "content": "A veces otra base hace más simples las cuentas.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-08T12:30:00", "parentId": null },
   
-    { "id": "c19", "postId": "p18", "userUsername": "sofi@gmail.com", "content": "Det != 0 implica no colapsar el espacio 💥", "likes": 2, "dislikes": 1, "createdAt": "2025-09-09T11:20:00", "parentId": null },
+    { "id": "c19", "postId": "p18", "user": "sofi@gmail.com", "content": "Det != 0 implica no colapsar el espacio 💥", "likes": 2, "dislikes": 1, "createdAt": "2025-09-09T11:20:00", "parentId": null },
   
-    { "id": "c20", "postId": "p19", "userUsername": "leo@example.com", "content": "Factorizá si podés cancelar 0/0.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T09:15:00", "parentId": null },
+    { "id": "c20", "postId": "p19", "user": "leo@example.com", "content": "Factorizá si podés cancelar 0/0.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T09:15:00", "parentId": null },
   
-    { "id": "c21", "postId": "p20", "userUsername": "flor@example.com", "content": "L'Hôpital solo si hay indeterminación real ⚠️", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T10:22:00", "parentId": null },
+    { "id": "c21", "postId": "p20", "user": "flor@example.com", "content": "L'Hôpital solo si hay indeterminación real ⚠️", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T10:22:00", "parentId": null },
   
-    { "id": "c22", "postId": "p21", "userUsername": "agus@example.com", "content": "Distribuí antes de derivar y aprovecha simplificaciones.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-10T11:40:00", "parentId": null },
+    { "id": "c22", "postId": "p21", "user": "agus@example.com", "content": "Distribuí antes de derivar y aprovecha simplificaciones.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-10T11:40:00", "parentId": null },
   
-    { "id": "c23", "postId": "p22", "userUsername": "ramiro@example.com", "content": "Ejemplo: valor absoluto en 0 😉", "likes": 3, "dislikes": 0, "createdAt": "2025-09-10T13:10:00", "parentId": null },
+    { "id": "c23", "postId": "p22", "user": "ramiro@example.com", "content": "Ejemplo: valor absoluto en 0 😉", "likes": 3, "dislikes": 0, "createdAt": "2025-09-10T13:10:00", "parentId": null },
   
-    { "id": "c24", "postId": "p23", "userUsername": "cami@example.com", "content": "Buscá que u simplifique lo más difícil primero.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T15:20:00", "parentId": null },
+    { "id": "c24", "postId": "p23", "user": "cami@example.com", "content": "Buscá que u simplifique lo más difícil primero.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-10T15:20:00", "parentId": null },
   
-    { "id": "c25", "postId": "p24", "userUsername": "lucas@example.com", "content": "Test razón suele ser mi primera opción.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-11T09:52:00", "parentId": null },
+    { "id": "c25", "postId": "p24", "user": "lucas@example.com", "content": "Test razón suele ser mi primera opción.", "likes": 2, "dislikes": 0, "createdAt": "2025-09-11T09:52:00", "parentId": null },
   
-    { "id": "c26", "postId": "p25", "userUsername": "nicolas@example.com", "content": "Visualizalo como velocidad promedio vs instantánea.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-11T11:50:00", "parentId": null },
+    { "id": "c26", "postId": "p25", "user": "nicolas@example.com", "content": "Visualizalo como velocidad promedio vs instantánea.", "likes": 0, "dislikes": 0, "createdAt": "2025-09-11T11:50:00", "parentId": null },
   
-    { "id": "c27", "postId": "p26", "userUsername": "tomas@example.com", "content": "A mí me sirve memorizar la tabla trigonométrica 💡", "likes": 4, "dislikes": 0, "createdAt": "2025-09-11T12:30:00", "parentId": null },
+    { "id": "c27", "postId": "p26", "user": "tomas@example.com", "content": "A mí me sirve memorizar la tabla trigonométrica 💡", "likes": 4, "dislikes": 0, "createdAt": "2025-09-11T12:30:00", "parentId": null },
   
-    { "id": "c28", "postId": "p27", "userUsername": "martina@example.com", "content": "Es para evitar huecos y saltos raros en funciones.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-11T14:10:00", "parentId": null },
+    { "id": "c28", "postId": "p27", "user": "martina@example.com", "content": "Es para evitar huecos y saltos raros en funciones.", "likes": 1, "dislikes": 0, "createdAt": "2025-09-11T14:10:00", "parentId": null },
   
-    { "id": "c29", "postId": "p28", "userUsername": "leo@example.com", "content": "Sirven para aproximar cambios pequeños 🚀", "likes": 3, "dislikes": 0, "createdAt": "2025-09-11T16:20:00", "parentId": null }
+    { "id": "c29", "postId": "p28", "user": "leo@example.com", "content": "Sirven para aproximar cambios pequeños 🚀", "likes": 3, "dislikes": 0, "createdAt": "2025-09-11T16:20:00", "parentId": null }
   ]
   
