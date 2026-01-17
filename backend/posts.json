@@ -404,5 +404,26 @@
     ],
     "files": [],
     "createdAt": "2026-01-15T02:58:45.860Z"
+  },
+  {
+    "id": "0698cb6c-0ba9-4053-a25f-977faa317250",
+    "user": "sofi@gmail.com",
+    "topic": "Algebra I",
+    "title": "Ayuda con este ejercicio de matrices",
+    "content": "No entiendo este ejercicio, alguien me puede ayudar a resolverlo?",
+    "tags": [
+      "Matrices",
+      "Algebra"
+    ],
+    "files": [
+      {
+        "filename": "1768660882694-2c241be8-7342-4606-ae9e-3ba0ee01e6ab.pdf",
+        "original": "apunte_algebra.pdf",
+        "mimetype": "application/pdf",
+        "size": 3062252,
+        "url": "/uploads/1768660882694-2c241be8-7342-4606-ae9e-3ba0ee01e6ab.pdf"
+      }
+    ],
+    "createdAt": "2026-01-17T14:41:22.714Z"
   }
 ]
