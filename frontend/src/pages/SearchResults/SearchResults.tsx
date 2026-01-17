@@ -165,8 +165,6 @@ const SearchResults: React.FC = () => {
                         key={file.key}
                         name={file.name}
                         fileType={file.fileType}
-                        downloadUrl={file.downloadUrl}
-                        onDownload={() => console.log(`Download ${file.name}`)}
                       />
                     ))
                   )}

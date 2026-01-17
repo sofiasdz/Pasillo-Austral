@@ -185,8 +185,7 @@ const Topic: React.FC = () => {
                       key={file.id}
                       name={file.name}
                       fileType={file.fileType}
-                      downloadUrl={file.downloadUrl}
-                      onDownload={() => console.log(`Download ${file.name}`)}
+                     
                     />
                   ))}
                 </div>

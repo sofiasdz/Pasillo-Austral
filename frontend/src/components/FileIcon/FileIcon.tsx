@@ -1,55 +1,54 @@
-import React from 'react';
-import './FileIcon.css';
-import downloadIcon from '../../assets/download-icon.svg';
-import filePdf from '../../assets/file-pdf.svg';
-import filePng from '../../assets/file-png.svg';
-import fileDocx from '../../assets/file-docx.svg';
-import fileXlsx from '../../assets/file-xlsx.svg';
-import fileTxt from '../../assets/file-txt.svg';
-import fileZip from '../../assets/file-zip.svg';
-import fileAi from '../../assets/file-ai.svg';
+import React from "react";
+import "./FileIcon.css";
+import downloadIcon from "../../assets/download-icon.svg";
+import filePdf from "../../assets/file-pdf.svg";
+import filePng from "../../assets/file-png.svg";
+import fileDocx from "../../assets/file-docx.svg";
+import fileXlsx from "../../assets/file-xlsx.svg";
+import fileTxt from "../../assets/file-txt.svg";
+import fileZip from "../../assets/file-zip.svg";
+import fileAi from "../../assets/file-ai.svg";
+import { useDownloadFile } from "../../hooks/useDowloadFile"
 
 export interface FileIconProps {
   name: string;
-  fileType?: 'pdf' | 'docx' | 'xlsx' | 'txt' | 'png' | 'zip' | 'ai';
-  downloadUrl?: string;
-  onDownload?: () => void;
+  fileType?: "pdf" | "docx" | "xlsx" | "txt" | "png" | "zip" | "ai";
   onClick?: () => void;
 }
 
 const getFileIcon = (fileType?: string): string => {
   switch (fileType) {
-    case 'pdf':
+    case "pdf":
       return filePdf;
-    case 'png':
+    case "png":
       return filePng;
-    case 'docx':
+    case "docx":
       return fileDocx;
-    case 'xlsx':
+    case "xlsx":
       return fileXlsx;
-    case 'txt':
+    case "txt":
       return fileTxt;
-    case 'zip':
+    case "zip":
       return fileZip;
-    case 'ai':
+    case "ai":
       return fileAi;
     default:
-      return filePdf; // Default to PDF icon
+      return filePdf; // Default icon
   }
 };
 
 export const FileIcon: React.FC<FileIconProps> = ({
   name,
   fileType,
-  downloadUrl,
-  onDownload,
   onClick,
 }) => {
-  // Extract file type from filename if not provided
+  const { downloadFile } = useDownloadFile();
+
+  // Derivar tipo del nombre si no viene por props
   const getFileTypeFromName = (filename: string): string | undefined => {
-    const extension = filename.split('.').pop()?.toLowerCase();
-    if (['pdf', 'docx', 'xlsx', 'txt', 'png', 'zip', 'ai'].includes(extension || '')) {
-      return extension as FileIconProps['fileType'];
+    const extension = filename.split(".").pop()?.toLowerCase();
+    if (["pdf", "docx", "xlsx", "txt", "png", "zip", "ai"].includes(extension || "")) {
+      return extension as FileIconProps["fileType"];
     }
     return undefined;
   };
@@ -58,24 +57,25 @@ export const FileIcon: React.FC<FileIconProps> = ({
 
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (onDownload) {
-      onDownload();
-    } else if (downloadUrl) {
-      window.open(downloadUrl, '_blank');
-    }
+    downloadFile(name); // 💥 descarga desde backend
   };
 
   return (
     <div
       className="file-icon"
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
+      role={onClick ? "button" : undefined}
       tabIndex={onClick ? 0 : undefined}
     >
-      <img src={getFileIcon(resolvedFileType)} alt="" className="file-icon__icon" />
+      <img
+        src={getFileIcon(resolvedFileType)}
+        alt=""
+        className="file-icon__icon"
+      />
       <div className="file-icon__content">
         <p className="file-icon__name">{name}</p>
       </div>
+
       <button
         className="file-icon__download"
         onClick={handleDownload}
