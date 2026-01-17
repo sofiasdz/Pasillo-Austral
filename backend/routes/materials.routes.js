@@ -29,7 +29,6 @@ const saveMaterials = (data) => {
 
 // =====================================
 // 📥 Descargar archivo (real o mock)
-// 👉 TIENE QUE IR PRIMERO para no chocar con /:topicId
 // =====================================
 router.get("/download/:filename", (req, res) => {
   const { filename } = req.params;
@@ -75,8 +74,8 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, unique + "-" + file.originalname);
+    // 🔥 Guardar con el nombre original sin modificar
+    cb(null, file.originalname);
   },
 });
 
@@ -161,3 +160,4 @@ router.post(
 );
 
 export default router;
+

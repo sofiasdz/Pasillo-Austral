@@ -13,9 +13,8 @@ const storage = multer.diskStorage({
     cb(null, "uploads/"); // carpeta donde se guardan los archivos
   },
   filename: (req, file, cb) => {
-    const uniqueName =
-      Date.now() + "-" + crypto.randomUUID() + path.extname(file.originalname);
-    cb(null, uniqueName);
+    // Guardar EXACTAMENTE con el nombre original
+    cb(null, file.originalname);
   }
 });
 
@@ -59,11 +58,11 @@ router.post("/", upload.array("files", 10), (req, res) => {
     content,
     tags: tags ? JSON.parse(tags) : [], 
     files: files.map((f) => ({
-      filename: f.filename,
+      filename: f.originalname,
       original: f.originalname,
       mimetype: f.mimetype,
       size: f.size,
-      url: `/uploads/${f.filename}`
+      url: `/uploads/${f.originalname}`
     })),
     createdAt: new Date().toISOString()
   };
@@ -99,3 +98,4 @@ router.get("/:id", (req, res) => {
 });
 
 export default router;
+
