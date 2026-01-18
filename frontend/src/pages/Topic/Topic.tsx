@@ -153,6 +153,7 @@ const Topic: React.FC = () => {
                 {posts.map((post) => (
                   <PostCard
                     key={post.id}
+                    id={post.id}  // 👈 AHORA SI!
                     topic={topic?.title}
                     userAvatar={post.userAvatar || avatar1}
                     username={post.userUsername}
@@ -162,6 +163,7 @@ const Topic: React.FC = () => {
                     tags={post.tags || []}
                     showMoreLink={true}
                     className="post-card"
+
                   />
                 ))}
               </div>

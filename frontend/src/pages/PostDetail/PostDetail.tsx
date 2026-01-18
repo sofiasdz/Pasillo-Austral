@@ -77,18 +77,24 @@ const PostDetail: React.FC = () => {
     navigate(-1);
   };
 
-  const handlePublish = async (text: string) => {
-    if (!text.trim()) return;
+  const handlePublish = async (text: string, files?: File[]) => {
+    if (!text.trim() && (!files || files.length === 0)) return;
 
     try {
+      const formData = new FormData();
+      formData.append('postId', id || '');
+      formData.append('user', '@anon'); // temporal hasta user real
+      formData.append('content', text || '');
+
+      if (files && files.length > 0) {
+        files.forEach((file) => {
+          formData.append('files', file);
+        });
+      }
+
       await fetch(`${API_URL}/comments`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          postId: id,
-          user: "@anon", // temporal hasta user real
-          content: text,
-        }),
+        body: formData, // FormData automatically sets Content-Type with boundary
       });
 
       // refresh comments after publishing

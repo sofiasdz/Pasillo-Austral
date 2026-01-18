@@ -298,5 +298,31 @@
     "likes": 0,
     "dislikes": 0,
     "createdAt": "2026-01-18T22:09:45.479Z"
+  },
+  {
+    "id": "45bb311e-27f7-4c42-901e-d98e4a634ea8",
+    "postId": "p22",
+    "parentId": null,
+    "user": "@anon",
+    "content": "",
+    "files": [
+      {
+        "filename": "Unidad1.docx",
+        "original": "Unidad1.docx",
+        "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 1117445,
+        "path": "/uploads/comments/Unidad1.docx"
+      },
+      {
+        "filename": "apunte_algebra.pdf",
+        "original": "apunte_algebra.pdf",
+        "mimetype": "application/pdf",
+        "size": 3062252,
+        "path": "/uploads/comments/apunte_algebra.pdf"
+      }
+    ],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-01-18T22:33:03.904Z"
   }
 ]

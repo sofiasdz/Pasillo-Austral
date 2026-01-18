@@ -1,9 +1,30 @@
 import express from "express";
 import fs from "fs";
 import crypto from "crypto";
+import multer from "multer";
+import path from "path";
 
 const router = express.Router();
 const COMMENTS_FILE = "./comments.json";
+
+// ---- Multer config ---- //
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadDir = "uploads/comments/";
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({
+  storage,
+  limits: { files: 5 } // máximo 5 archivos
+});
 
 // ---- Helpers ---- //
 const getComments = () => {
@@ -39,10 +60,11 @@ router.get("/post/:postId", (req, res) => {
 });
 
 // ---- POST new comment or reply ---- //
-router.post("/", (req, res) => {
+router.post("/", upload.array("files", 5), (req, res) => {
   const { postId, user, content, parentId } = req.body;
+  const files = req.files || [];
 
-  if (!postId || !user || !content) {
+  if (!postId || !user || (!content && files.length === 0)) {
     return res.status(400).json({ message: "Faltan datos obligatorios" });
   }
 
@@ -53,7 +75,14 @@ router.post("/", (req, res) => {
     postId,
     parentId: parentId || null, // si existe, es reply; si no, es comment raíz
     user,
-    content,
+    content: content || '',
+    files: files.map((f) => ({
+      filename: f.originalname,
+      original: f.originalname,
+      mimetype: f.mimetype,
+      size: f.size,
+      path: `/uploads/comments/${f.originalname}`
+    })),
     likes: 0,
     dislikes: 0,
     createdAt: new Date().toISOString(),
