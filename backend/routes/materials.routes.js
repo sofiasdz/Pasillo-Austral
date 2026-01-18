@@ -159,5 +159,48 @@ router.post(
   }
 );
 
+// =====================================
+// ⬆️ Subir MULTIPLES archivos (hasta 5)
+// =====================================
+router.post(
+  "/:topicId/folders/:folderName/files/multiple",
+  upload.array("files", 5),
+  (req, res) => {
+    const { topicId, folderName } = req.params;
+    const materials = getMaterials();
+
+    const entry = materials.find((m) => m.topicId === Number(topicId));
+    if (!entry) {
+      return res.status(404).json({ message: "Topic no encontrado" });
+    }
+
+    const folder = entry.folders.find((f) => f.name === folderName);
+    if (!folder) {
+      return res.status(404).json({ message: "Carpeta no encontrada" });
+    }
+
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "No se subió ningún archivo" });
+    }
+
+    req.files.forEach((f) => {
+      const filePath = `/uploads/materials/${topicId}/${folderName}/${f.filename}`;
+      folder.files.push({
+        name: f.originalname,
+        path: filePath,
+        size: f.size,
+        uploadedAt: new Date().toISOString(),
+      });
+    });
+
+    saveMaterials(materials);
+    res.status(201).json({
+      message: `Se subieron ${req.files.length} archivo(s)`,
+      folder,
+    });
+  }
+);
+
+
 export default router;
 

@@ -94,46 +94,42 @@ const FolderView: React.FC = () => {
   };
 
   const handleUploadFiles = async (uploadedFiles: UploadedFile[]) => {
-    if (!topicId || !folderName) return;
+    if (!topicId || !folderName || uploadedFiles.length === 0) return;
 
     try {
       const formData = new FormData();
-      uploadedFiles.forEach((fileObj) => {
-        formData.append('files', fileObj.file);
-      });
+      uploadedFiles.forEach((file) => formData.append("files", file.file));
 
-      const response = await fetch(`http://localhost:3001/materials/${topicId}/folders/${encodeURIComponent(folderName)}/files`, {
-        method: 'POST',
-        body: formData,
-      });
+      const res = await fetch(
+        `http://localhost:3001/materials/${topicId}/folders/${folderName}/files/multiple`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error('Error uploading files');
+      if (!res.ok) {
+        throw new Error("Error subiendo archivos");
       }
 
-      // Refresh the files list
-      fetch(`http://localhost:3001/materials/${topicId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          const folder = data.folders?.find((f: any) => f.name === folderName);
-          if (folder) {
-            setFiles(
-              folder.files.map((file: any) => ({
-                id: `${folder.name}-${file.name || file}`,
-                name: file.name || file,
-                fileType: (file.name || file).split('.').pop(),
-                downloadUrl: file.path
-                  ? `http://localhost:3001${file.path}`
-                  : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
-              }))
-            );
-          }
-        })
-        .catch((err) => console.error('Error refreshing files:', err));
+      const data = await res.json();
+
+      // Merge nuevos archivos con los actuales
+      const newFiles = data.folder.files.map((f: any) => ({
+        id: `${folderName}-${f.name}`,
+        name: f.name,
+        fileType: f.name.split(".").pop(),
+        downloadUrl: `http://localhost:3001${f.path}`,
+      }));
+
+      setFiles(newFiles);
+      setIsUploadFilesModalOpen(false);
     } catch (err) {
-      console.error('Error uploading files:', err);
+      console.error("Error al subir archivos:", err);
+      alert("Hubo un error al subir archivos");
     }
   };
+
 
   return (
     <div className="folder-view">

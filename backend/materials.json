@@ -76,7 +76,26 @@
       },
       {
         "name": "finales",
-        "files": []
+        "files": [
+          {
+            "name": "apunte_algebra.pdf",
+            "path": "/uploads/materials/1/finales/apunte_algebra.pdf",
+            "size": 3062252,
+            "uploadedAt": "2026-01-18T20:35:22.143Z"
+          },
+          {
+            "name": "192470.pdf",
+            "path": "/uploads/materials/1/finales/192470.pdf",
+            "size": 118457,
+            "uploadedAt": "2026-01-18T20:35:34.171Z"
+          },
+          {
+            "name": "192471.pdf",
+            "path": "/uploads/materials/1/finales/192471.pdf",
+            "size": 90998,
+            "uploadedAt": "2026-01-18T20:35:34.172Z"
+          }
+        ]
       }
     ]
   },
