@@ -106,8 +106,18 @@
             "path": "/uploads/materials/1/finales/192471.pdf",
             "size": 90998,
             "uploadedAt": "2026-01-18T20:35:34.172Z"
+          },
+          {
+            "name": "192471.pdf",
+            "path": "/uploads/materials/1/finales/192471.pdf",
+            "size": 90998,
+            "uploadedAt": "2026-01-18T21:56:48.898Z"
           }
         ]
+      },
+      {
+        "name": "Apuntes de clase",
+        "files": []
       }
     ]
   },

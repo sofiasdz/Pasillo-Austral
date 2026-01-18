@@ -10,6 +10,7 @@ import { UploadFilesModal, type UploadedFile } from '../../components/UploadFile
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import avatar1 from '../../assets/avatar1.png';
 import plusBlueIcon from '../../assets/plus-blue-icon.svg';
+import { useToast } from '../../hooks/useToast';
 
 interface FileData {
   id: string;
@@ -35,6 +36,15 @@ const FolderView: React.FC = () => {
   const [topicTitle, setTopicTitle] = useState<string>(state?.topicTitle || '');
   const [starredFiles, setStarredFiles] = useState<StarredFile[]>([]);
   const [isUploadFilesModalOpen, setIsUploadFilesModalOpen] = useState(false);
+  const { showSuccess, showError } = useToast();
+
+  const handleSuccess = () => {
+    showSuccess('¡Archivos subidos con éxito!');
+  };
+
+  const handleError = () => {
+    showError('Hubo un error al subir archivos');
+  };
 
   useEffect(() => {
     // If no state passed, fetch from API using URL params
@@ -124,9 +134,10 @@ const FolderView: React.FC = () => {
 
       setFiles(newFiles);
       setIsUploadFilesModalOpen(false);
+      handleSuccess();
     } catch (err) {
       console.error("Error al subir archivos:", err);
-      alert("Hubo un error al subir archivos");
+      handleError();
     }
   };
 

@@ -17,6 +17,7 @@ import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
 import { useNavigate } from 'react-router-dom';
 import plusIcon from '../../assets/plus-icon.svg';
+import { useToast } from '../../hooks/useToast';
 
 const Topic: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Publicaciones' | 'Material de Estudio'>('Publicaciones');
@@ -27,6 +28,15 @@ const Topic: React.FC = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [starredFiles, setStarredFiles] = useState<StarredFile[]>([]);
   const [isCreateFolderModalOpen, setIsCreateFolderModalOpen] = useState(false);
+  const { showSuccess, showError } = useToast();
+
+  const handleSuccess = () => {
+    showSuccess('¡Carpeta creada con éxito!');
+  };
+
+  const handleError = () => {
+    showError('Hubo un error al crear carpeta');
+  };
 
   const topicId = window.location.pathname.split('/').pop() || '1';
   const navigate = useNavigate();
@@ -243,17 +253,19 @@ const Topic: React.FC = () => {
       if (!res.ok) {
         const errorData = await res.json();
         alert(errorData.message || "Error creando carpeta");
+        handleError();
         return;
       }
 
       // Carpeta creada OK → refrescar estado local
       const updated = await fetch(`http://localhost:3001/materials/${topicId}`).then((r) => r.json());
       setFolders(updated.folders || []);
+      handleSuccess();
 
       setIsCreateFolderModalOpen(false);
     } catch (err) {
       console.error("Error creando carpeta:", err);
-      alert("Error creando carpeta");
+      handleError();
     }
   }}
 />
