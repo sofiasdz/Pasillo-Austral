@@ -227,16 +227,38 @@ const Topic: React.FC = () => {
           </>
         )}
       </div>
-
       <CreateFolderModal
-        isOpen={isCreateFolderModalOpen}
-        onClose={() => setIsCreateFolderModalOpen(false)}
-        onCreate={(folderName) => {
-          console.log('Creating folder:', folderName);
-          // TODO: Implement folder creation API call
-          // After successful creation, refresh folders list
-        }}
-      />
+  isOpen={isCreateFolderModalOpen}
+  onClose={() => setIsCreateFolderModalOpen(false)}
+  onCreate={async (folderName) => {
+    console.log('Creating folder:', folderName);
+
+    try {
+      const res = await fetch(`http://localhost:3001/materials/${topicId}/folders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ folderName }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(errorData.message || "Error creando carpeta");
+        return;
+      }
+
+      // Carpeta creada OK → refrescar estado local
+      const updated = await fetch(`http://localhost:3001/materials/${topicId}`).then((r) => r.json());
+      setFolders(updated.folders || []);
+
+      setIsCreateFolderModalOpen(false);
+    } catch (err) {
+      console.error("Error creando carpeta:", err);
+      alert("Error creando carpeta");
+    }
+  }}
+/>
+
+    
     </div>
   );
 };
