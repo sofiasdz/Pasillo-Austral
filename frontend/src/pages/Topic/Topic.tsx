@@ -12,6 +12,7 @@ import { FolderIcon } from '../../components/FolderIcon/FolderIcon';
 import { FileIcon } from '../../components/FileIcon/FileIcon';
 import { FilesHeader } from '../../components/FilesHeader/FilesHeader';
 import { StarredFilesWidget, type StarredFile } from '../../components/StarredFilesWidget/StarredFilesWidget';
+import { CreateFolderModal } from '../../components/CreateFolderModal/CreateFolderModal';
 import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -25,6 +26,7 @@ const Topic: React.FC = () => {
   const [folders, setFolders] = useState<any[]>([]);
   const [files, setFiles] = useState<any[]>([]);
   const [starredFiles, setStarredFiles] = useState<StarredFile[]>([]);
+  const [isCreateFolderModalOpen, setIsCreateFolderModalOpen] = useState(false);
 
   const topicId = window.location.pathname.split('/').pop() || '1';
   const navigate = useNavigate();
@@ -164,11 +166,38 @@ const Topic: React.FC = () => {
         {activeTab === 'Material de Estudio' && (
           <>
             <div className="topic__material-section">
-              <FolderHeader label="Carpetas" buttonText="Nueva carpeta" onButtonClick={() => console.log('Create new folder')} />
+              <FolderHeader 
+                label="Carpetas" 
+                buttonText="Nueva carpeta" 
+                onButtonClick={() => setIsCreateFolderModalOpen(true)} 
+              />
               <div className="topic__folders-grid">
-                {folders.map((folder: any, index: number) => (
-                  <FolderIcon key={index} name={folder.name || folder} onClick={() => console.log(`Open folder: ${folder.name}`)} />
-                ))}
+                {folders.map((folder: any, index: number) => {
+                  const folderFiles = folder.files?.map((file: any) => ({
+                    id: `${folder.name}-${file.name || file}`,
+                    name: file.name || file,
+                    fileType: (file.name || file).split('.').pop(),
+                    downloadUrl: file.path
+                      ? `http://localhost:3001${file.path}`
+                      : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
+                  })) || [];
+
+                  return (
+                    <FolderIcon
+                      key={index}
+                      name={folder.name || folder}
+                      onClick={() => {
+                        navigate(`/topic/${topicId}/folder/${encodeURIComponent(folder.name || folder)}`, {
+                          state: {
+                            folderName: folder.name || folder,
+                            files: folderFiles,
+                            topicTitle: topic?.title || ''
+                          }
+                        });
+                      }}
+                    />
+                  );
+                })}
               </div>
             </div>
 
@@ -198,6 +227,16 @@ const Topic: React.FC = () => {
           </>
         )}
       </div>
+
+      <CreateFolderModal
+        isOpen={isCreateFolderModalOpen}
+        onClose={() => setIsCreateFolderModalOpen(false)}
+        onCreate={(folderName) => {
+          console.log('Creating folder:', folderName);
+          // TODO: Implement folder creation API call
+          // After successful creation, refresh folders list
+        }}
+      />
     </div>
   );
 };

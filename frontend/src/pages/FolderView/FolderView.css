@@ -1,0 +1,97 @@
+.folder-view {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fbfbfb;
+  overflow-x: hidden;
+  display: flex;
+}
+
+.folder-view__content {
+  padding-left: 333px;
+  padding-top: 118px;
+  width: 793px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.folder-view__header-wrapper {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: #fbfbfb;
+  margin-bottom: 0;
+}
+
+.folder-view__actions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.folder-view__new-file-button {
+  background: rgba(202, 213, 226, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.folder-view__new-file-button:hover {
+  background: rgba(202, 213, 226, 0.2);
+}
+
+.folder-view__new-file-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.folder-view__new-file-text {
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #414bb5;
+  white-space: nowrap;
+}
+
+.folder-view__main {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.folder-view__files-list-container {
+  width: 793px;
+  max-width: 793px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 457px;
+  flex: 1;
+}
+
+.folder-view__files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.folder-view__info-card {
+  align-self: flex-start;
+  position: sticky;
+  top: 165px;
+}
+

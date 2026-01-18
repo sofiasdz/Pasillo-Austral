@@ -8,6 +8,7 @@ import Topic from './pages/Topic/Topic';
 import CreatePost from './pages/CreatePost/CreatePost';
 import SearchResults from './pages/SearchResults/SearchResults';
 import PostDetail from './pages/PostDetail/PostDetail';
+import FolderView from './pages/FolderView/FolderView';
 import { ToastProvider } from './contexts/ToastContext';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/topics" element={<Topics />} />
         <Route path="/register" element={<Register />} />
         <Route path="/topic/:id" element={<Topic />} />
+        <Route path="/topic/:topicId/folder/:folderName" element={<FolderView />} />
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/post/:id" element={<PostDetail />} />
