@@ -1,0 +1,20 @@
+.layout {
+    display: block;
+    background-color: #fbfbfb;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Contenido principal (evita TopBar y Sidebar) */
+  .layout__content {
+    position: relative;
+    margin-top: 48px;     /* altura topbar */
+    margin-left: 293px;   /* ancho sidebar */
+    padding: 24px 32px 32px 32px;
+    min-height: 100vh;
+    overflow-y: auto;     /* scrollea esta parte */
+    box-sizing: border-box;
+  }
+  
+  
+  

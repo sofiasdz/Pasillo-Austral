@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './SearchResults.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { PillTab } from '../../components/PillTab/PillTab';
 import { Filter } from '../../components/Filter/Filter';
@@ -73,15 +71,6 @@ const SearchResults: React.FC = () => {
 
   return (
     <div className="search-results">
-      <TopBar 
-        username="@Khali_1998" 
-        avatar={avatar1}
-        searchQuery={searchQuery}
-        searchPlaceholder="Buscar"
-      />
-
-      <Sidebar activeItem="Home" />
-
       <div className="search-results__content">
         <div className="search-results__header-wrapper">
           <Header title="Resultados de búsqueda" onBack={handleBack} />

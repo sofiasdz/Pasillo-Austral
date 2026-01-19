@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './CreatePost.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { Tab } from '../../components/Tab/Tab';
 import { TopicSelectDropdown, type TopicOption } from '../../components/TopicSelectDropdown/TopicSelectDropdown';
@@ -9,7 +7,6 @@ import { TextField } from '../../components/TextField/TextField';
 import { LabelSelector } from '../../components/LabelSelector/LabelSelector';
 import { UploadFile, type UploadedFile } from '../../components/UploadFile/UploadFile';
 import { Button } from '../../components/Button/Button';
-import avatar1 from '../../assets/avatar1.png';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../../hooks/useToast';
 
@@ -118,9 +115,6 @@ const CreatePost: React.FC = () => {
 
   return (
     <div className="create-post">
-      <TopBar username="@Khali_1998" avatar={avatar1} />
-      <Sidebar activeItem="Home" />
-
       <div className="create-post__content">
         <div className="create-post__header-wrapper">
           <Header title="Crear Publicación" onBack={handleBack} />

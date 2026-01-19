@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './PostDetail.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { PostCard } from '../../components/PostCard/PostCard';
 import { AnswerBox } from '../../components/AnswerBox/AnswerBox';
@@ -120,9 +118,6 @@ const PostDetail: React.FC = () => {
 
   return (
     <div className="post-detail">
-      <TopBar username={post.username} avatar={avatar1} />
-      <Sidebar activeItem="Home" />
-
       <div className="post-detail__content">
         <div className="post-detail__header-wrapper">
           <Header title="" onBack={handleBack} />

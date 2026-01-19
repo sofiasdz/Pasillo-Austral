@@ -9,42 +9,89 @@ import formulaIcon from '../../assets/formula-icon.svg';
 import programmingIcon from '../../assets/programming-icon.svg';
 import physicsIcon from '../../assets/physics-icon.svg';
 import chemistryIcon from '../../assets/chemistry-icon.svg';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export interface SidebarProps {
-  activeItem?: string;
-}
+export const Sidebar: React.FC = () => {
+  const { pathname } = useLocation();
 
-export const Sidebar: React.FC<SidebarProps> = ({ activeItem = 'Home' }) => {
+  const isActive = (segment: string) => {
+    // para / exacta
+    if (segment === "/" && pathname === "/") return true;
+    return pathname.startsWith(segment);
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar__content">
+        
+        {/* NAV PRINCIPAL */}
         <div className="sidebar__nav">
           <div className="sidebar__nav-items">
-            <SidebarItem icon={homeIcon} active={activeItem === 'Home'}>
-              Home
-            </SidebarItem>
-            <SidebarItem icon={starIcon} active={activeItem === 'Favoritos'}>
-              Favoritos
-            </SidebarItem>
+
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={homeIcon} active={isActive("/")}>
+                Home
+              </SidebarItem>
+            </Link>
+
+            <Link to="/favorites" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={starIcon} active={isActive("/favorites")}>
+                Favoritos
+              </SidebarItem>
+            </Link>
+
           </div>
         </div>
 
+        {/* TEMAS */}
         <div className="sidebar__section">
           <div className="sidebar__section-title">TEMAS</div>
           <div className="sidebar__section-items">
-            <SidebarItem icon={messageIcon}>General</SidebarItem>
-            <SidebarItem icon={mathIcon}>Algebra I</SidebarItem>
-            <SidebarItem icon={formulaIcon}>Análisis Matemático I</SidebarItem>
-            <SidebarItem icon={programmingIcon}>Programación I</SidebarItem>
-            <SidebarItem icon={physicsIcon}>Física I</SidebarItem>
-            <SidebarItem icon={chemistryIcon}>Química</SidebarItem>
+
+            <Link to="/topic/general" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={messageIcon} active={isActive("/topic/general")}>
+                General
+              </SidebarItem>
+            </Link>
+
+            <Link to="/topic/algebra" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={mathIcon} active={isActive("/topic/algebra")}>
+                Álgebra I
+              </SidebarItem>
+            </Link>
+
+            <Link to="/topic/analisis" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={formulaIcon} active={isActive("/topic/analisis")}>
+                Análisis Matemático I
+              </SidebarItem>
+            </Link>
+
+            <Link to="/topic/programacion" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={programmingIcon} active={isActive("/topic/programacion")}>
+                Programación I
+              </SidebarItem>
+            </Link>
+
+            <Link to="/topic/fisica" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={physicsIcon} active={isActive("/topic/fisica")}>
+                Física I
+              </SidebarItem>
+            </Link>
+
+            <Link to="/topic/quimica" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={chemistryIcon} active={isActive("/topic/quimica")}>
+                Química
+              </SidebarItem>
+            </Link>
+
           </div>
+
           <div className="sidebar__section-footer">
-  <Link to="/topics" className="sidebar__footer-link">
-    Ver todo
-  </Link>
-</div>
+            <Link to="/topics" className="sidebar__footer-link">
+              Ver todo
+            </Link>
+          </div>
+
         </div>
       </div>
     </div>
@@ -52,4 +99,5 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeItem = 'Home' }) => {
 };
 
 export default Sidebar;
+
 

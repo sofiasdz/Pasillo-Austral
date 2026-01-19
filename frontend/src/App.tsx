@@ -10,34 +10,87 @@ import SearchResults from './pages/SearchResults/SearchResults';
 import PostDetail from './pages/PostDetail/PostDetail';
 import FolderView from './pages/FolderView/FolderView';
 import { ToastProvider } from './contexts/ToastContext';
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
     <ToastProvider>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/topics" element={<Topics />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/topic/:id" element={<Topic />} />
-        <Route path="/topic/:topicId/folder/:folderName" element={<FolderView />} />
-        <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/search" element={<SearchResults />} />
-        <Route path="/post/:id" element={<PostDetail />} />
 
+        {/*  ❌ Login y Register SIN Layout */}
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/*  ✔ Todas las otras rutas con Layout */}
         <Route
           path="/home"
           element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
+            <Layout>
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            </Layout>
           }
         />
 
-        {/* Catch-all, opcional */}
-        {/* <Route path="*" element={<h1>404</h1>} /> */}
+        <Route
+          path="/topics"
+          element={
+            <Layout>
+              <Topics />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/topic/:id"
+          element={
+            <Layout>
+              <Topic />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/topic/:topicId/folder/:folderName"
+          element={
+            <Layout>
+              <FolderView />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/create-post"
+          element={
+            <Layout>
+              <CreatePost />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/search"
+          element={
+            <Layout>
+              <SearchResults />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/post/:id"
+          element={
+            <Layout>
+              <PostDetail />
+            </Layout>
+          }
+        />
+
       </Routes>
     </ToastProvider>
   );
 }
 
 export default App;
+

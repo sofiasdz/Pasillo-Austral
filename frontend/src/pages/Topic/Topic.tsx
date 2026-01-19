@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Topic.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { Tab } from '../../components/Tab/Tab';
 import { Filter } from '../../components/Filter/Filter';
@@ -111,16 +109,6 @@ const Topic: React.FC = () => {
 
   return (
     <div className={`topic ${activeTab === 'Material de Estudio' ? 'topic--material-view' : ''}`}>
-      <TopBar 
-        username="@Khali_1998" 
-        avatar={avatar1}
-        searchPill={topic?.title || 'Cargando...'}
-        onSearchPillClose={handleSearchPillClose}
-        searchPlaceholder={topic ? `Busca en ${topic.title}` : ''}
-      />
-
-      <Sidebar activeItem={topic?.title || ''} />
-
       <div className="topic__content">
         <div className="topic__header-wrapper">
           <Header title={topic?.title || 'Cargando...'} onBack={handleBack} />

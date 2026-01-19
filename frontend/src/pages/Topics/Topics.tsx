@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Topics.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { Filter } from '../../components/Filter/Filter';
 import { TopicCard } from '../../components/TopicCard/TopicCard';
 import { useNavigate } from 'react-router-dom';
-import avatar1 from '../../assets/avatar1.png';
 
 import topic1 from '../../assets/topic1.jpg';
 import topic2 from '../../assets/topic2.jpg';
@@ -44,8 +41,6 @@ const Topics: React.FC = () => {
 
   return (
     <div className="topics">
-      <TopBar username="@Khali_1998" avatar={avatar1} />
-      <Sidebar activeItem="Temas" />
 
       <div className="topics__content">
         <div className="topics__header-wrapper">

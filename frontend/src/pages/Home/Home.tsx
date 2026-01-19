@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Calendar } from '../../components/Calendar/Calendar';
 import { PostCard } from '../../components/PostCard/PostCard';
 import { Label } from '../../components/Label/Label';
@@ -74,9 +71,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="home">
-      <TopBar username="@Khali_1998" avatar={avatar1} />
-      <Sidebar activeItem="Home" />
-
       <div className="home__calendar">
         <Calendar
           month="Enero"

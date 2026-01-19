@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './FolderView.css';
-import { TopBar } from '../../components/TopBar/TopBar';
-import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { Header } from '../../components/Header/Header';
 import { FileIcon } from '../../components/FileIcon/FileIcon';
 import { StarredFilesWidget, type StarredFile } from '../../components/StarredFilesWidget/StarredFilesWidget';
-import { Button } from '../../components/Button/Button';
 import { UploadFilesModal, type UploadedFile } from '../../components/UploadFilesModal/UploadFilesModal';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import avatar1 from '../../assets/avatar1.png';
 import plusBlueIcon from '../../assets/plus-blue-icon.svg';
 import { useToast } from '../../hooks/useToast';
 
@@ -144,16 +140,6 @@ const FolderView: React.FC = () => {
 
   return (
     <div className="folder-view">
-      <TopBar
-        username="@Khali_1998"
-        avatar={avatar1}
-        searchPill={topicTitle || 'Cargando...'}
-        onSearchPillClose={() => navigate(`/topic/${topicId}`)}
-        searchPlaceholder={topicTitle ? `Busca en ${topicTitle}` : ''}
-      />
-
-      <Sidebar activeItem={topicTitle || ''} />
-
       <div className="folder-view__content">
         <div className="folder-view__header-wrapper">
           <Header title={folderName || 'Cargando...'} onBack={handleBack} />
