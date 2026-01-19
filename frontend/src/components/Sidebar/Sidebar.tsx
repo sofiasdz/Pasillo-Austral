@@ -48,38 +48,38 @@ export const Sidebar: React.FC = () => {
           <div className="sidebar__section-title">TEMAS</div>
           <div className="sidebar__section-items">
 
-            <Link to="/topic/general" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={messageIcon} active={isActive("/topic/general")}>
+            <Link to="/topic/5" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={messageIcon} active={isActive("/topic/5")}>
                 General
               </SidebarItem>
             </Link>
 
-            <Link to="/topic/algebra" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={mathIcon} active={isActive("/topic/algebra")}>
+            <Link to="/topic/3" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={mathIcon} active={isActive("/topic/3")}>
                 Álgebra I
               </SidebarItem>
             </Link>
 
-            <Link to="/topic/analisis" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={formulaIcon} active={isActive("/topic/analisis")}>
+            <Link to="/topic/1" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={formulaIcon} active={isActive("/topic/1")}>
                 Análisis Matemático I
               </SidebarItem>
             </Link>
 
-            <Link to="/topic/programacion" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={programmingIcon} active={isActive("/topic/programacion")}>
+            <Link to="/topic/2" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={programmingIcon} active={isActive("/topic/2")}>
                 Programación I
               </SidebarItem>
             </Link>
 
-            <Link to="/topic/fisica" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={physicsIcon} active={isActive("/topic/fisica")}>
+            <Link to="/topic/6" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={physicsIcon} active={isActive("/topic/6")}>
                 Física I
               </SidebarItem>
             </Link>
 
-            <Link to="/topic/quimica" style={{ textDecoration: 'none' }}>
-              <SidebarItem icon={chemistryIcon} active={isActive("/topic/quimica")}>
+            <Link to="/topic/4" style={{ textDecoration: 'none' }}>
+              <SidebarItem icon={chemistryIcon} active={isActive("/topic/4")}>
                 Química
               </SidebarItem>
             </Link>
