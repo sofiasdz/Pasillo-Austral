@@ -4,24 +4,35 @@ import logoImage from '../../assets/logo-home.svg';
 import searchIcon from '../../assets/search-icon.svg';
 import avatarImage from '../../assets/avatar1.png';
 import { SearchBarPill } from '../SearchBarPill/SearchBarPill';
+import { useLocation, useParams } from 'react-router-dom';
 
 export interface TopBarProps {
   username?: string;
   avatar?: string;
-  searchPill?: string;
-  onSearchPillClose?: () => void;
   searchPlaceholder?: string;
   searchQuery?: string;
 }
 
+const TOPIC_NAMES: Record<string, string> = {
+  "1": "Análisis Matemático I",
+  "2": "Programación I",
+  "3": "Álgebra I",
+  "4": "Quimica I",
+  "5": "General",
+  "6": "Física I"
+};
+
 export const TopBar: React.FC<TopBarProps> = ({ 
   username = '@Khali_1998',
   avatar,
-  searchPill,
-  onSearchPillClose,
   searchPlaceholder = 'Buscar',
   searchQuery
 }) => {
+  const { pathname } = useLocation();
+  const topicId = pathname.startsWith('/topic/')
+  ? pathname.split('/topic/')[1].split('/')[0]
+  : undefined;
+  const searchPill = topicId ? TOPIC_NAMES[topicId] : undefined;
   return (
     <div className="topbar">
       <div className="topbar__content">
@@ -40,9 +51,11 @@ export const TopBar: React.FC<TopBarProps> = ({
               <div className="topbar__search-icon">
                 <img src={searchIcon} alt="Search" className="topbar__search-icon-img" />
               </div>
+
               {searchPill && (
-                <SearchBarPill label={searchPill} onClose={onSearchPillClose} />
+                <SearchBarPill label={searchPill} onClose={() => {}} />
               )}
+
               {searchQuery ? (
                 <p className="topbar__search-query">{searchQuery}</p>
               ) : (
@@ -72,4 +85,3 @@ export const TopBar: React.FC<TopBarProps> = ({
 };
 
 export default TopBar;
-
