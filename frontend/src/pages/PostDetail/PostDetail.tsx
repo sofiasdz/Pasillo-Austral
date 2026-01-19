@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PostDetail.css';
 import { Header } from '../../components/Header/Header';
-import { PostCard } from '../../components/PostCard/PostCard';
+import { PostCardExpanded, type PostFile } from '../../components/PostCardExpanded/PostCardExpanded';
 import { AnswerBox } from '../../components/AnswerBox/AnswerBox';
 import { Comment, type CommentData } from '../../components/Comment/Comment';
 import { RelatedWidget } from '../../components/RelatedWidget/RelatedWidget';
@@ -33,12 +33,24 @@ const PostDetail: React.FC = () => {
         if (!commentsRes.ok) throw new Error("Error fetching comments");
         const commentsData = await commentsRes.json();
 
+        // Transform files from backend format to PostFile format
+        const transformedFiles: PostFile[] = (postData.files || []).map((file: any) => ({
+          id: file.filename || file.original,
+          name: file.filename || file.original || file.name,
+          fileType: (file.filename || file.original || file.name || '')
+            .split('.')
+            .pop()
+            ?.toLowerCase() as any,
+          downloadUrl: file.url || file.path || file.downloadUrl,
+        }));
+
         // Set post using UI structure
         setPost({
           ...postData,
           userAvatar: avatar1, // temporal hasta implementar users
-          username: postData.user || "@anon",
+          username: postData.user || postData.userUsername || "@anon",
           date: new Date(postData.createdAt).toLocaleString(),
+          files: transformedFiles,
         });
 
         // Transform function: backend -> UI component format
@@ -126,7 +138,8 @@ const PostDetail: React.FC = () => {
         <div className="post-detail__main">
           <div className="post-detail__post-section">
             <div className="post-detail__post">
-              <PostCard
+              <PostCardExpanded
+                id={post.id}
                 topic={post.topic}
                 userAvatar={post.userAvatar}
                 username={post.username}
@@ -134,9 +147,11 @@ const PostDetail: React.FC = () => {
                 title={post.title}
                 content={post.content}
                 tags={post.tags}
+                files={post.files}
                 showMoreLink={false}
               />
             </div>
+           
 
             <h2 className="post-detail__answers-title">Respuestas</h2>
 

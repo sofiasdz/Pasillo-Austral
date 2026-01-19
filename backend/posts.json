@@ -485,5 +485,25 @@
       }
     ],
     "createdAt": "2026-01-17T15:10:50.510Z"
+  },
+  {
+    "id": "e279b7ce-722a-423b-b36d-1054f665a60d",
+    "user": "sofi@gmail.com",
+    "topic": "Programacion I",
+    "title": "Duda sobre objetos y componentes",
+    "content": "¿un objeto un un componente es lo mismo?",
+    "tags": [
+      "Programacion"
+    ],
+    "files": [
+      {
+        "filename": "Anexo1-Sidanez.pdf",
+        "original": "Anexo1-Sidanez.pdf",
+        "mimetype": "application/pdf",
+        "size": 805585,
+        "url": "/uploads/Anexo1-Sidanez.pdf"
+      }
+    ],
+    "createdAt": "2026-01-19T02:59:34.453Z"
   }
 ]
