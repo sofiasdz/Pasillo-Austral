@@ -107,6 +107,7 @@ const SearchResults: React.FC = () => {
                   posts.map((p) => (
                     <PostCard
                       key={p.id}
+                      id={p.id}
                       topic={p.topic}
                       userAvatar={avatar1}
                       username={p.user}

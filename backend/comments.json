@@ -324,5 +324,35 @@
     "likes": 0,
     "dislikes": 0,
     "createdAt": "2026-01-18T22:33:03.904Z"
+  },
+  {
+    "id": "5b4a8300-0db8-4fe7-89c1-114d732b23e9",
+    "postId": "e279b7ce-722a-423b-b36d-1054f665a60d",
+    "parentId": null,
+    "user": "@anon",
+    "content": "No, un objeto es una instancia puntual de una clase. Mientras que un componente es un elemento dentro del front end.",
+    "files": [],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-01-19T03:22:17.673Z"
+  },
+  {
+    "id": "e273d82c-2625-4171-9d20-f3f7cdaccea8",
+    "postId": "e279b7ce-722a-423b-b36d-1054f665a60d",
+    "parentId": null,
+    "user": "@anon",
+    "content": "Te adjunto material complementario.",
+    "files": [
+      {
+        "filename": "Resumen-Vectores.pdf",
+        "original": "Resumen-Vectores.pdf",
+        "mimetype": "application/pdf",
+        "size": 1117445,
+        "path": "/uploads/comments/Resumen-Vectores.pdf"
+      }
+    ],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-01-19T03:22:33.857Z"
   }
 ]

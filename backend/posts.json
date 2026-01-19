@@ -505,5 +505,23 @@
       }
     ],
     "createdAt": "2026-01-19T02:59:34.453Z"
+  },
+  {
+    "id": "da89b667-cc19-4882-9b24-646b8880d1e2",
+    "user": "sofi@gmail.com",
+    "topic": "Algebra I",
+    "title": "No cazo un fulbo",
+    "content": "Estoy muy perdido con la guìa 3, alguno me tira una mano porfffa?",
+    "tags": [],
+    "files": [
+      {
+        "filename": "Resumen-Vectores.pdf",
+        "original": "Resumen-Vectores.pdf",
+        "mimetype": "application/pdf",
+        "size": 1117445,
+        "url": "/uploads/Resumen-Vectores.pdf"
+      }
+    ],
+    "createdAt": "2026-01-19T03:21:14.863Z"
   }
 ]

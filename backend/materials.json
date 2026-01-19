@@ -248,6 +248,17 @@
             "url": "/uploads/3/notas/clase2.txt"
           }
         ]
+      },
+      {
+        "name": "Resumenes Utiles",
+        "files": [
+          {
+            "name": "Anexo1-Sidanez.pdf",
+            "path": "/uploads/materials/3/Resumenes Utiles/Anexo1-Sidanez.pdf",
+            "size": 805585,
+            "uploadedAt": "2026-01-19T03:22:59.906Z"
+          }
+        ]
       }
     ]
   },
