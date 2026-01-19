@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TopBar.css';
 import logoImage from '../../assets/logo-home.svg';
 import searchIcon from '../../assets/search-icon.svg';
 import avatarImage from '../../assets/avatar1.png';
 import { SearchBarPill } from '../SearchBarPill/SearchBarPill';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export interface TopBarProps {
   username?: string;
   avatar?: string;
   searchPlaceholder?: string;
-  searchQuery?: string;
 }
 
 const TOPIC_NAMES: Record<string, string> = {
@@ -26,13 +25,31 @@ export const TopBar: React.FC<TopBarProps> = ({
   username = '@Khali_1998',
   avatar,
   searchPlaceholder = 'Buscar',
-  searchQuery
 }) => {
+
+  const navigate = useNavigate();
   const { pathname } = useLocation();
+
   const topicId = pathname.startsWith('/topic/')
-  ? pathname.split('/topic/')[1].split('/')[0]
-  : undefined;
+    ? pathname.split('/topic/')[1].split('/')[0]
+    : undefined;
+
   const searchPill = topicId ? TOPIC_NAMES[topicId] : undefined;
+
+  const [value, setValue] = useState('');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+
+    // Si está en un topic: sacar pill y navegar con query
+    navigate(`/search?q=${encodeURIComponent(newValue)}`);
+  };
+
+  const handleClosePill = () => {
+    navigate('/search');
+  };
+
   return (
     <div className="topbar">
       <div className="topbar__content">
@@ -45,7 +62,7 @@ export const TopBar: React.FC<TopBarProps> = ({
           </div>
         </div>
 
-        <button className="topbar__search">
+        <div className="topbar__search">
           <div className="topbar__search-content">
             <div className="topbar__search-input">
               <div className="topbar__search-icon">
@@ -53,17 +70,20 @@ export const TopBar: React.FC<TopBarProps> = ({
               </div>
 
               {searchPill && (
-                <SearchBarPill label={searchPill} onClose={() => {}} />
+                <SearchBarPill label={searchPill} onClose={handleClosePill} />
               )}
 
-              {searchQuery ? (
-                <p className="topbar__search-query">{searchQuery}</p>
-              ) : (
-                <p className="topbar__search-placeholder">{searchPlaceholder}</p>
-              )}
+              <input
+                type="text"
+                className="topbar__search-field"
+                value={value}
+                onChange={handleChange}
+                placeholder={searchPlaceholder}
+                autoFocus
+              />
             </div>
           </div>
-        </button>
+        </div>
 
         <div className="topbar__user">
           <div className="topbar__user-info">
@@ -85,3 +105,4 @@ export const TopBar: React.FC<TopBarProps> = ({
 };
 
 export default TopBar;
+
