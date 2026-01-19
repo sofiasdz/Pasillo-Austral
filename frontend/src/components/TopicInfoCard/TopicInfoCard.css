@@ -8,23 +8,23 @@
 }
 
 .topic-info-card__image-container {
-  height: 100px;
-  position: relative;
-  border-radius: 23px 23px 0 0;
   width: 100%;
+  height: 100px; /* podés subirlo si querés */
+  border-radius: 23px 23px 0 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
 }
 
 .topic-info-card__image {
-  position: absolute;
-  inset: 0;
-  max-width: none;
-  object-fit: cover;
-  object-position: 50% 50%;
-  pointer-events: none;
-  border-radius: 23px 23px 0 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 23px 23px 0 0;
+  display: block;
 }
 
 .topic-info-card__content {
@@ -86,4 +86,5 @@
 .topic-info-card__description-text p:last-child {
   margin-bottom: 0;
 }
+
 

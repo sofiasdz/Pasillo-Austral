@@ -12,10 +12,16 @@ import { FilesHeader } from '../../components/FilesHeader/FilesHeader';
 import { StarredFilesWidget, type StarredFile } from '../../components/StarredFilesWidget/StarredFilesWidget';
 import { CreateFolderModal } from '../../components/CreateFolderModal/CreateFolderModal';
 import avatar1 from '../../assets/avatar1.png';
-import topic1 from '../../assets/topic1.jpg';
 import { useNavigate } from 'react-router-dom';
 import plusIcon from '../../assets/plus-icon.svg';
 import { useToast } from '../../hooks/useToast';
+
+import topic1 from '../../assets/topic1.jpg';
+import topic2 from '../../assets/topic2.jpg';
+import topic3 from '../../assets/topic3.jpg';
+import topic4 from '../../assets/topic4.jpg';
+import topic5 from '../../assets/topic5.jpg';
+import topic6 from '../../assets/topic6.jpg';
 
 const Topic: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Publicaciones' | 'Material de Estudio'>('Publicaciones');
@@ -100,10 +106,22 @@ const Topic: React.FC = () => {
 
   const handleBack = () => window.history.back();
   const handleSearchPillClose = () => window.history.back();
-
-  const topicImage = topic?.image
-    ? (topic.image.startsWith('http') ? topic.image : `http://localhost:3001${topic.image}`)
-    : topic1;
+  const topicImages: Record<string, string> = {
+    "1": topic1,
+    "2": topic2,
+    "3": topic3,
+    "4": topic4,
+    "5": topic5,
+    "6": topic6,
+  };
+  
+  const topicImage =
+    topic?.image && topic.image.startsWith("/")
+      ? `http://localhost:3001${topic.image}`
+      : topic?.image ||
+        topicImages[topicId] ||
+        topic1;
+  
 
   const topicDescription = topic?.description || 'Aquí encontrarás recursos y publicaciones relacionadas con este tema.';
 
