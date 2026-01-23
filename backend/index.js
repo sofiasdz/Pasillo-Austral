@@ -42,8 +42,21 @@ app.get('/api', (req, res) => {
 // Serve frontend build in production (must be last)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  // Catch-all handler: send back React's index.html file for any non-API routes
-  app.get('/*', (req, res) => {
+  // Catch-all handler for SPA routing - must be after all API routes
+  app.use((req, res, next) => {
+    // Skip if it's an API route or static file route
+    if (req.path.startsWith('/api') || 
+        req.path.startsWith('/auth') || 
+        req.path.startsWith('/posts') || 
+        req.path.startsWith('/topics') || 
+        req.path.startsWith('/materials') || 
+        req.path.startsWith('/comments') || 
+        req.path.startsWith('/search') ||
+        req.path.startsWith('/assets') ||
+        req.path.startsWith('/uploads')) {
+      return next();
+    }
+    // For all other routes, serve the React app
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
   });
 }
