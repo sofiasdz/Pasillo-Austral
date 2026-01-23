@@ -56,14 +56,6 @@ export const Comment: React.FC<CommentProps> = ({
     setShowReplies((prev) => !prev);
   };
 
-  const badgeStyle: React.CSSProperties = {
-    backgroundColor: comment.badgeBgColor ?? 'rgba(164,214,190,0.2)',
-    color: comment.badgeColor ?? '#2f7e0d',
-    fontSize: '10px',
-    padding: '2px 8px',
-    borderRadius: '23px',
-  };
-  
 
   const handleReply = () => {
     onReply?.(comment.id);

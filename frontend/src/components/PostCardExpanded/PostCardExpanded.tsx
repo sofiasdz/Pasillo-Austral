@@ -26,8 +26,6 @@ export interface PostCardExpandedProps {
 }
 
 export const PostCardExpanded: React.FC<PostCardExpandedProps> = ({
-  id,
-  topic,
   userAvatar,
   username,
   date,

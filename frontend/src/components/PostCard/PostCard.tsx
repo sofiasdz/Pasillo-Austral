@@ -19,7 +19,6 @@ export interface PostCardProps {
 
 export const PostCard: React.FC<PostCardProps> = ({
   id,
-  topic,
   userAvatar,
   username,
   date,

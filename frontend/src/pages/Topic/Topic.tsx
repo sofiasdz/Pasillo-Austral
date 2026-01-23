@@ -107,7 +107,7 @@ const Topic: React.FC = () => {
   }, [topicId]);
 
   const handleBack = () => window.history.back();
-  const handleSearchPillClose = () => window.history.back();
+  //const handleSearchPillClose = () => window.history.back();
   const topicImages: Record<string, string> = {
     "1": topic1,
     "2": topic2,

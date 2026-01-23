@@ -31,7 +31,7 @@ const FolderView: React.FC = () => {
 
   const [folderName, setFolderName] = useState<string>(state?.folderName || '');
   const [files, setFiles] = useState<FileData[]>(state?.files || []);
-  const [topicTitle, setTopicTitle] = useState<string>(state?.topicTitle || '');
+  //const [topicTitle, setTopicTitle] = useState<string>(state?.topicTitle || '');
   const [starredFiles, setStarredFiles] = useState<StarredFile[]>([]);
   const [isUploadFilesModalOpen, setIsUploadFilesModalOpen] = useState(false);
   const { showSuccess, showError } = useToast();
@@ -70,9 +70,6 @@ const FolderView: React.FC = () => {
           // Get topic title
           fetch(`${API_URL}/topics/${topicId}`)
             .then((res) => res.json())
-            .then((topicData) => {
-              setTopicTitle(topicData.title || '');
-            })
             .catch((err) => console.error('Error fetching topic:', err));
 
           setStarredFiles(
@@ -89,7 +86,7 @@ const FolderView: React.FC = () => {
     } else if (state) {
       setFolderName(state.folderName);
       setFiles(state.files);
-      setTopicTitle(state.topicTitle || '');
+      
     }
   }, [topicId, state]);
 

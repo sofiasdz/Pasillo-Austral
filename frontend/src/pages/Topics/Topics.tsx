@@ -4,7 +4,6 @@ import { Header } from '../../components/Header/Header';
 import { Filter } from '../../components/Filter/Filter';
 import { TopicCard } from '../../components/TopicCard/TopicCard';
 import { useNavigate } from 'react-router-dom';
-import avatar1 from '../../assets/avatar1.png';
 import topic1 from '../../assets/topic1.jpg';
 import topic2 from '../../assets/topic2.jpg';
 import topic3 from '../../assets/topic3.jpg';
