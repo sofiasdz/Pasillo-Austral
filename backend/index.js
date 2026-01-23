@@ -46,8 +46,13 @@ if (process.env.NODE_ENV === 'production') {
     index: false // Don't serve index.html automatically
   }));
   
-  // Catch-all handler for SPA routing - only for non-API routes
-  app.get('*', (req, res, next) => {
+  // Catch-all handler for SPA routing - only for GET requests that aren't API routes
+  app.use((req, res, next) => {
+    // Only handle GET requests for frontend routes
+    if (req.method !== 'GET') {
+      return next();
+    }
+    
     // Skip if it's an API route or static file route
     if (req.path.startsWith('/api') || 
         req.path.startsWith('/auth') || 
@@ -58,9 +63,10 @@ if (process.env.NODE_ENV === 'production') {
         req.path.startsWith('/search') ||
         req.path.startsWith('/assets') ||
         req.path.startsWith('/uploads')) {
-      return next(); // Let 404 handler deal with it if route doesn't exist
+      return next();
     }
-    // For all other routes, serve the React app
+    
+    // For all other GET routes, serve the React app
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
   });
 }
