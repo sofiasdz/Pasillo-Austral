@@ -52,21 +52,29 @@ const saveUsers = (users) => {
 // ===============================
 router.post("/register", async (req, res) => {
   try {
+    console.log("=== REGISTER REQUEST ===");
+    console.log("Body:", req.body);
+    
     const { username, password } = req.body;
     
     if (!username || !password) {
+      console.log("Missing username or password");
       return res.status(400).json({ message: "Username y password son requeridos" });
     }
 
     const users = getUsers();
     console.log("Register attempt for:", username);
+    console.log("Current users count:", users.length);
+    console.log("Users file path:", USERS_FILE);
 
     const exists = users.find((u) => u.username === username);
     if (exists) {
+      console.log("User already exists");
       return res.status(400).json({ message: "Usuario ya existe" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log("Password hashed successfully");
 
     users.push({
       username,
@@ -74,11 +82,14 @@ router.post("/register", async (req, res) => {
     });
 
     saveUsers(users);
-    console.log("User registered successfully:", username);
+    console.log("User saved. New users count:", users.length);
+    console.log("=== REGISTER SUCCESS ===");
 
-    res.json({ message: "Usuario creado correctamente" });
+    res.status(200).json({ message: "Usuario creado correctamente" });
   } catch (error) {
-    console.error("Register error:", error);
+    console.error("=== REGISTER ERROR ===");
+    console.error("Error:", error);
+    console.error("Stack:", error.stack);
     res.status(500).json({ message: "Error interno del servidor", error: error.message });
   }
 });
@@ -88,9 +99,13 @@ router.post("/register", async (req, res) => {
 // ===============================
 router.post("/login", async (req, res) => {
   try {
+    console.log("=== LOGIN REQUEST ===");
+    console.log("Body:", req.body);
+    
     const { username, password } = req.body;
     
     if (!username || !password) {
+      console.log("Missing username or password");
       return res.status(400).json({ message: "Username y password son requeridos" });
     }
 
@@ -98,6 +113,7 @@ router.post("/login", async (req, res) => {
     console.log("Login attempt for:", username);
     console.log("Users file path:", USERS_FILE);
     console.log("Users count:", users.length);
+    console.log("Users:", users.map(u => u.username));
 
     const user = users.find((u) => u.username === username);
     if (!user) {
@@ -118,9 +134,12 @@ router.post("/login", async (req, res) => {
     });
 
     console.log("Login successful for user:", username);
-    res.json({ token });
+    console.log("=== LOGIN SUCCESS ===");
+    
+    res.status(200).json({ token });
   } catch (error) {
-    console.error("Login error:", error);
+    console.error("=== LOGIN ERROR ===");
+    console.error("Error:", error);
     console.error("Error stack:", error.stack);
     res.status(500).json({ message: "Error interno del servidor", error: error.message });
   }

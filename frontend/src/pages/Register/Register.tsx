@@ -29,17 +29,28 @@ const Register: React.FC = () => {
         })
       });
 
+      console.log('Register response status:', res.status);
+
       if (!res.ok) {
-        const error = await res.json();
+        const error = await res.json().catch(() => ({ message: 'Error desconocido' }));
         alert(error.message || 'Error al registrarse');
         setLoading(false);
         return;
       }
 
-      // registro OK → redirigir a home
-      navigate('/home');
+      const data = await res.json().catch((err) => {
+        console.error('Error parsing JSON:', err);
+        throw new Error('Respuesta inválida del servidor');
+      });
+
+      console.log('Register response data:', data);
+
+      // registro OK → redirigir a login (not home, since they need to login)
+      alert('Usuario registrado correctamente. Por favor inicia sesión.');
+      navigate('/login');
     } catch (error) {
-      alert('Error de conexión con el servidor');
+      console.error('Register error details:', error);
+      alert(`Error de conexión con el servidor: ${error.message}`);
     } finally {
       setLoading(false);
     }

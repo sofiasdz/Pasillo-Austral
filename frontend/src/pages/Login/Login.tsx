@@ -28,26 +28,38 @@ const Login: React.FC = () => {
         })
       });
 
+      console.log('Login response status:', res.status);
+      console.log('Login response headers:', res.headers);
+
       if (!res.ok) {
-        const error = await res.json();
+        const error = await res.json().catch(() => ({ message: 'Error desconocido' }));
         alert(error.message || 'Credenciales inválidas');
         setLoading(false);
         return;
       }
 
-      const data = await res.json();
+      const data = await res.json().catch((err) => {
+        console.error('Error parsing JSON:', err);
+        throw new Error('Respuesta inválida del servidor');
+      });
+
+      console.log('Login response data:', data);
+
+      if (!data.token) {
+        alert('Error: No se recibió el token');
+        setLoading(false);
+        return;
+      }
 
       // guardar token
       localStorage.setItem('token', data.token);
-
-
-    // guardar el username para usarlo en los posts
-    localStorage.setItem('user', email);
+      localStorage.setItem('user', email);
 
       // ir a home
       navigate('/home');
     } catch (error) {
-      alert('Error de conexión con el servidor');
+      console.error('Login error details:', error);
+      alert(`Error de conexión con el servidor: ${error.message}`);
     } finally {
       setLoading(false);
     }
