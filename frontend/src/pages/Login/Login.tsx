@@ -59,7 +59,8 @@ const Login: React.FC = () => {
       navigate('/home');
     } catch (error) {
       console.error('Login error details:', error);
-      alert(`Error de conexión con el servidor: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+      alert(`Error de conexión con el servidor: ${errorMessage}`);
     } finally {
       setLoading(false);
     }

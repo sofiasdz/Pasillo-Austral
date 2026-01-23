@@ -50,7 +50,8 @@ const Register: React.FC = () => {
       navigate('/login');
     } catch (error) {
       console.error('Register error details:', error);
-      alert(`Error de conexión con el servidor: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+      alert(`Error de conexión con el servidor: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
