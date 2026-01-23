@@ -5,6 +5,8 @@ import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import logoImage from '../../assets/logo.png';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 const Register: React.FC = () => {
   const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ const Register: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/auth/register', {
+      const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

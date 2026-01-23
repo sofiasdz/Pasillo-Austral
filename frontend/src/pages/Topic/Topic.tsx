@@ -23,6 +23,8 @@ import topic4 from '../../assets/topic4.jpg';
 import topic5 from '../../assets/topic5.jpg';
 import topic6 from '../../assets/topic6.jpg';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 const Topic: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Publicaciones' | 'Material de Estudio'>('Publicaciones');
   const [topic, setTopic] = useState<any>(null);
@@ -48,7 +50,7 @@ const Topic: React.FC = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`http://localhost:3001/topics/${topicId}`)
+    fetch(`${API_URL}/topics/${topicId}`)
       .then((res) => res.json())
       .then((data) => {
         setTopic(data);
@@ -56,7 +58,7 @@ const Topic: React.FC = () => {
           setPosts([]);
           return null;
         }
-        return fetch(`http://localhost:3001/posts/topic/${encodeURIComponent(data.title)}`);
+        return fetch(`${API_URL}/posts/topic/${encodeURIComponent(data.title)}`);
       })
       .then((res) => (res ? res.json() : []))
       .then((data) => {
@@ -69,7 +71,7 @@ const Topic: React.FC = () => {
       });
 
     // Material de estudio
-    fetch(`http://localhost:3001/materials/${topicId}`)
+    fetch(`${API_URL}/materials/${topicId}`)
       .then((res) => res.json())
       .then((data) => {
         setFolders(data.folders || []);
@@ -81,8 +83,8 @@ const Topic: React.FC = () => {
               name: file.name || file,
               fileType: (file.name || file).split('.').pop(),
               downloadUrl: file.path
-                ? `http://localhost:3001${file.path}`
-                : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
+                ? `${API_URL}${file.path}`
+                : `${API_URL}/uploads/materials/${topicId}/${folder.name}/${file}`
             }))
           ) || [];
 
@@ -117,7 +119,7 @@ const Topic: React.FC = () => {
   
   const topicImage =
     topic?.image && topic.image.startsWith("/")
-      ? `http://localhost:3001${topic.image}`
+      ? `${API_URL}${topic.image}`
       : topic?.image ||
         topicImages[topicId] ||
         topic1;
@@ -196,8 +198,8 @@ const Topic: React.FC = () => {
                     name: file.name || file,
                     fileType: (file.name || file).split('.').pop(),
                     downloadUrl: file.path
-                      ? `http://localhost:3001${file.path}`
-                      : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
+                      ? `${API_URL}${file.path}`
+                      : `${API_URL}/uploads/materials/${topicId}/${folder.name}/${file}`
                   })) || [];
 
                   return (
@@ -252,7 +254,7 @@ const Topic: React.FC = () => {
     console.log('Creating folder:', folderName);
 
     try {
-      const res = await fetch(`http://localhost:3001/materials/${topicId}/folders`, {
+      const res = await fetch(`${API_URL}/materials/${topicId}/folders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ folderName }),
@@ -266,7 +268,7 @@ const Topic: React.FC = () => {
       }
 
       // Carpeta creada OK → refrescar estado local
-      const updated = await fetch(`http://localhost:3001/materials/${topicId}`).then((r) => r.json());
+      const updated = await fetch(`${API_URL}/materials/${topicId}`).then((r) => r.json());
       setFolders(updated.folders || []);
       handleSuccess();
 

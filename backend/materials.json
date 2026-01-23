@@ -259,6 +259,39 @@
             "uploadedAt": "2026-01-19T03:22:59.906Z"
           }
         ]
+      },
+      {
+        "name": "Bibliografìa",
+        "files": [
+          {
+            "name": "Anexo1-Sidanez.pdf",
+            "path": "/uploads/materials/3/Bibliografìa/Anexo1-Sidanez.pdf",
+            "size": 805585,
+            "uploadedAt": "2026-01-19T18:43:06.149Z"
+          }
+        ]
+      },
+      {
+        "name": "estudio",
+        "files": [
+          {
+            "name": "Anexo1-Sidanez.pdf",
+            "path": "/uploads/materials/3/estudio/Anexo1-Sidanez.pdf",
+            "size": 805585,
+            "uploadedAt": "2026-01-19T18:49:50.832Z"
+          }
+        ]
+      },
+      {
+        "name": "nueva",
+        "files": [
+          {
+            "name": "Anexo1-Sidanez.pdf",
+            "path": "/uploads/materials/3/nueva/Anexo1-Sidanez.pdf",
+            "size": 805585,
+            "uploadedAt": "2026-01-19T19:33:27.539Z"
+          }
+        ]
       }
     ]
   },

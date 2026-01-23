@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../assets/avatar1.png';
 import plusIcon from '../../assets/plus-icon.svg';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 const Home: React.FC = () => {
   // Calendar data
   const weekDays = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
@@ -63,7 +65,7 @@ const Home: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/posts')
+    fetch(`${API_URL}/posts`)
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error('Error fetching posts:', err));

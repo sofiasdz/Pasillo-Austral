@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './TopicSelectDropdown.css';
 import chevronDownIcon from '../../assets/chevron-down-icon.svg';
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 export interface TopicOption {
   id: string | number;
@@ -43,7 +44,7 @@ export const TopicSelectDropdown: React.FC<TopicSelectDropdownProps> = ({
   const imageUrl = selectedTopic?.image
     ? (selectedTopic.image.startsWith('http')
         ? selectedTopic.image
-        : `http://localhost:3001/assets/${selectedTopic.image}`)
+        : `${API_URL}/assets/${selectedTopic.image}`)
     : null;
 
   return (
@@ -80,7 +81,7 @@ export const TopicSelectDropdown: React.FC<TopicSelectDropdownProps> = ({
             const topicImageUrl = topic.image
               ? (topic.image.startsWith('http')
                   ? topic.image
-                  : `http://localhost:3001/assets/${topic.image}`)
+                  : `${API_URL}/assets/${topic.image}`)
               : null;
 
             return (

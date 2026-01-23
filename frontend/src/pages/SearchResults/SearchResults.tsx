@@ -16,6 +16,8 @@ import topic5 from '../../assets/topic5.jpg';
 import topic6 from '../../assets/topic6.jpg';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 const fallbackImages = [topic1, topic2, topic3, topic4, topic5, topic6];
 
 type TabType = 'Publicaciones' | 'Temas' | 'Material de Estudio' | 'Comentarios';
@@ -39,7 +41,7 @@ const SearchResults: React.FC = () => {
     if (!searchQuery) return;
     setLoading(true);
 
-    fetch(`http://localhost:3001/search?q=${encodeURIComponent(searchQuery)}`)
+    fetch(`${API_URL}/search?q=${encodeURIComponent(searchQuery)}`)
       .then((res) => res.json())
       .then((data) => {
         setPosts(data.posts || []);

@@ -4,6 +4,7 @@ import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
 import logoImage from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:3001/auth/login', {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

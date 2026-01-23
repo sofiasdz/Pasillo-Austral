@@ -23,6 +23,8 @@ const CreatePost: React.FC = () => {
   const navigate = useNavigate();
   const { showSuccess, showError } = useToast();
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 
   const handleSuccess = () => {
     showSuccess('¡Publicación creada con éxito!');
@@ -34,7 +36,7 @@ const CreatePost: React.FC = () => {
 
   useEffect(() => {
     // Fetch topics
-    fetch('http://localhost:3001/topics')
+    fetch(`${API_URL}/topics`)
       .then((res) => res.json())
       .then((data) => {
         const topicsData: TopicOption[] = data.map((topic: any) => ({
@@ -76,7 +78,7 @@ const CreatePost: React.FC = () => {
         formData.append('files', fileObj.file); // multer espera "files"
       });
   
-      const response = await fetch('http://localhost:3001/posts', {
+      const response = await fetch(`${API_URL}/posts`, {
         method: 'POST',
         body: formData, // NO usamos headers Content-Type
       });

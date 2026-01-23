@@ -9,7 +9,8 @@ import { MaterialWidget } from '../../components/MaterialWidget/MaterialWidget';
 import avatar1 from '../../assets/avatar1.png';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const API_URL = 'http://localhost:3001';
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 const PostDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

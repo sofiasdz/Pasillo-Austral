@@ -523,5 +523,41 @@
       }
     ],
     "createdAt": "2026-01-19T03:21:14.863Z"
+  },
+  {
+    "id": "e961d5bb-a2fa-4e8f-954f-30b307f2f4b9",
+    "user": "ccontestabile@thehiveinnovation.com",
+    "topic": "Algebra I",
+    "title": "DUDA PARCIAL",
+    "content": "HOLAA",
+    "tags": [],
+    "files": [
+      {
+        "filename": "Anexo1-Sidanez.pdf",
+        "original": "Anexo1-Sidanez.pdf",
+        "mimetype": "application/pdf",
+        "size": 805585,
+        "url": "/uploads/Anexo1-Sidanez.pdf"
+      }
+    ],
+    "createdAt": "2026-01-19T18:54:51.008Z"
+  },
+  {
+    "id": "3b46dd51-c22c-438a-9f7f-de26fdabefa9",
+    "user": "ccontestabile@thehiveinnovation.com",
+    "topic": "Programacion I",
+    "title": "aksdpakd",
+    "content": "asaoñdkpo",
+    "tags": [],
+    "files": [
+      {
+        "filename": "Anexo1-Sidanez.pdf",
+        "original": "Anexo1-Sidanez.pdf",
+        "mimetype": "application/pdf",
+        "size": 805585,
+        "url": "/uploads/Anexo1-Sidanez.pdf"
+      }
+    ],
+    "createdAt": "2026-01-19T19:05:36.701Z"
   }
 ]

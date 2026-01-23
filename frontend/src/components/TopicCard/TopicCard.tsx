@@ -1,6 +1,7 @@
 import React from 'react';
 import './TopicCard.css';
 import peopleIcon from '../../assets/people-icon.svg';
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 export interface TopicCardProps {
   image: string;
@@ -31,7 +32,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
          src={
           image.startsWith('http')
             ? image
-            : `http://localhost:3001${image}`.replace(/([^:]\/)\/+/g, "$1")
+            : `${API_URL}${image}`.replace(/([^:]\/)\/+/g, "$1")
         }
           alt={name} 
           className="topic-card__image"

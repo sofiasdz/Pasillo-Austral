@@ -13,13 +13,14 @@ import topic5 from '../../assets/topic5.jpg';
 import topic6 from '../../assets/topic6.jpg';
 
 const fallbackImages = [topic1, topic2, topic3, topic4, topic5, topic6];
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 const Topics: React.FC = () => {
   const [topics, setTopics] = useState<any[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3001/topics')
+    fetch(`${API_URL}/topics`)
       .then((res) => res.json())
       .then((data) => {
         const withImages = data.map((t: any, index: number) => ({

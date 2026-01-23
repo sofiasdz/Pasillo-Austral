@@ -3,10 +3,12 @@ import './FolderView.css';
 import { Header } from '../../components/Header/Header';
 import { FileIcon } from '../../components/FileIcon/FileIcon';
 import { StarredFilesWidget, type StarredFile } from '../../components/StarredFilesWidget/StarredFilesWidget';
-import { UploadFilesModal, type UploadedFile } from '../../components/UploadFilesModal/UploadFilesModal';
+import { UploadFilesModal } from '../../components/UploadFilesModal/UploadFilesModal';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import plusBlueIcon from '../../assets/plus-blue-icon.svg';
 import { useToast } from '../../hooks/useToast';
+import type { UploadedFile } from '../../components/UploadFile';
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 interface FileData {
   id: string;
@@ -45,7 +47,7 @@ const FolderView: React.FC = () => {
   useEffect(() => {
     // If no state passed, fetch from API using URL params
     if (!state && topicId) {
-      fetch(`http://localhost:3001/materials/${topicId}`)
+      fetch(`${API_URL}/materials/${topicId}`)
         .then((res) => res.json())
         .then((data) => {
           const folderNameFromUrl = decodeURIComponent(window.location.pathname.split('/').pop() || '');
@@ -59,14 +61,14 @@ const FolderView: React.FC = () => {
                 name: file.name || file,
                 fileType: (file.name || file).split('.').pop(),
                 downloadUrl: file.path
-                  ? `http://localhost:3001${file.path}`
-                  : `http://localhost:3001/uploads/materials/${topicId}/${folder.name}/${file}`
+                  ? `${API_URL}${file.path}`
+                  : `${API_URL}/uploads/materials/${topicId}/${folder.name}/${file}`
               }))
             );
           }
 
           // Get topic title
-          fetch(`http://localhost:3001/topics/${topicId}`)
+          fetch(`${API_URL}/topics/${topicId}`)
             .then((res) => res.json())
             .then((topicData) => {
               setTopicTitle(topicData.title || '');
@@ -107,7 +109,7 @@ const FolderView: React.FC = () => {
       uploadedFiles.forEach((file) => formData.append("files", file.file));
 
       const res = await fetch(
-        `http://localhost:3001/materials/${topicId}/folders/${folderName}/files/multiple`,
+        `${API_URL}/materials/${topicId}/folders/${folderName}/files/multiple`,
         {
           method: "POST",
           body: formData,
@@ -125,7 +127,7 @@ const FolderView: React.FC = () => {
         id: `${folderName}-${f.name}`,
         name: f.name,
         fileType: f.name.split(".").pop(),
-        downloadUrl: `http://localhost:3001${f.path}`,
+        downloadUrl: `${API_URL}${f.path}`,
       }));
 
       setFiles(newFiles);
