@@ -35,17 +35,18 @@ app.use("/materials", materialsRoutes);
 app.use("/comments", commentsRoutes);
 app.use("/search", searchRouter);
 
-// Serve frontend build in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-  });
-}
-
 app.get('/api', (req, res) => {
   res.send("API funcionando 🚀");
 });
+
+// Serve frontend build in production (must be last)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  // Catch-all handler: send back React's index.html file for any non-API routes
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`Backend corriendo en puerto ${PORT}`);
