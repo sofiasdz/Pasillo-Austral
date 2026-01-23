@@ -41,6 +41,14 @@
 
 .comment__badge {
   flex-shrink: 0;
+  .comment__badge {
+    background-color: var(--badge-bg, rgba(164, 214, 190, 0.2));
+    color: var(--badge-color, #2f7e0d);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 23px;
+  }
+  
 }
 
 .comment__text {
