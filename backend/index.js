@@ -23,11 +23,11 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files
+// Serve static files (assets and uploads)
 app.use('/assets', express.static('assets'));
 app.use("/uploads", express.static("uploads"));
 
-// API routes
+// API routes - MUST be before static frontend serving
 app.use("/auth", authRoutes);
 app.use("/posts", postsRoutes);
 app.use("/topics", topicsRoutes);
@@ -41,9 +41,13 @@ app.get('/api', (req, res) => {
 
 // Serve frontend build in production (must be last)
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  // Catch-all handler for SPA routing - must be after all API routes
-  app.use((req, res, next) => {
+  // Only serve static files, don't serve index.html automatically
+  app.use(express.static(path.join(__dirname, '../frontend/dist'), {
+    index: false // Don't serve index.html automatically
+  }));
+  
+  // Catch-all handler for SPA routing - only for non-API routes
+  app.get('*', (req, res, next) => {
     // Skip if it's an API route or static file route
     if (req.path.startsWith('/api') || 
         req.path.startsWith('/auth') || 
@@ -54,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
         req.path.startsWith('/search') ||
         req.path.startsWith('/assets') ||
         req.path.startsWith('/uploads')) {
-      return next();
+      return next(); // Let 404 handler deal with it if route doesn't exist
     }
     // For all other routes, serve the React app
     res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
