@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Login.css';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
-import logoImage from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+import logoImage from '../../assets/logo-home.svg';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -110,6 +110,7 @@ const Login: React.FC = () => {
               type="email"
               required
               value={email}
+              showLabel={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -122,6 +123,7 @@ const Login: React.FC = () => {
               type="password"
               required
               value={password}
+              showLabel={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }

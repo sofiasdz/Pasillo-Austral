@@ -101,6 +101,7 @@ const Register: React.FC = () => {
               type="email"
               required
               value={email}
+              showLabel={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -113,6 +114,7 @@ const Register: React.FC = () => {
               type="password"
               required
               value={password}
+              showLabel={false}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
