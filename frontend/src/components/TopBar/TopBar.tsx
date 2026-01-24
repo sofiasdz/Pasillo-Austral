@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './TopBar.css';
 import logoImage from '../../assets/logo-home.svg';
 import searchIcon from '../../assets/search-icon.svg';
-import avatarImage from '../../assets/avatar1.png';
+import avatarImage from '../../assets/avatar-sofi.svg';
 import { SearchBarPill } from '../SearchBarPill/SearchBarPill';
 import { useLocation, useNavigate } from 'react-router-dom';
 
