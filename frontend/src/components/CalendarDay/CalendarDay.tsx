@@ -1,7 +1,7 @@
 import React from 'react';
 import './CalendarDay.css';
-import calendarDotSmall from '../../assets/calendar-dot-small.png';
-import calendarDotBg from '../../assets/calendar-dot.png';
+import calendarDotSmall from '../../assets/calendar-dot-small-2.svg';
+import calendarDotBg from '../../assets/calendar-dot-2.png';
 
 export interface CalendarDayProps {
   day: number | string;

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import { Button } from '../../components/Button/Button';
 import { TextField } from '../../components/TextField/TextField';
-import logoImage from '../../assets/logo.png';
+import logoImage from '../../assets/logo-home.svg';
+
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
@@ -75,6 +76,7 @@ const Register: React.FC = () => {
                 className="register__logo-img"
               />
             </div>
+            
             <div className="register__brand">
               <h1 className="register__brand-text">Pasillo Austral</h1>
             </div>
