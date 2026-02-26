@@ -403,5 +403,46 @@
     "likes": 0,
     "dislikes": 0,
     "createdAt": "2026-01-19T19:32:30.577Z"
+  },
+  {
+    "id": "45a4a3a0-2d91-49e3-b471-63d4bcafea0e",
+    "postId": "p28",
+    "parentId": null,
+    "user": "@anon",
+    "content": "Gracias! me pasaba lo mismo!",
+    "files": [],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-02-26T13:15:09.293Z"
+  },
+  {
+    "id": "9344c78f-062b-4945-a4fc-04be2aa289c6",
+    "postId": "p28",
+    "parentId": null,
+    "user": "@anon",
+    "content": "Si! gracias por preguntar!",
+    "files": [],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-02-26T13:25:03.150Z"
+  },
+  {
+    "id": "2c4ead41-940b-47f3-a311-4fd312be7ee9",
+    "postId": "p28",
+    "parentId": null,
+    "user": "@anon",
+    "content": "Las diferenciales se entienden mejor con el ejemplo de un rectangulo cortado en pedacitos chicos.Aca te adjunto un apunte que sirve.",
+    "files": [
+      {
+        "filename": "plan_estudios.pdf",
+        "original": "plan_estudios.pdf",
+        "mimetype": "application/pdf",
+        "size": 230045,
+        "path": "/uploads/comments/plan_estudios.pdf"
+      }
+    ],
+    "likes": 0,
+    "dislikes": 0,
+    "createdAt": "2026-02-26T13:28:20.310Z"
   }
 ]

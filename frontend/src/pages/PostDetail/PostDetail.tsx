@@ -9,7 +9,6 @@ import { MaterialWidget } from '../../components/MaterialWidget/MaterialWidget';
 import avatar1 from '../../assets/avatar1.png';
 import { useNavigate, useParams } from 'react-router-dom';
 
-
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 const PostDetail: React.FC = () => {
@@ -24,17 +23,14 @@ const PostDetail: React.FC = () => {
       try {
         setLoading(true);
 
-        // 1. Fetch post data
         const postRes = await fetch(`${API_URL}/posts/${id}`);
         if (!postRes.ok) throw new Error("Error fetching post");
         const postData = await postRes.json();
 
-        // 2. Fetch comments for this post
         const commentsRes = await fetch(`${API_URL}/comments/post/${id}`);
         if (!commentsRes.ok) throw new Error("Error fetching comments");
         const commentsData = await commentsRes.json();
 
-        // Transform files from backend format to PostFile format
         const transformedFiles: PostFile[] = (postData.files || []).map((file: any) => ({
           id: file.filename || file.original,
           name: file.filename || file.original || file.name,
@@ -45,16 +41,14 @@ const PostDetail: React.FC = () => {
           downloadUrl: file.url || file.path || file.downloadUrl,
         }));
 
-        // Set post using UI structure
         setPost({
           ...postData,
-          userAvatar: avatar1, // temporal hasta implementar users
+          userAvatar: avatar1,
           username: postData.user || postData.userUsername || "@anon",
           date: new Date(postData.createdAt).toLocaleString(),
           files: transformedFiles,
         });
 
-        // Transform function: backend -> UI component format
         const transform = (c: any): CommentData => ({
           id: c.id,
           userAvatar: avatar1,
@@ -65,15 +59,18 @@ const PostDetail: React.FC = () => {
           dislikes: c.dislikes,
           replies: commentsData
             .filter((r: any) => r.parentId === c.id)
-            .map(transform), // recursion for nested replies
+            .map(transform),
         });
 
-        // Filter to only root comments (no parentId)
         const rootComments = commentsData
           .filter((c: any) => !c.parentId)
+          .sort((a: any, b: any) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          )
           .map(transform);
 
         setComments(rootComments);
+
       } catch (err) {
         console.error(err);
       } finally {
@@ -94,7 +91,7 @@ const PostDetail: React.FC = () => {
     try {
       const formData = new FormData();
       formData.append('postId', id || '');
-      formData.append('user', '@anon'); // temporal hasta user real
+      formData.append('user', '@anon');
       formData.append('content', text || '');
 
       if (files && files.length > 0) {
@@ -105,13 +102,35 @@ const PostDetail: React.FC = () => {
 
       await fetch(`${API_URL}/comments`, {
         method: 'POST',
-        body: formData, // FormData automatically sets Content-Type with boundary
+        body: formData,
       });
 
-      // refresh comments after publishing
       const commentsRes = await fetch(`${API_URL}/comments/post/${id}`);
+      if (!commentsRes.ok) throw new Error("Error refreshing comments");
       const commentsData = await commentsRes.json();
-      setComments(commentsData.filter((c: any) => !c.parentId));
+
+      const transform = (c: any): CommentData => ({
+        id: c.id,
+        userAvatar: avatar1,
+        username: c.user || "@anon",
+        date: new Date(c.createdAt).toLocaleString(),
+        content: c.content,
+        likes: c.likes,
+        dislikes: c.dislikes,
+        replies: commentsData
+          .filter((r: any) => r.parentId === c.id)
+          .map(transform),
+      });
+
+      const rootComments = commentsData
+        .filter((c: any) => !c.parentId)
+        .sort((a: any, b: any) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+        .map(transform);
+
+      setComments(rootComments);
+
     } catch (err) {
       console.error("Error publishing comment:", err);
     }
@@ -152,7 +171,6 @@ const PostDetail: React.FC = () => {
                 showMoreLink={false}
               />
             </div>
-           
 
             <h2 className="post-detail__answers-title">Respuestas</h2>
 
@@ -185,7 +203,7 @@ const PostDetail: React.FC = () => {
                 ]}
                 materials={[
                   { id: '1', name: 'guia_bucles_vs_recursividad.pdf' },
-                  { id: '2,', name: 'ejercicios_backtracking.ipynb' },
+                  { id: '2', name: 'ejercicios_backtracking.ipynb' },
                 ]}
               />
             </div>
